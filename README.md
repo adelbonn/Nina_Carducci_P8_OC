@@ -1,9 +1,20 @@
 # Optimisation SEO pour le site de Nina Carducci photographe
 
-##Description du projet
+## Description du projet (Scénario)
 
-Ce projet vise à optimiser le référencement (SEO) et l'accessilité du site de la photographe Nina Carducci, spécialisée dans les portraits et les événements. L'objectif est d'améliorer les performances du site, sa structure de code,n et son accessibilité afin d'obtenir un meilleur classement dans les moteurs de recherche.
-Ce projet est le projet 8 du parcours de formation Intégrateur Web d'OpenClassrooms.
+Ce projet vise à optimiser le référencement (SEO) et l'accessilité du site de la photographe Nina Carducci, spécialisée dans les portraits et les événements. L'objectif est d'améliorer les performances du site, sa structure de code, et son accessibilité afin d'obtenir un meilleur classement dans les moteurs de recherche.
+Ce projet est réalisé dans le cadre du parcours de formation Intégrateur Web d'OpenClassrooms.
+
+## Tables des matières
+
+- [Objectifs]#(objectifs)
+- [Etapes]#(étapes)
+- [livrables]#(livrables)
+- [OutilsUtilisés]#(Outils utilisés)
+- [InstructionsPourDéveloppeurs]#(Instructions pour développeurs)
+- [Contributeurs]#(Contributeurs)
+- [Licence]#(licence)
+
 
 ## Objectifs
 
@@ -14,8 +25,8 @@ Ce projet est le projet 8 du parcours de formation Intégrateur Web d'OpenClassr
 
 ## Étapes du projet
 
-1.**Analyse initiale** :
-    - Réaliser un aidit avec Lighthouse et GTMetrix.
+1. **Analyse initiale** :
+    - Réaliser un audit avec Lighthouse et GTMetrix.
     - Identifier les principaux axes d'améliorations.
 
 2. **Optimisation des performances** :
@@ -34,13 +45,13 @@ Ce projet est le projet 8 du parcours de formation Intégrateur Web d'OpenClassr
 
 5. **Rapport d'optimisation** : 
     - Documenter les modifications apportées et leur impact.
-    - Inclure des captures d'écran des audits avant et après les modifications
+    - Inclure des captures d'écrans des audits avant et après les modifications
 
- ## Livarbles
+ ## Livrables
 
     - Code source optimisé.
     - Rapport d'optimisations au format PDF.
-    - Captuers d'écran des audits Lighthouse, Rich Snippets, et Wawe.
+    - Captures d'écran des audits Lighthouse, Rich Snippets, et Wawe.
 
 ## Outils utilisés
 
@@ -48,7 +59,15 @@ Ce projet est le projet 8 du parcours de formation Intégrateur Web d'OpenClassr
 -  **Documentation de GTMetric** : [GTMetrix](https://gtmetrix.com/)
 - **Documentation de WAWE** : [WAVE Evaluation Tool](https://wave.webaim.org/)
 
-## Instructions pour les développeurs
+## Techonologies utilisées 
+
+- HTML
+- CSS
+- Bootstrap
+- Javascript
+- Jquery
+
+## Instructions
 
 Pour installer et éxécuter ce projet localement, suivez les étapes ci-dessous:
 
@@ -60,10 +79,17 @@ cd Nina_Carducci_P8_OC
 
 ```
 
-##
+### Affichage du site dans le navigateur
+    - Installer Live Server en tant qu'extension de votre IDE
+    - Ouvrir le fichier index.html avec LiveServer
+
+## Contributeur
+
 -**Adeline Bonnamour** - Intégrateur Web 
 
 ## Licence
 
 Ce projet est sous licence MIT
 Voir le fichier Licence pour plus de détails
+
+

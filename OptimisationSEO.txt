@@ -1,0 +1,39 @@
+Otimisation html
+
+ - Balises méta
+    Ajouter les balises meta :
+        - méta Description
+        - mots-clés
+        - balises OpenGrpah
+        - balises Twitter
+        - autres balises pour les réseaux sociaux (a rechercher), pur instagram, pinterest et autres reseaux a images
+- crossorigin des images 
+ - Balise Sémantiques
+    -header
+    -nav
+    -ul
+      -li
+    - main
+    -section
+    -article
+    -les balises alt de images + de meilleures descriptions pour les alt des images
+    - footer
+- Ajout de la balise Link avec rel="pre-connect"
+
+ - Ajouter les aria
+
+- déplacer les scropts ou leur mettre defer pour qu'ils soient chercher après le html
+
+-pour minifier JS, utiliser Uglify.js, ou Terser
+ -> Penser a peut être utiliser les async function, ou même defer pour les scripts
+ -Lazyloading(pour charger les fihiers Jacvascript uniquement quand cela est nécessaire, diviser le code JS (code splitting), permettra de charger uniquement les fichiers a la demande, peut ainsi améliorer les perf du site, à tester)
+
+ -Utiliser le Treempa de Lighthius, pour voir rapidement les ressources les plus volumineuses lmais aussi comment les fichiers interagissent entre exécuter
+
+
+faire un fichier pour les robots 
+-penser au .htacccess à la racine du projet
+
+-accessibilité
+    - penser au couleurs (luminesance)
+    - 
