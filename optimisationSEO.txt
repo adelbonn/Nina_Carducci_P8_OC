@@ -1,0 +1,69 @@
+
+optimisation SEO
+
+Vérifier les balises meta
+
+Ajouter les balises 
+  - meta robots
+  - meta descriptions
+  - meta title
+  - OpenGrpah
+  - Twitter Cards 
+  - (autres balises des reseaux sociaux (revoir les directives))
+  - robot.text
+  - Cache 
+  - shema.org : localBusiness
+
+RichSnippets (plus faire Rich Result tests)
+sitemap 
+gestion 404
+protocole HTTPS 
+redirection 301 
+structure de l'url 
+
+erreur 501 lors de l'envoi du formulaire a corriger 
+
+
+
+Changer les balises HTML sémantiques:
+ - Header inexistant, H1, h2, Section article, .... (mettre des balises strong pour le mot clé, et synomime, améliorer le champ sémantique amélioré ma liste de mots-clé longue traine et voir comment si possible améliorer le contenu du site, si possible)
+
+Backlinks, ancres, 
+Vérif des bons balisage avec les reseaux (comme il y a une icone insta voir si je dosi ajouter d'autres icones de reseaux, pertinent comme par exe pinterest)
+
+
+Temps de chargement de la pages 
+
+  Optimiser les images
+  - loading lazy 
+  - tailles (mettre des width et height pour smal image, large webp)
+  - format webp (plus léger et adapter ici) 
+  - alt : écrire les description , et ajouter les aria 
+  - vérifier les couleurs, 
+
+vrérifier le preload des fontc, 
+
+Accessibilité  
+
+Balises ARIA 
+navigation clavier 
+(utiliser lecteur d'écran pour vérifier que les description des images sont correcte a l'ecoute)
+
+
+
+
+Réaliser le conte rendu tout au long de l'amélioration  pour montrer avant/après 
+intégrer audit des outils Lighthous, Wawe, GtMetrix... 
+
+Utiliser des cdn 
+- minifier le css, et voir pour js, 
+Vérifier qu'il n'y a pas de css ou de js inutilisé, et 
+corrigé l'erreru 501 sur l'envoi des données au formulaire
+
+
+Outils audit:
+
+Lighthouse, wawe, screamingfrog, ubesuggest, GtMetrix, rankxplorer, 
+Rich result test 
+Facebook debugger, 
+voir si on dois mettre des balise pour Threads etant donné qu il y a un compte Insta 
