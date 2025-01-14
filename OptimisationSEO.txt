@@ -1,39 +1,69 @@
-Otimisation html
 
- - Balises méta
-    Ajouter les balises meta :
-        - méta Description
-        - mots-clés
-        - balises OpenGrpah
-        - balises Twitter
-        - autres balises pour les réseaux sociaux (a rechercher), pur instagram, pinterest et autres reseaux a images
-- crossorigin des images 
- - Balise Sémantiques
-    -header
-    -nav
-    -ul
-      -li
-    - main
-    -section
-    -article
-    -les balises alt de images + de meilleures descriptions pour les alt des images
-    - footer
-- Ajout de la balise Link avec rel="pre-connect"
+optimisation SEO
 
- - Ajouter les aria
+Vérifier les balises meta
 
-- déplacer les scropts ou leur mettre defer pour qu'ils soient chercher après le html
+Ajouter les balises 
+  - meta robots
+  - meta descriptions
+  - meta title
+  - OpenGrpah
+  - Twitter Cards 
+  - (autres balises des reseaux sociaux (revoir les directives))
+  - robot.text
+  - Cache 
+  - shema.org : localBusiness
 
--pour minifier JS, utiliser Uglify.js, ou Terser
- -> Penser a peut être utiliser les async function, ou même defer pour les scripts
- -Lazyloading(pour charger les fihiers Jacvascript uniquement quand cela est nécessaire, diviser le code JS (code splitting), permettra de charger uniquement les fichiers a la demande, peut ainsi améliorer les perf du site, à tester)
+RichSnippets (plus faire Rich Result tests)
+sitemap 
+gestion 404
+protocole HTTPS 
+redirection 301 
+structure de l'url 
 
- -Utiliser le Treempa de Lighthius, pour voir rapidement les ressources les plus volumineuses lmais aussi comment les fichiers interagissent entre exécuter
+erreur 501 lors de l'envoi du formulaire a corriger 
 
 
-faire un fichier pour les robots 
--penser au .htacccess à la racine du projet
 
--accessibilité
-    - penser au couleurs (luminesance)
-    - 
+Changer les balises HTML sémantiques:
+ - Header inexistant, H1, h2, Section article, .... (mettre des balises strong pour le mot clé, et synomime, améliorer le champ sémantique amélioré ma liste de mots-clé longue traine et voir comment si possible améliorer le contenu du site, si possible)
+
+Backlinks, ancres, 
+Vérif des bons balisage avec les reseaux (comme il y a une icone insta voir si je dosi ajouter d'autres icones de reseaux, pertinent comme par exe pinterest)
+
+
+Temps de chargement de la pages 
+
+  Optimiser les images
+  - loading lazy 
+  - tailles (mettre des width et height pour smal image, large webp)
+  - format webp (plus léger et adapter ici) 
+  - alt : écrire les description , et ajouter les aria 
+  - vérifier les couleurs, 
+
+vrérifier le preload des fontc, 
+
+Accessibilité  
+
+Balises ARIA 
+navigation clavier 
+(utiliser lecteur d'écran pour vérifier que les description des images sont correcte a l'ecoute)
+
+
+
+
+Réaliser le conte rendu tout au long de l'amélioration  pour montrer avant/après 
+intégrer audit des outils Lighthous, Wawe, GtMetrix... 
+
+Utiliser des cdn 
+- minifier le css, et voir pour js, 
+Vérifier qu'il n'y a pas de css ou de js inutilisé, et 
+corrigé l'erreru 501 sur l'envoi des données au formulaire
+
+
+Outils audit:
+
+Lighthouse, wawe, screamingfrog, ubesuggest, GtMetrix, rankxplorer, 
+Rich result test 
+Facebook debugger, 
+voir si on dois mettre des balise pour Threads etant donné qu il y a un compte Insta 
