@@ -1,8 +1,16 @@
 
 optimisation SEO
+diag oncrawl
+pagespeed insights/lighthouse
+penser a indexer en mobile First
+  -->> Lighthouse CI(pour tester directement les améliorations depuis chaque validation de mes commit dans github (https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/getting-started.md) )
+
+dder a jb pour l optimisation pour les miteurs de recherceh avec is comment cela se passe aujourd'hui ( botify)
+
+
 
 Vérifier les balises meta
-
+Coté HTML 
 Ajouter les balises 
   - meta robots
   - meta descriptions
@@ -13,16 +21,21 @@ Ajouter les balises
   - robot.text
   - Cache 
   - shema.org : localBusiness
-
+optimiser les balises canoniques (voir comment optimiser les liens ancré avec les # si cela est possible de faire differement même sur une seule page)
+architecture hiérachisée et simplifiée(les pages doivent etre accessible en moins de trois clique)
+--> architecture simplifiée -> sitelinks dans le resultas de recherche(hiérachiser le contenu (maillage interne) créer les url(ce ser le chemin que doit faire l'utilisateur pour accéder aux resources qu'il desire consulté (comme api)(catégorie(3à7 pas plusà)(sous-catégories équilibrées par catégories)(les pages doivent être accésible en 3 clics pas plus)) correspondantes (bon c'est ça le maillage interne ad!!). L'interface doit tj être simple et claire.
+Creer un menu HTML/CSS (eviter les menu en Js qui risque de ralentir l'exploration par GoogleBot)
+Et bien sû éviter le duplicate content...
+alléger les pages
 RichSnippets (plus faire Rich Result tests)
 sitemap 
 gestion 404
 protocole HTTPS 
 redirection 301 
 structure de l'url 
-
+ne pas oublié de mettre la balise meta pour les robot (<code><meta name="robots" content="index, follow"></code>)sur toutes les pages qui doivent etre indexée , bon ici une seule
+balise canonical (<link rel="canonical" href="https://monsite.com/page" />) dans le head ((elle indique la page principal a referencer lors d'une redirection 301, ici par exemple pour le fait que mon site n'a pas de www et donc que le fait que 'lutilsateur s'il écriut www.ninacarducci.... (je le redirige direct sur l'adresse : ninacarducci.com (enfin ici .github.io (mettre le site sur vercel)))))
 erreur 501 lors de l'envoi du formulaire a corriger 
-
 
 
 Changer les balises HTML sémantiques:
@@ -33,15 +46,18 @@ Vérif des bons balisage avec les reseaux (comme il y a une icone insta voir si 
 
 
 Temps de chargement de la pages 
-
+  -migrer jquery 4 vers jquery 5 pour améliorer la taille des fichiers et donc la performance (cf doc jquery) ...
+- Attention je doit optimiser Javascript car il demande bcq de ressource et donc augmente le First Contentful Paintvoir plus bas
   Optimiser les images
-  - loading lazy 
-  - tailles (mettre des width et height pour smal image, large webp)
+  - loading lazy , inclure balises noscript, (cf mes not ct)
+  - tailles (mettre des width et height pour small(voir plus bas verifier que bootstrap et logique js (cf pre-render, test le rendu : utiliser le rednu de la google search console pour voir si le rendu est seo-friendly: exploration -> explorer comme google ou fetch as google)vérifier aussi si l'url est bien inndexée : cliquer sur 'tester url en ligne'(tester le rendering (penser au defer sur les balises script de js ou les mettre en fin du fichier html) du site en version mobile (verif plus bas une aprtie de la solu(cf: https://developer.chrome.com/docs/lighthouse/overview?hl=fr() faire l'audit lighthouse avec CLI et module Node ))) image, large webp)
+  
+
   - format webp (plus léger et adapter ici) 
   - alt : écrire les description , et ajouter les aria 
   - vérifier les couleurs, 
 
-vrérifier le preload des fontc, 
+vérifier le preload des fonts, 
 
 Accessibilité  
 
@@ -49,14 +65,15 @@ Balises ARIA
 navigation clavier 
 (utiliser lecteur d'écran pour vérifier que les description des images sont correcte a l'ecoute)
 
-
-
+JS:
+-pre-rendering (voir pre-rendre.io ou JS ismorphic comprender ce qui est le mieux dans notre cas pour ce projet et l'appliquer...)
+---utiliser le rendu statique (car site avec contenu très peu changeant)vs  pre-rendu (s'assureer tout de même que cela est la meilleure solution revoir doc off) ---
 
 Réaliser le conte rendu tout au long de l'amélioration  pour montrer avant/après 
 intégrer audit des outils Lighthous, Wawe, GtMetrix... 
 
 Utiliser des cdn 
-- minifier le css, et voir pour js, 
+- minifier le css (terser), et voir pour js, 
 Vérifier qu'il n'y a pas de css ou de js inutilisé, et 
 corrigé l'erreru 501 sur l'envoi des données au formulaire
 
@@ -66,4 +83,17 @@ Outils audit:
 Lighthouse, wawe, screamingfrog, ubesuggest, GtMetrix, rankxplorer, 
 Rich result test 
 Facebook debugger, 
-voir si on dois mettre des balise pour Threads etant donné qu il y a un compte Insta 
+voir si on dois mettre des balises pour Threads etant donné qu il y a un compte Insta 
+
+
+test reactivité mobile
+donné structuée, shema markup, sitemap, 
+
+dder a jb pour l optimisation pour les miteurs de recherceh avec is comment cela se passe aujourd'hui ( botify)
+
+
+bootstrap :
+  - utiliser les class bootstarp pour creer une mise en page responsive et accessible vérifier si pertienet pour ce projet et pourqsuoi dans cec cas precis)
+
+  Jquery :
+  m'assurer que le jquery est optimsier pour ce projet
