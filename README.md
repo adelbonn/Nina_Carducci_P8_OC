@@ -2,7 +2,7 @@
 
 ## Description du projet (Scénario)
 
-Ce projet vise à optimiser le référencement (SEO) et l'accessilité du site de la photographe Nina Carducci, spécialisée dans les portraits et les événements. L'objectif est d'améliorer les performances du site, sa structure de code,n et son accessibilité afin d'obtenir un meilleur classement dans les moteurs de recherche.
+Ce projet vise à optimiser le référencement (SEO) et l'accessilité du site de la photographe Nina Carducci, spécialisée dans les portraits et les événements. L'objectif est d'améliorer les performances du site, sa structure de code et son accessibilité afin d'obtenir un meilleur classement dans les moteurs de recherche.
 Ce projet est réalisé dans le cadre du parcours de formation Intégrateur Web d'OpenClassrooms.
 
 ## Tables des matières
@@ -26,7 +26,7 @@ Ce projet est réalisé dans le cadre du parcours de formation Intégrateur Web 
 ## Étapes du projet
 
 1. **Analyse initiale** :
-    - Réaliser un aidit avec Lighthouse et GTMetrix.
+    - Réaliser un audit avec Lighthouse et GTMetrix.
     - Identifier les principaux axes d'améliorations.
 
 2. **Optimisation des performances** :
@@ -51,7 +51,7 @@ Ce projet est réalisé dans le cadre du parcours de formation Intégrateur Web 
 
     - Code source optimisé.
     - Rapport d'optimisations au format PDF.
-    - Captures d'écran des audits Lighthouse, Rich Snippets, et Wawe.
+    - Captures d'écrans des audits Lighthouse, Rich Snippets, et Wawe.
 
 ## Outils utilisés
 
@@ -69,7 +69,7 @@ Ce projet est réalisé dans le cadre du parcours de formation Intégrateur Web 
 
 ## Instructions
 
-Pour installer et éxécuter ce projet localement, suivez les étapes ci-dessous:
+Pour installer et exécuter ce projet localement, suivez les étapes ci-dessous:
 
 ### Cloner le repository
 
@@ -79,13 +79,13 @@ cd Nina_Carducci_P8_OC
 
 ```
 
-### Afficahge du site dans le navigateur
+### Affichage du site dans le navigateur
     - Installer Live Server en tant qu'extension de votre IDE
-   - Ouvrir le fichier index.html avec LiveServer
+    - Ouvrir le fichier index.html avec LiveServer
 
 ## Contributeur
 
--**Adeline Bonnamour** - Intégrateur Web 
+-**Adeline Bonnamour** - Intégrateur Web (en formation)
 
 ## Licence
 
