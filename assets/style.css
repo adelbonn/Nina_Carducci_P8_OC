@@ -44,6 +44,7 @@ body {
 
 #about {
 	display: flex;
+	flex-direction: column;
 	background-color: #F6D2B8;
 	padding-inline: 100px;
 	padding-block: 100px;
@@ -239,6 +240,8 @@ form textarea {
 	font-size: 1.2em;
 	margin-bottom: 20px;
 }
+
+
 input[type="submit"] {
 	background-color: #BEB45A;
 	padding: .5em 1em
