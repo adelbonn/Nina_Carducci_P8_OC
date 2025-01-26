@@ -10,7 +10,7 @@
 	je vous propose
 	mes services de shooting photo, retouches et album photo personnalisé.
 	Réservez votre séance dès aujourd'hui ! ">
-	<meta name="keywords" content="photographe, mariage, portrait, événementiel, Entreprise, Bordeaux, Île-de-France, shooting photo, retouches, album photo">
+	<meta name="keywords" content="photographe, mariage, portrait, événementiel, Entreprise, Bordeaux, İle-de-France, shooting photo, retouches, album photo">
 	<meta name="robots" content="index, follow">
 	<meta name="language" content="fr">
 
@@ -19,29 +19,28 @@
 	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="./assets/style.css">
 <!--préload des polices -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" as="style">
+<!-- <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" as="style">
 <link rel="preload" href="https://fonts.gstatic.com/s/inter/v14/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZJhjp-Ek-_0ew.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://fonts.gstatic.com/s/spectral/v18/rnCr-xNNww_2s0amA9M5kng.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/spectral/v18/rnCr-xNNww_2s0amA9M5kng.woff2" as="font" type="font/woff2" crossorigin> -->
 
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+	<link rel="preconnect" href="https://fonts.googleapis.com" as="font" crossorigin>
+	<link rel="preconnect" href="https://fonts.gstatic.com" as="font" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet">
 	
 	
 	
 </head>
 <body>
-<header role="banner"class="top-header">
-	<h1 class="name"><strong>Nina Carducci</strong> - Photographe profesionnelle</h1>
+<header class="top-header">
+	<h1 class="name"><strong>Nina Carducci</strong></h1> <!--dder si je peux ajouter  un p élément pour ajouter un mots clé comme photographe spécialisée ... ou prhotographe professionnelle ou d'autre mots-clé pertinent-->
 	<nav class="nav">   
 		<ul>
 			<li><a href="#about">À propos</a></li> <!-- vérifier si pertinent de laissé l'attribut title pour les liens et les img car pas tj bien supporté par les TA, title="lien vers la section a propos"--->
 			<li><a href="#gallery">Galerie</a></li>
 			<li><a href="#services">Service</a></li>
 			<li><a href="#contact">Contact</a></li>
-			<li><a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank"><img src="assets/images/instagram-logo.png" alt="icône Instagram, lien vers le compte Instragram profesionnel "></a></li>
+			<li><a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank"><img src="assets/images/instagram-logo.png" alt="icône Instagram, lien vers le compte Instragram profesionnel de la photographe Nina Carducci"></a></li>
 		</ul>
 	</nav>
 </header>
@@ -55,13 +54,13 @@
 		</div>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img loading="lazy" src="./assets/images/imagesOptimisées/slider/Photo-homme-d'affaire.avif" class="d-block w-100" alt="homme d'affaire en costume cravate, fier de sa réussite">
+				<img loading="eager" src="./assets/images/imagesOptimisées/slider/Photo-homme-d'affaire.avif" class="d-block w-100" alt="homme d'affaire en costume avec sa malette de travail, traversant la rue">
 			</div>
 			<div class="carousel-item">
-				<img loading="lazy" src="./assets/images/imagesOptimisées/slider/photographie-jeunes-gens-en-concert.avif" class="d-block w-100" alt="personnes joyeuses en concert en soirée, groupe sur scène de spectacle, mains levées">
+				<img loading="eager" src="./assets/images/imagesOptimisées/slider/photographie-jeunes-gens-en-concert.avif" class="d-block w-100" alt="personnes joyeuses en concert en soirée, groupe sur scène de spectacle, mains levées">
 			</div>
 			<div class="carousel-item">
-				<img loading="lazy" src="./assets/images/imagesOptimisées/slider/cliché-jeunes-mariés-heureux.avif" class="d-block w-100" alt="jeunes mariés heureux, couple qui s'embrasse endansant">
+				<img loading="eager" src="./assets/images/imagesOptimisées/slider/cliché-jeunes-mariés-heureux.avif" class="d-block w-100" alt="jeunes mariés heureux, couple qui s'embrasse endansant">
 			</div>
 		</div>
 		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -77,15 +76,53 @@
 <main>
 <section id="about">
 	<div class="picture left">
-		<img loading="lazy" role="presentation" src="./assets/images/imagesOptimisées/Portrait-Nina-Carducci-photographe-professionnelle-bordeaux.avif" alt="photo, portrait de la photographe Nina Carducci">
-	</div>
+		<picture>
+			<!--Desktop-->
+			<source media="(min-width: 1024px)"
+			srcset=".\assets\images\imagesOptimisées\about\desktop\Portrait-Nina-Carducci-photographe-professionnelle-bordeaux-desktop.avif"
+            type="image/avif"
+			width="397"
+			height="396"
+			alt="photo, portrait de la photographe Nina Carducci">
+			<source media="(min-width: 1024px)" 
+			srcset=".\assets\images\imagesOptimisées\about\desktop\Portrait-Nina-Carducci-photographe-professionnelle-bordeaux-desktop.webp"
+			type="image/webp"
+			width="397"
+			height="396"
+			alt="photo, portrait de la photographe Nina Carducci">
+		
+			<!-- Mobile -->
+			<source media="(min-width: 768px)"
+			srcset=".\assets\images\imagesOptimisées\about\mobile\Portrait-Nina-Carducci-photographe-professionnelle-bordeaux.avif"
+			type="image/avif"
+			width="300" 
+			height="300"
+			alt="photo, portrait de la photographe Nina Carducci">
+			<source media="(min-width: 768px)"
+			srcset=".\assets\images\imagesOptimisées\about\mobile\Portrait-Nina-Carducci-photographe-professionnelle-bordeaux.webp"
+			type="image/webp"
+			width="300" 
+			height="300"
+			alt="photo, portrait de la photographe Nina Carducci">
+
+			<!-- Fallback -->
+			 <img src="./assets/images/imagesOptimisées/Portrait-Nina-Carducci-photographe-professionnelle-bordeaux.avif"
+			  alt="photo, portrait de la photographe professionnelle Nina Carducci"
+			  width="397"
+			  height="396"
+			  loading="lazy"
+			  style="object-fit: cover;">
+			</picture>
+		<!-- <img loading="lazy" src="./assets/images/imagesOptimisées/Portrait-Nina-Carducci-photographe-professionnelle-bordeaux.avif" alt="photo, portrait de la photographe Nina Carducci">
+	</div> -->
 	<div id="about-me">
 		<h3 class="about-me__title">A propos de moi</h3>
-		<h6 class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.</h6>
+		<p class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.</p>
 		<p>Nous passons notre vie à chercher le bonheur, et lorsque nous y touchons, nous n’avons qu’une envie : le figer au travers de photographies pour le savourer avec les personnes qui sont importantes à nos yeux, ou le partager au plus grand nombre.
 			C’est ce que je vous propose : saisir ces merveilleux moments au travers de mon regard, mon approche, ma technique. Rendre ces moments immortels, afin que vous puissiez y puiser de l’amour, du bonheur, de la tendresse et de lumière à chaque fois que vous poserez les yeux sur vos photos.</p>
 	</div>
 </div>
+</section>
 <div id="gallery">
 	<h3 class="title">Portfolio</h3>
 	<div class="container py-3">
@@ -177,6 +214,7 @@
 </main>
 <footer>
 	<p>© 2021 - Nina Carducci - Photographe professionnelle</p>
+<!--ajouter les lien et l'adresse et le tel de la photographe, en plus du seo local dans le head-->
 </footer>
 <!--mettre defer ou les mettre en bas du fichier verifier ce qui est le plus pertinent pour chcune des ces baises script, mettre à jour jQuerynà la dernière version-->
 <script src="./assets/bootstrap/bootstrap.bundle.js"></script>
