@@ -44,6 +44,7 @@ body {
 
 
 .picture.left {
+	display: flex;
 	position: relative;
 }
 .picture.left::before {
