@@ -42,11 +42,14 @@ body {
 	width: 20px;
 }
 
-
-.picture.left {
+#about {
 	display: flex;
+	background-color: #F6D2B8;
+	padding-inline: 100px;
+	padding-block: 100px;
 	position: relative;
 }
+
 .picture.left::before {
 	content: ' ';
 	background-color: #E5975F;
@@ -61,24 +64,13 @@ body {
 .picture {
 	flex: 1;
 	margin: 0 20px;
-	z-index: 10;
+	z-index: 0;
 }
 
 .picture img {
-	/* width: 100%; */
-    height: auto;
-}
-#about {
-	display: flex;
-	/* flex:2; */
-	flex-direction: row;
-	background-color: #F6D2B8;
-	padding-inline: 100px;
-	padding-block: 100px;
-	position: relative;
-}
+	width: 100%;
 
-
+}
 #about-me {
 	flex: 2
 }
@@ -99,7 +91,7 @@ body {
 }
 
 #gallery {
-		/* min-height: 100vh; */
+	/*	min-height: 100vh; */
 }
 .title{
 	text-align: center;
@@ -116,20 +108,6 @@ body {
 .nav-pills .nav-link {
 	color: #000
 }
-/*correction style liens de filtrage (le cursor pointer ne fonctionnait pas correctement*/
-.nav-link[data-images-toggle] {
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.nav-link[data-images-toggle]:hover {
-    color: #000;
-    opacity: 0.8;
-}
-.active-tag {
-    color: #000;
-    font-weight: bold;
-}
-
 .item-column {
 	position: relative;
 	margin-bottom: 0 !important;
@@ -261,22 +239,11 @@ form textarea {
 	font-size: 1.2em;
 	margin-bottom: 20px;
 }
-
-
 input[type="submit"] {
 	background-color: #BEB45A;
 	padding: .5em 1em
 }
-footer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 30px;
-	background-color: #fff;
-	font-size: 14px;
-	padding: 30px
-}
+
 @media all and (max-width: 1180px) {
 	.picture {
 		flex : 2;
