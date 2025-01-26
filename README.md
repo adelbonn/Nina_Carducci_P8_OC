@@ -2,7 +2,9 @@
 
 ## Description du projet (Scénario)
 
-Ce projet vise à optimiser le référencement (SEO) et l'accessilité du site de la photographe Nina Carducci, spécialisée dans les portraits et les événements. L'objectif est d'améliorer les performances du site, sa structure de code et son accessibilité afin d'obtenir un meilleur classement dans les moteurs de recherche.
+
+Ce projet vise à optimiser le référencement (SEO) et l'accessilité du site de la photographe Nina Carducci, spécialisée dans les portraits et les événements. L'objectif est d'améliorer les performances du site, sa structure de code, et son accessibilité afin d'obtenir un meilleur classement dans les moteurs de recherche.
+
 Ce projet est réalisé dans le cadre du parcours de formation Intégrateur Web d'OpenClassrooms.
 
 ## Tables des matières
@@ -45,7 +47,7 @@ Ce projet est réalisé dans le cadre du parcours de formation Intégrateur Web 
 
 5. **Rapport d'optimisation** : 
     - Documenter les modifications apportées et leur impact.
-    - Inclure des captures d'écran des audits avant et après les modifications
+    - Inclure des captures d'écrans des audits avant et après les modifications
 
  ## Livrables
 
@@ -91,3 +93,5 @@ cd Nina_Carducci_P8_OC
 
 Ce projet est sous licence MIT
 Voir le fichier Licence pour plus de détails
+
+

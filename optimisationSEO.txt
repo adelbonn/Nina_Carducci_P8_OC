@@ -7,6 +7,9 @@ penser a indexer en mobile First
 
 dder a jb pour l optimisation pour les miteurs de recherceh avec is comment cela se passe aujourd'hui ( botify)
 
+Ajouter un footer
+avec les liens et horaires ouverture
+adresse...
 
 
 Vérifier les balises meta

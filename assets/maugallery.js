@@ -3,7 +3,7 @@
     var options = $.extend($.fn.mauGallery.defaults, options);
     var tagsCollection = [];
     return this.each(function() {
-      $.fn.mauGallery.methods.createRowWrapper($(this));
+      $.fn.mauGallery.methods.createRowWrapper($(this));  
       if (options.lightBox) {
         $.fn.mauGallery.methods.createLightBox(
           $(this),
@@ -62,11 +62,11 @@
       $.fn.mauGallery.methods.prevImage(options.lightboxId)
     );
     $(".gallery").on("click", ".mg-next", () =>
-      $.fn.mauGallery.methods.nextImage(options.lightboxId)
+      $.fn.mauGallery.methods.nextImage(options.lightboxId)  //
     );
   };
-  $.fn.mauGallery.methods = {
-    createRowWrapper(element) {
+  $.fn.mauGallery.methods = {  //
+    createRowWrapper(element) {   
       if (
         !element
           .children()
@@ -76,16 +76,16 @@
         element.append('<div class="gallery-items-row row"></div>');
       }
     },
-    wrapItemInColumn(element, columns) {
+    wrapItemInColumn(element, columns) {  //ajoute une div avec la class item-column
       if (columns.constructor === Number) {
         element.wrap(
           `<div class='item-column mb-4 col-${Math.ceil(12 / columns)}'></div>`
-        );
-      } else if (columns.constructor === Object) {
+        );  
+      } else if (columns.constructor === Object) {  
         var columnClasses = "";
         if (columns.xs) {
           columnClasses += ` col-${Math.ceil(12 / columns.xs)}`;
-        }
+        } 
         if (columns.sm) {
           columnClasses += ` col-sm-${Math.ceil(12 / columns.sm)}`;
         }
@@ -196,7 +196,8 @@
       $(".lightboxImage").attr("src", $(next).attr("src"));
     },
     createLightBox(gallery, lightboxId, navigation) {
-      gallery.append(`<div class="modal fade" id="${
+      gallery.append(
+        `<div class="modal fade" id="${
         lightboxId ? lightboxId : "galleryLightbox"
       }" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -218,10 +219,10 @@
                 </div>
             </div>`);
     },
-    showItemTags(gallery, position, tags) {
+    showItemTags(gallery, position, tags) {   //créer les boutons de filtrage
       var tagItems =
         '<li class="nav-item"><span class="nav-link active active-tag"  data-images-toggle="all">Tous</span></li>';
-      $.each(tags, function(index, value) {
+      $.each(tags, function(index, value) {  // corriger le index qui n'est pas utiliser
         tagItems += `<li class="nav-item active">
                 <span class="nav-link"  data-images-toggle="${value}">${value}</span></li>`;
       });
