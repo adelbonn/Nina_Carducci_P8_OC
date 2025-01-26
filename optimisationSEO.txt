@@ -100,3 +100,4 @@ bootstrap :
 
   Jquery :
   m'assurer que le jquery est optimsier pour ce projet
+
