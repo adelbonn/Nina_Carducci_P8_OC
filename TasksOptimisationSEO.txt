@@ -1,0 +1,82 @@
+
+
+Ajout de la balise title
+Ajout de la  balise metadescription
+balises canonique pour autoréférencer le site ()
+Ajout des balises reseaux sociaux
+création du sitemap + sitemap images
+création du robot.text
+
+
+balises pour les réseaux sociaux
+Ajouter les balises openGraph, card twitter, ...(voir pour instagram), 
+balises twitter card  (permet de contrôer l'apparance des tweet avec des liens, peux améliorer le taux de clic)
+balises rich pins (pour pinterest) (permet d'afficher des informations enrichies sur Pinterest, peut attirer plus de visiteurs)
+
+utiliser les balises Link pour precharger les resources critiques
+Ajouter les balises sémantiques html
+Ajouter un footer  
+
+Voir si possible d'un equivalent .htacess sur ningx (serveur de github page le .htaccess etant pour serveur apache)
+
+suite a a mise du site sur vercel mettre un redirection 301 vers l'url du site) 
+defenir des rèfles pour le cache controle
+
+faire fichier robot.txt
+
+utiliser les CDN pour servir les fichiers statiques plus rapidement (vercel ou cloudflare)
+
+
+optimisations des images :
+
+corriger la taille des images de la modale pour qu'elles soient toute de la mâma dimensins ou tout au moins cohérentes, et optimiser la modale au clic sur une photo de la gallery
+changement de leur format en webp (pense que safari ne prend pas en charge ce format (verifier si tj le cas en 2025, optimiser pour ce navigateur)) + ajout des width et height (revoir le cours css de dev) +CDN
+mettre le lazyload (charge les fichier uniquement qd ils sont visible dans la fenêtre de visualisation)
+sitemap images
+mettre les description des images (attribut alt avec mots-clé pertinents) et changer les noms des fichier des images, (et url avec mots-clé pertiuenet)
+
+
+
+Optimisation du formulaire (seo et accessibilité)
+Minifier le fichier css (avant revoit bien coment cela optimise le seo avec terser et si il y a pas d'autres solutions plus performante)
+npm install terser -g
+terser ./assets/scripts.js -o ./assets/scripts.min.js
+
+
+Obigations d'afficher sur la page d'accueil que le site est conforme en accessibilité numérique (cf: https://design.numerique.gouv.fr/accessibilite-numerique/cadre-legal/)(declaration d'accéssibilité:https://design.numerique.gouv.fr/accessibilite-numerique/declaration-accessibilite)
+-critères contrôle RGAA: https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/)
+- exemple de déclaration d'accéssibilité : https://design.numerique.gouv.fr/outils/exemple-declaration-accessibilite/
+
+
+
+optimiser du formulaire pour le rendre accessible (ne pas oiublier le JS car le formualaire en l'état ne permet pas d'envoyer des données):
+
+<div class="form-container">
+			<h3>Une question ? Une demande de devis ?</h3>
+			<p> N’hésitez pas à m’écrire ! Je vous répondrais en moins de 24 heures</p>
+			<form action="" method="post">
+				<label>Nom</label>
+				<input type="text" name="nom" id="nom">
+				<label>Email</label>
+				<input type="email" name="email" id="email">
+				<label>Message</label>
+				<textarea name="message" id="message" cols="30" rows="10"></textarea>
+				<input type="submit" value="Envoyer"/>
+			</form>
+		</div>
+
+
+cssminifier le fichier cssmettre cursor pointer sur les category du portfolio, (vérifier si autre améliorations)
+corriger les couleurs (contraste..;)
+outils de lminification du css:
+   - cssnano
+    - cleanCss
+    - postCss
+
+    outils de minification HTML :
+      - HTMLminifier
+      - Minify Code
+
+javascript
+minifier fichier javascript (terser (via la cli, uglify, ))
+verifier les regeles SEO avec javascript et accessibilité
