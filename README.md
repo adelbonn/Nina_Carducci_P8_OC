@@ -19,14 +19,14 @@ Ce projet est réalisé dans le cadre du parcours de formation Intégrateur Web 
 ## Objectifs
 
 - Identifier les problèmes de chargement et de référencement du site.
-- Proposer des recommandations pour améliorer la vitesse de chargement, la structure du code, et le référencement.
+- Proposer des recommandations pour améliorer la vitesse de chargement, la   structure du code, et le référencement.
 - Appliquer les améliorations proposées.
 - Créer un rapport illustrant les résutats avant et après les modifictaions.
 
 ## Étapes du projet
 
 1. **Analyse initiale** :
-    - Réaliser un aidit avec Lighthouse et GTMetrix.
+    - Réaliser un audit avec Lighthouse et GTMetrix.
     - Identifier les principaux axes d'améliorations.
 
 2. **Optimisation des performances** :
@@ -79,7 +79,7 @@ cd Nina_Carducci_P8_OC
 
 ```
 
-### Afficahge du site dans le navigateur
+### Affichage du site dans le navigateur
     - Installer Live Server en tant qu'extension de votre IDE
    - Ouvrir le fichier index.html avec LiveServer
 
