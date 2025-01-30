@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+	<!--Required meta tags-->
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--bootstrap css-->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
 	<title>Photographe Mariage, Portrait, événementiel - Nina Carducci</title>
 	<meta name="google-site-verification" content="80Y6swqlyah_02RVu7GFIOKjgbGVe7xdl2tKsIEuWT4" />
 	<meta name="title" content="Photographe Mariage, Portrait, événementiel - Nina Carducci">
@@ -15,10 +21,13 @@
 	<meta name="language" content="fr">
 
 	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.css">
+	
+<!--vérifier l'ordre des link et script bootstarp (cf:https://getbootstrap.com/docs/5.1/getting-started/introduction/), voir si je doit mettre mles bundles bootstrap en bas et juste avnt la <:body> balise ou en bas et juts avant le scrip js ou si je peux mettre defer ou async?? pour les bundle-->
+
+  <script src="./assets/bootstrap/bootstrap.bundle.js"></script>
+  <link rel="stylesheet" href="./assets/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="./assets/style.css">
-<!--préload des polices -->
+<!--préload des polices vérifier si il est plus pertinent de mettre preload ou preconact pour les polices (cf: web.dev)-->
 <!-- <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" as="style">
 <link rel="preload" href="https://fonts.gstatic.com/s/inter/v14/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZJhjp-Ek-_0ew.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://fonts.gstatic.com/s/spectral/v18/rnCr-xNNww_2s0amA9M5kng.woff2" as="font" type="font/woff2" crossorigin> -->
@@ -40,7 +49,8 @@
 			<li><a href="#gallery">Galerie</a></li>
 			<li><a href="#services">Service</a></li>
 			<li><a href="#contact">Contact</a></li>
-			<li><a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank"><img src="assets/images/instagram-logo.png" alt="icône Instagram, lien vers le compte Instragram profesionnel de la photographe Nina Carducci"></a></li>
+			<li><a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank">
+				<img src="assets/images/imgOriginals/icons-instagram-logo.png" alt="icône Instagram, lien vers le compte Instragram profesionnel de la photographe Nina Carducci"></a></li>
 		</ul>
 	</nav>
 </header>
@@ -217,8 +227,7 @@
 <!--ajouter les lien et l'adresse et le tel de la photographe, en plus du seo local dans le head-->
 </footer>
 <!--mettre defer ou les mettre en bas du fichier verifier ce qui est le plus pertinent pour chcune des ces baises script, mettre à jour jQuerynà la dernière version-->
-<script src="./assets/bootstrap/bootstrap.bundle.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
 <script src="./assets/maugallery.js"></script>
 <script src="./assets/scripts.js"></script>
 

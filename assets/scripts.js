@@ -14,7 +14,7 @@ $(document).ready(function() {
     });
 });
 //fn raccourci jQuery qui s'exécute lorsque le DOM est complètement chargé, donc l'élément gallery ne s'écécute qu'après le chargement de la page entière
-// light box : true, affiche les images en grand format
+// light box : true, affiche les images en grand format pour la modal lightbox
 // lightboxId : 'myAwesomeLightbox', id de la lightbox
 // showTags : true, affiche les tags 
 // tagsPosition : 'top', position des tags en haut de l'image
