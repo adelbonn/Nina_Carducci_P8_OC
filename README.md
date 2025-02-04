@@ -19,7 +19,7 @@ Ce projet est réalisé dans le cadre du parcours de formation Intégrateur Web 
 ## Objectifs
 
 - Identifier les problèmes de chargement et de référencement du site.
-- Proposer des recommandations pour améliorer la vitesse de chargement, la structure du code, et le référencement.
+- Proposer des recommandations pour améliorer la vitesse de chargement, la   structure du code, et le référencement.
 - Appliquer les améliorations proposées.
 - Créer un rapport illustrant les résutats avant et après les modifictaions.
 

@@ -6,6 +6,11 @@ body {
 	font-family: 'Inter';
 	font-style: normal;
 }
+
+img {
+	max-width: 100%;
+	height: auto;
+}
 .top-header {
 	background-color: white;
 	position: sticky;
@@ -41,6 +46,22 @@ body {
 .social-link img {
 	width: 20px;
 }
+/*optimisation du carousel*/
+
+.carousel {
+	contain: layout style paint;
+	margin: 0 auto;
+}
+.carousel-item {
+	contain: layout style paint;
+}
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(0); /* Force hardware acceleration matérielle */
+    will-change: transform; /*permet au navigateur d'optimiser l'animation en preparant les ressources necessaires pour gere les transformations de manière plus fluide*/
+}
 
 #about {
 	display: flex;
@@ -49,7 +70,19 @@ body {
 	padding-block: 100px;
 	position: relative;
 }
+.picture.left {
+	flex:1;
+	margin: 0 20px;
+	z-index:0;
+	position: relative;
+	aspect-ratio: 560/558;
+}
+ /*optimisation de la section about*/
 
+.picture.left {
+	position: relative;
+	aspect-ratio: 560/558;
+}
 .picture.left::before {
 	content: ' ';
 	background-color: #E5975F;
@@ -60,7 +93,20 @@ body {
 	left: 0;
 	z-index: -1;
 }
+/* Optimisation spécifique pour l'image About */
+/* .picture.left picture {
+    display: block;
+    width: 100%;
+    height: auto;
+} */
 
+/* .picture.left img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transform: translateZ(0);  Hardware acceleration matérielle (cf: https://www.alsacreations.com/astuce/lire/1565-acceleration-materielle-au-service-de-vos-animations-css.html)
+} */
+ 
 .picture {
 	flex: 1;
 	margin: 0 20px;
@@ -69,7 +115,7 @@ body {
 
 .picture img {
 	width: 100%;
-
+	
 }
 #about-me {
 	flex: 2
@@ -90,9 +136,6 @@ body {
 	font-size: 14px;
 }
 
-#gallery {
-	/*	min-height: 100vh; */
-}
 .title{
 	text-align: center;
 	padding-block: 2em;
@@ -126,6 +169,24 @@ body {
 	object-fit: cover;
 	padding: .5em;
 }
+/**optimisation gallery*************/
+#gallery {
+	/*	min-height: 100vh; */ 
+}
+
+/* .gallery-item {
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+} */
+
+/* .gallery-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(0); acceleration matérielle (cf: https://www.alsacreations.com/astuce/lire/1565-acceleration-materielle-au-service-de-vos-animations-css.html)
+} */
+/***************************/
 .mg-prev, .mg-next {
 	width: 30px;
 	height: 30px;
@@ -242,6 +303,15 @@ form textarea {
 input[type="submit"] {
 	background-color: #BEB45A;
 	padding: .5em 1em
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+footer p {
+	padding-top: 1em;
 }
 
 @media all and (max-width: 1180px) {
