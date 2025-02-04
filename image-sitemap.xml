@@ -3,6 +3,20 @@
   <url>
     <loc>https://adelbonn.github.io/Nina_Carducci_P8_OC/</loc>
     <image:image>
+      <image:loc>https://adelbonn.github.io/Nina_Carducci_P8_OC//assets/images/imagesOptimisées/contact/desktop/photographie-camera-appareil-photo.webp</image:loc>
+      <image:title>photographie-camera-appareil-photo</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://adelbonn.github.io/Nina_Carducci_P8_OC/</loc>
+    <image:image>
+      <image:loc>https://adelbonn.github.io/Nina_Carducci_P8_OC//assets/images/imagesOptimisées/contact/mobile/photographie-camera-appareil-photo (1).webp</image:loc>
+      <image:title>photographie-camera-appareil-photo (1)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://adelbonn.github.io/Nina_Carducci_P8_OC/</loc>
+    <image:image>
       <image:loc>https://adelbonn.github.io/Nina_Carducci_P8_OC//assets/images/imgOriginals/about-portrait-Nina-Carducci-photographe.png</image:loc>
       <image:title>about-portrait-Nina-Carducci-photographe</image:title>
     </image:image>
