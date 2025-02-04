@@ -425,7 +425,33 @@
 			</form>
 		</div>
 		<figure class="picture right">
-			<img loading="lazy" src="./assets/images/optimized/contact-appareil-photo/desktop/contact-photographie-appareil-photo.webp" alt="photographie d'un appareil photo">
+			<picture>
+				<!--Desktop-->
+				<source media="(min-width: 1024px)"
+				srcset="./assets/images/optimized/contact-appareil-photo/desktop/contact-photographie-appareil-photo.webp"
+				type="image/webp"
+				alt="photo, portrait de la photographe Nina Carducci">
+	
+				<!-- Tablet -->
+				<source media="(min-width: 768px)"
+				srcset="./assets/images/optimized/contact-appareil-photo/tablet/contact-photographie-appareil-photo.webp"
+				type="image/webp"
+				alt="photo, portrait de la photographe Nina Carducci">
+	
+				<!-- Mobile -->
+				<source media="(min-width: 768px)"
+				srcset="./assets/images/optimized/contact-appareil-photo/mobile/contact-photographie-appareil-photo.webp"
+				type="image/webp"
+				alt="photo, portrait de la photographe Nina Carducci">
+	
+				<!-- Fallback -->
+				 <img src="./assets/images/optimized/contact-appareil-photo/desktop/contact-photographie-appareil-photo.jpg"
+				  alt="photo, portrait de la photographe professionnelle Nina Carducci"
+				  width="560"
+				  height="558"
+				  loading="lazy"
+				  style="object-fit: contain;">
+				</picture>
 		</figure>
 	</div>
 </div>
