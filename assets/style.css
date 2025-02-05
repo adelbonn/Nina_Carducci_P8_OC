@@ -75,14 +75,10 @@ img {
 	margin: 0 20px;
 	z-index:0;
 	position: relative;
-	aspect-ratio: 560/558;
+	width: 100%;
 }
- /*optimisation de la section about*/
 
-.picture.left {
-	position: relative;
-	aspect-ratio: 560/558;
-}
+
 .picture.left::before {
 	content: ' ';
 	background-color: #E5975F;

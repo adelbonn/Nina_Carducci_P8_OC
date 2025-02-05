@@ -1,0 +1,152 @@
+lien qui explique comment convertir les images en webp avec l'outil en ligne de commande libwebp, puis les insérer anec les balises <picture> <source> et l'attrivut srcset
+https://web.dev/articles/codelab-serve-images-webp?hl=fr
+
+Autre solution :
+-installation des node module, 
+-installation de sharp
+- automatisation du processus de conversion et compresion des images via un script javascriot
+- meilleur optimisation avec sharp: ex sans environ 2mb, avec environ 200 kb (suivant les images, donc sharp et bien meilleure solution)
+- les images sont redimensionner en trouvant eur differents tailles suivant les desktop, mobile ou tablette via les media queries dans le fichier css style.css
+Ainsi les images sont automatiquemnt responsibves, support en format moderne webp (je n'ai finalement pas utiliser avif car il n'est pas supporté par tout les navigateurs (par exemple safari)), 
+ en faisant cette optimisation sur les images celle-ci ce charge progressivement, donc meilleur exeprience utilisateurs
+
+dans optimisatioImage.js
+
+1.import de : 
+- sharp : bibiliothèque nodejs pour la gestion des images (traitement d'images)
+   -utilisée ici pour redimensioner, et convertir les images en webp (crucial pour optimisation des images)
+   -la documentation est assez complète : https://sharp.pixelplumbing.com/
+   -l'extension .webp est prise en charge, donc peut être utilisée pour les derniers réseaux sociaux
+
+- fs (File System):
+   -utilisée ici pour l'écriture et la lecture des fichiers
+   -la documentation est assez complète : https://nodejs.org/api/fs.html
+     - readdir : fonction qui permet de lire les fichiers d'un dossier
+     - existSync : fonction qui permet de vérifier l'existance d'un fichier
+     - mkdirSync: fonction qui permet de créer un dossier
+
+- path : module qui permet de travailler avec des chemins de fichiers
+       join: fonction qui permet de concatener des chemins de fichiers
+       basename: fonction qui permet de obtenir le nom de base d'un fichier
+       extname: fonction qui permet de obtenir l'extension d'un fichier
+
+
+2.La fonction createDirectories :
+
+async function createDirectories() {
+    for (const [containerType, sizes] of Object.entries(imageConfig.containers)) {
+async : Fonction asynchrone pour gérer les opérations de fichiers
+Object.entries() : Transforme notre config en tableau de paires [clé, valeur]
+Parcourt chaque type de conteneur (carousel, gallery, about)
+
+
+3.Gestion spéciale de la galerie :
+
+if (containerType === 'gallery') {
+    ['thumbnail', 'modal'].forEach(type => {
+        ['desktop', 'tablet', 'mobile'].forEach(device => {
+Traitement spécial pour la galerie car elle a deux types d'images :
+Thumbnails : Petites images pour l'aperçu (optimisées pour le chargement rapide)
+Modal : Images plus grandes pour l'affichage en plein écran
+
+
+Structure des dossiers :
+
+const dir = `./assets/images/${containerType}/${type}/${device}/${format}`;
+
+Crée une structure comme :
+
+assets/
+  images/
+    carousel/
+      desktop/
+        webp/
+        jpg/
+      tablet/
+        webp/
+        jpg/
+      mobile/
+        webp/
+        jpg/
+    gallery/
+      thumbnail/
+        desktop/
+          webp/
+          jpg/
+        tablet/
+          webp/
+          jpg/
+        mobile/
+          webp/
+          jpg/
+      modal/
+        [même structure]
+Interaction avec le reste du code :
+
+Avec config.js :
+
+  Utilise les dimensions définies pour chaque type d'image
+  Suit les breakpoints du site (defini dans le ficheir style.css dans les mediaqueries) (desktop, tablet, mobile)
+
+  Avec mauGallery.js :
+Prépare les images que mauGallery utilisera
+Crée la structure nécessaire pour les thumbnails et modales
+
+Avec le HTML :
+Les images seront organisées selon leur utilisation
+Facilite l'utilisation des balises <picture> et srcset
+Ainsi les images sont chargées progressivement, donc meilleur exeprience utilisateurs
+
+Pertinence pour le projet :
+
+Performance :
+  Images optimisées pour chaque device
+  Formats modernes (WebP) avec fallback (JPG)
+  Chargement rapide des thumbnails
+SEO :
+  Structure organisée et logique
+  Images responsives bien gérées
+  Optimisation du poids des images
+Maintenance :
+  Structure claire et organisée
+  Facilité d'ajout de nouvelles images
+Configuration centralisée
+
+Expérience utilisateur :
+Chargement rapide des aperçus
+Images haute qualité dans les modales
+Adaptation automatique selon l'appareil
+
+Fonction Watch
+Mode Watch :
+La fonction watch() de Node.js surveille en continu le dossier imgOriginals
+Dès qu'une nouvelle image est ajoutée, le script la détecte
+
+Processus d'optimisation automatique :
+Le script vérifie d'abord si le fichier est une image (extension .jpg, .jpeg ou .png)
+Il analyse le nom du fichier pour déterminer son type :
+Si le nom contient "gallery" → traité comme une image de galerie
+Si le nom contient "carousel" → traité comme une image de carousel
+etc.
+
+Traitement spécifique :
+Pour les images de galerie : création de versions thumbnail et modal
+Pour les autres types : création des versions desktop, tablet et mobile
+Chaque version est créée en WebP et JPG
+
+Utilisation :
+
+# Pour lancer le mode surveillance
+npm run watch
+
+# Ensuite, il suffit de :
+# 1. Copier une image dans le dossier imgOriginals
+# 2. La nommer correctement, par exemple :
+#    - gallery-photo1.jpg
+#    - carousel-image2.jpg
+#    - about-photo3.jpg
+#    - contact-image4.jpg
+# 3. Le script le traitera et créera les versions optimisées
+
+
+

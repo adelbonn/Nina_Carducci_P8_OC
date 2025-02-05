@@ -4,17 +4,36 @@
 	<!--meta tags requis-->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Photographe Mariage, Portrait, événementiel - Nina Carducci</title>
+	<link rel="icon" type="image/x-icon" size="32" title="icon nina carducci" href="./assets/images/optimized/favicon/contact-photographie-appareil-photo-favicon.webp">
+	<!--balise google pour le SEO -->
+	<meta name="google-site-verification" content="80Y6swqlyah_02RVu7GFIOKjgbGVe7xdl2tKsIEuWT4" />
+	<!--balise title meatdescription...-->
+	<meta name="title" content="Photographe Mariage, Portrait, événementiel - Nina Carducci">
+	<meta name="description" content="Nina Carducci Photographe professionnelle à Bordeaux.
+	Spécialisée en portrait, mariage et événementiel,
+	je vous propose
+	mes services de shooting photo, retouches et album photo personnalisé.
+	Réservez votre séance dès aujourd'hui ! ">
+	<meta name="keywords" content="photographe, mariage, portrait, événementiel, Entreprise, Bordeaux, İle-de-France, shooting photo, retouches, album photo">
+	<meta name="robots" content="index, follow">
+	<meta name="language" content="fr">
+
+	<!--balise open graph pour le SEO-->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://ninacarducci.github.io/">
+
 
 <!--Preload des ressources critiques du carousel, ici l'image de l'homme d'affaire qui traverse la rue dans le carousel-->
     <link rel="preload"
       as="image"
-      href="./assets/images/optimized/carousel/desktop/webp/Photo-homme-d'affaire.webp"
+      href="./assets/images/optimized/carousel/desktop/webp/Photo-homme-d-affaire.webp"
       type="image/webp"
       media="(min-width: 1024px)">
 
 	<!--CSS Critique pour éviter le CLS-->
 <style>
-	/*style critiques pour le LCP (carousel estle  LCP) et anti-CLS*/
+	/*style critiques pour le LCP (carousel est le  LCP) et anti-CLS*/
 	  .carousel {
 		contain: layout style paint;
 	  }
@@ -38,21 +57,21 @@
 	  }
 </style>
 
-	<!--JQuery (nécessaire pour Bootstrap) -->
+	<!--JQuery (nécessaire pour Bootstrap) (ajout de defer pour eviter le BLS qui est un CLS c'est à dire un chargement tardif, donc defer permet au navigateur de charger JQuery avant de charger Bootstrap car Bootstrap utilise JQuery et donc JQuery doit etre chargé avant) -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" 
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
 	crossorigin="anonymous"
 	defer></script>
 
- <!-- Bootstrap Bundle -->
+ <!-- Bootstrap Bundle (ajout de defer afin que le navigateur charge les ressources critiques avant de charger Bootstrap)-->
  <script src="./assets/bootstrap/bootstrap.bundle.js" defer></script>
 
- <!-- CSS non-critique chargé de manière asynchrone -->
+ <!-- CSS non-critique chargé de manière asynchrone afin que le navigateur charge les ressources critiques avant de charger le CSS, ce CSS est chargé avec media print afin de pouvoir être affiché sur les appareils mobiles et sur les appareils avec un navigateur non compatibles ce qui rend la page plus responsive -->
  <link rel="stylesheet" href="./assets/bootstrap/bootstrap.css" media="print" onload="this.media='all'">
  <link rel="stylesheet" href="./assets/style.css" media="print" onload="this.media='all'">
 
 
- <!-- Fallback pour le CSS si JavaScript est désactivé -->
+ <!-- Fallback pour le CSS si JavaScript est désactivé, afin de pouvoir afficher la page sur les appareils sans JavaScript, ce qui est utile sur les appareils avec un navigateur non compatibles et donc améliore la performance -->
  <noscript>
 	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="./assets/style.css">
@@ -60,23 +79,6 @@
 
 	<!--bootstrap css-->
 	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
-
-	
-	<title>Photographe Mariage, Portrait, événementiel - Nina Carducci</title>
-	<!--balise google -->
-	<meta name="google-site-verification" content="80Y6swqlyah_02RVu7GFIOKjgbGVe7xdl2tKsIEuWT4" />
-
-	<!--SEO-->
-	<meta name="title" content="Photographe Mariage, Portrait, événementiel - Nina Carducci">
-	<meta name="description" content="Nina Carducci Photographe professionnelle à Bordeaux.
-	Spécialisée en portrait, mariage et événementiel,
-	je vous propose
-	mes services de shooting photo, retouches et album photo personnalisé.
-	Réservez votre séance dès aujourd'hui ! ">
-	<meta name="keywords" content="photographe, mariage, portrait, événementiel, Entreprise, Bordeaux, İle-de-France, shooting photo, retouches, album photo">
-	<meta name="robots" content="index, follow">
-	<meta name="language" content="fr">
-
 	<!--liens google font-->
 	<link rel="preconnect" href="https://fonts.googleapis.com" as="font" crossorigin>
 	<link rel="preconnect" href="https://fonts.gstatic.com" as="font" crossorigin>
@@ -89,16 +91,17 @@
 
 
 <body>
+	<!--header avec navigation-->
 <header class="top-header">
 	<h1 class="name"><strong>Nina Carducci</strong></h1> 
-	<nav class="nav">   
+	<nav class="nav" aria-label="menu de navigation principal">   
 		<ul>
 			<li><a href="#about">À propos</a></li> 
 			<li><a href="#gallery">Galerie</a></li>
 			<li><a href="#services">Service</a></li>
 			<li><a href="#contact">Contact</a></li>
 			<li><a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank">
-				<img src="assets/images/optimized/icons/desktop/webp/icons-instagram-logo.webp" alt="icône Instagram, lien vers le compte Instragram profesionnel de la photographe Nina Carducci">
+				<img src="assets/images/optimized/icons/desktop/webp/icons-instagram-logo.webp" alt="icône Instagram, lien vers le compte Instragram profesionnel de la photographe Nina Carducci" width="24" height="24">
 				</a>
 			</li>
 		</ul>
@@ -106,6 +109,7 @@
 </header>
 
 <main>
+	<!--header du carousel-->
 <section id="header">
 	<article id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 		<div class="carousel-indicators">
@@ -118,23 +122,29 @@
 				<!--structure responsive pour les images, en utilisant les balises <picture> et <source>, le navigateur chois selon la taille de l'écra l'image a affiche, l'attribut srcset indique le chemin de l'image, l'attribut fetcpriority="high" indique que l'image doit etre charger prioritaire, l'attribut type="image/webp" indique que l'image est en format webp, et alt indique le texte alternatif de l'image-->
 				<picture>
 					<!-- Desktop -->
-					<source media="(min-width: 1024px)"
-							srcset="./assets/images/optimized/carousel/desktop/webp/Photo-homme-d'affaire.webp"
+					<source media="(min-width: 1400px)"
+							srcset="./assets/images/optimized/carousel/desktop/webp/Photo-homme-d-affaire.webp"
 							type="image/webp"
+							width="1920"
+							height="888"
 							fetchpriority="high"
 							>
 					<!-- Tablet -->
 					<source media="(min-width: 768px)"
-							srcset="./assets/images/optimized/carousel/tablet/webp/Photo-homme-d'affaire.webp"
+							srcset="./assets/images/optimized/carousel/tablet/webp/Photo-homme-d-affaire.webp"
 							type="image/webp"
+							width="768"
+							height="356"
 							>
 					<!-- Mobile -->
 					<source media="(max-width: 767px)"
-							srcset="./assets/images/optimized/carousel/mobile/webp/Photo-homme-d'affaire (1).webp"
+							srcset="./assets/images/optimized/carousel/mobile/webp/Photo-homme-d-affaire (1).webp"
 							type="image/webp"
+							width="375"
+							height="356"
 							>
 					<!-- Fallback , le navigateur choisira l'image la plus approprié , loading="eager" indique que l'image doit etre charger de maniere asynchrone, fetchpriority="high" indique que l'image doit etre charger prioritaire, style="object-fit: cover;" indique que l'image doit etre redimensionne, le width et le heught sont indique pour une meilleure exécutabilite -->
-					<img src="./assets/images/optimized/carousel/desktop/jpg/Photo-homme-d'affaire.jpg"
+					<img src="./assets/images/optimized/carousel/desktop/jpg/Photo-homme-d-affaire.jpg"
 						 class="d-block w-100"
 						 alt="homme d'affaire en costume avec sa malette de travail, traversant la rue"
 						 width="1920"
@@ -148,19 +158,25 @@
 			<div class="carousel-item">
 				<picture>	
 					<!-- Desktop -->
-					<source media="(min-width: 1024px)"
+					<source media="(min-width: 1400px)"
 							srcset="./assets/images/optimized/carousel/desktop/webp/photographie-jeunes-gens-en-concert.webp"
-							type="image/webp"		
+							type="image/webp"	
+							width="1920"
+							height="888"	
 							>
 					<!-- Tablet -->
 					<source media="(min-width: 768px)"
-							srcset="./assets/images/optimized/carousel/tablet/webp/photographie-jeunes-gens-en-concert (1).webp"
+							srcset="./assets/images/optimized/carousel/tablet/webp/photographie-jeunes-gens-en-concert(1).webp"
 							type="image/webp"
+							width="768"
+							height="356"
 							>
 					<!-- Mobile -->
 					<source media="(max-width: 767px)"
 							srcset="./assets/images/optimized/carousel/mobile/webp/photographie-jeunes-gens-en-concert.webp"
 							type="image/webp"
+							width="375"
+							height="356"
 							>
 					<!-- Fallback -->
 					<img src="./assets/images/optimized/carousel/desktop/jpg/photographie-jeunes-gens-en-concert.jpg"
@@ -175,22 +191,28 @@
 			<div class="carousel-item">
 				<picture>
 					<!-- Desktop -->
-					<source media="(min-width: 1024px)"
-							srcset="./assets/images/optimized/carousel/desktop/webp/cliché-jeunes-mariés-heureux (1).webp"
+					<source media="(min-width: 1400px)"
+							srcset="./assets/images/optimized/carousel/desktop/webp/cliches-jeunes-maries-heureux(1).webp"
 							type="image/webp"
+							width="1920"
+							height="888"
 						>
 					<!-- Tablet -->
 					<source media="(min-width: 768px)"
-							srcset="./assets/images/optimized/carousel/tablet/webp/cliché-jeunes-mariés-heureux (1).webp"
+							srcset="./assets/images/optimized/carousel/tablet/webp/cliches-jeunes-maries-heureux(1).webp"
 							type="image/webp"
+							width="768"
+							height="356"
 						>
 					<!-- Mobile -->
 					<source media="(max-width: 767px)"
-							srcset="./assets/images/optimized/carousel/mobile/webp/cliché-jeunes-mariés-heureux (1).webp"
+							srcset="./assets/images/optimized/carousel/mobile/webp/cliches-jeunes-maries-heureux(1).webp"
 							type="image/webp"
+							width="375"
+							height="356"
 							>
 					<!-- Fallback -->
-					<img src="./assets/images/optimized/carousel/desktop/jpg/cliché-jeunes-mariés-heureux.jpg"
+					<img src="./assets/images/optimized/carousel/desktop/jpg/cliches-jeunes-maries-heureux.jpg"
 						 class="d-block w-100"
 						 alt="jeunes mariés heureux, couple qui s'embrasse en dansant"
 						 width="1920"
@@ -210,27 +232,30 @@
 		</button>
 	</article>
 </section>
-
+<!--section about-->
 <section id="about">
 	<div class="picture left">
 		<picture>
 			<!--Desktop-->
-			<source media="(min-width: 1024px)"
+			<source media="(min-width: 1400px)"
 			srcset="./assets/images/optimized/about-portrait-Nina-Carducci/desktop/about-portrait-Nina-Carducci-photographe.webp"
             type="image/webp"
-			alt="photo, portrait de la photographe Nina Carducci">
+			alt="photo, portrait de la photographe Nina Carducci"
+			>
 
 			<!-- Tablet -->
 			<source media="(min-width: 768px)"
 			srcset="./assets/images/optimized/about-portrait-Nina-Carducci/tablet/about-portrait-Nina-Carducci-photographe (1).webp"
 			type="image/webp"
-			alt="photo, portrait de la photographe Nina Carducci">
+			alt="photo, portrait de la photographe Nina Carducci"
+			>
 
 			<!-- Mobile -->
 			<source media="(min-width: 768px)"
 			srcset="./assets/images/optimized/about-portrait-Nina-Carducci/mobile/about-portrait-Nina-Carducci-photographe.webp"
 			type="image/webp"
-			alt="photo, portrait de la photographe Nina Carducci">
+			alt="photo, portrait de la photographe Nina Carducci"
+			>
 
 			<!-- Fallback -->
 			 <img src="./assets/images/optimized/about-portrait-Nina-Carducci/desktop/about-portrait-Nina-Carducci-photographe.jpg"
@@ -247,7 +272,7 @@
 		<p>Nous passons notre vie à chercher le bonheur, et lorsque nous y touchons, nous n’avons qu’une envie : le figer au travers de photographies pour le savourer avec les personnes qui sont importantes à nos yeux, ou le partager au plus grand nombre.
 			C’est ce que je vous propose : saisir ces merveilleux moments au travers de mon regard, mon approche, ma technique. Rendre ces moments immortels, afin que vous puissiez y puiser de l’amour, du bonheur, de la tendresse et de lumière à chaque fois que vous poserez les yeux sur vos photos.</p>
 	</div>
-</div>
+    </div>
 </section>
 <div id="gallery">
 	<h3 class="title">Portfolio</h3>
