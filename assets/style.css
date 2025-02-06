@@ -109,10 +109,9 @@ img {
 	z-index: 0;
 }
 
-.picture img {
+/* .picture img {
 	width: 100%;
-	
-}
+} */
 #about-me {
 	flex: 2
 }
@@ -122,7 +121,7 @@ img {
 	font-size: 30px;
 }
 .about-me__introduction {
-	font-family: 'Spectral';
+	font-family: 'Spectral', serif;
 	font-weight: 800;
 	font-style: italic;
 	width: 60%;
@@ -140,7 +139,8 @@ img {
 	justify-content: center;
 }
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-	color: #fff;
+	/* color: #fff; */
+	color: black;
 	background-color: #BEB45A;
 	border-radius:0 ;
 }
@@ -302,12 +302,27 @@ input[type="submit"] {
 }
 
 footer {
+	padding: 20px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 footer p {
-	padding-top: 1em;
+	text-align: center;
+}
+.footer-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.coordonees {
+	display: flex;
+	font-size: 14px;
+    padding-left: 10px;;
+}
+.addresse {
+	padding-left: 10px;;
 }
 
 @media all and (max-width: 1180px) {
@@ -383,6 +398,10 @@ footer p {
 		right: 0;
 		z-index: -1;
 	}
+	.footer-content {
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 @media all and (max-width: 650px) {
@@ -418,5 +437,16 @@ footer p {
 	.picture {
 		width: 80%;
 	}
+	footer {
+		padding: 10px;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	footer p {  
+		margin: 0; 
+		text-align: center;
+		font-size: 14px;
+    }
 }
 

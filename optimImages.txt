@@ -20,7 +20,7 @@ dans optimisatioImage.js
 
 - fs (File System):
    -utilisée ici pour l'écriture et la lecture des fichiers
-   -la documentation est assez complète : https://nodejs.org/api/fs.html
+   -la documentation: https://nodejs.org/api/fs.html
      - readdir : fonction qui permet de lire les fichiers d'un dossier
      - existSync : fonction qui permet de vérifier l'existance d'un fichier
      - mkdirSync: fonction qui permet de créer un dossier

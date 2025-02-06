@@ -4,11 +4,13 @@
 	<!--meta tags requis-->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Photographe Mariage, Portrait, événementiel - Nina Carducci</title>
-	<link rel="icon" type="image/x-icon" size="32" title="icon nina carducci" href="./assets/images/optimized/favicon/contact-photographie-appareil-photo-favicon.webp">
+	<title>Nina Carducci - Photographe à Bordeaux (33) spécialisée en  Mariage, Portrait, événementiel</title>
+	<!--favicon-->
+	<link rel="icon" type="image/webp" size="32" title="icon nina carducci" href="./assets/images/optimized/favicon/contact-photographie-appareil-photo-favicon.webp">
+	<link rel="icon" type ="image/png" size="16" title ="icon nina carducci" href="./assets/images/optimized/favicon/contact-photographie-appareil-photo-favicon-16.png">
 	<!--balise google pour le SEO -->
 	<meta name="google-site-verification" content="80Y6swqlyah_02RVu7GFIOKjgbGVe7xdl2tKsIEuWT4" />
-	<!--balise title meatdescription...-->
+	<!--balise title metadescription...-->
 	<meta name="title" content="Photographe Mariage, Portrait, événementiel - Nina Carducci">
 	<meta name="description" content="Nina Carducci Photographe professionnelle à Bordeaux.
 	Spécialisée en portrait, mariage et événementiel,
@@ -23,6 +25,50 @@
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://ninacarducci.github.io/">
 
+<!--balise canonical-->
+   <link rel=""canonical href="https://adelbonn.github.io/Nina_Carducci_P8_OC/">
+
+<!--balise local business (richsnippets shema.org)-->
+    <!-- Balises JSON-LD pour les résultats enrichis -->
+    <script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "LocalBusiness",
+		  "name": "Nina Carducci Photography",
+		  "image": "https://ninacarducci.github.io/assets/images/optimized/about-portrait-Nina-Carducci/desktop/about-portrait-Nina-Carducci-photographe.jpg",
+		  "@id": "https://ninacarducci.github.io/",
+		  "url": "https://ninacarducci.github.io/",
+		  "telephone": "+33 6 12 34 56 78",
+		  "address": {
+			"@type": "PostalAddress",
+			"streetAddress": "123 Rue de la Photographie",
+			"addressLocality": "Bordeaux",
+			"postalCode": "33000",
+			"addressCountry": "FR"
+		  },
+		  "geo": {
+			"@type": "GeoCoordinates",
+			"latitude": 44.837789,
+			"longitude": -0.57918
+		  },
+		  "openingHoursSpecification": {
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": [
+			  "Monday",
+			  "Tuesday",
+			  "Wednesday",
+			  "Thursday",
+			  "Friday"
+			],
+			"opens": "09:00",
+			"closes": "18:00"
+		  },
+		  "sameAs": [
+			"https://www.instagram.com/ninacarducci.photo/?hl=fr"
+		  ]
+		}
+		</script>
+
 
 <!--Preload des ressources critiques du carousel, ici l'image de l'homme d'affaire qui traverse la rue dans le carousel-->
     <link rel="preload"
@@ -32,30 +78,30 @@
       media="(min-width: 1024px)">
 
 	<!--CSS Critique pour éviter le CLS-->
-<style>
-	/*style critiques pour le LCP (carousel est le  LCP) et anti-CLS*/
-	  .carousel {
-		contain: layout style paint;
-	  }
-	  #carouselExampleIndicators {
-		aspect-ratio: 1920/888;
-	  }
-	  @media (max-width: 1024px) {
-		#carouselExampleIndicators {
-			aspect-ratio: 1000/463;
-		}
-	  }
-	  @media (max-width: 767px) {
-		#carouselExampleIndicators {
-			aspect-ratio: 650/301;
-		}
-	  }
-	  .carousel-item img {
-		object-fit: cover;
-		width: 100%;
-		height: auto;
-	  }
-</style>
+	<style>
+		/*style critiques pour le LCP (carousel est le  LCP) et anti-CLS*/
+		  .carousel {
+			contain: layout style paint;
+		  }
+		  #carouselExampleIndicators {
+			aspect-ratio: 1920/888;
+		  }
+		  @media (max-width: 1024px) {
+			#carouselExampleIndicators {
+				aspect-ratio: 1000/463;
+			}
+		  }
+		  @media (max-width: 767px) {
+			#carouselExampleIndicators {
+				aspect-ratio: 650/301;
+			}
+		  }
+		  .carousel-item img {
+			object-fit: cover;
+			width: 100%;
+			height: auto;
+		  }
+	</style>
 
 	<!--JQuery (nécessaire pour Bootstrap) (ajout de defer pour eviter le BLS qui est un CLS c'est à dire un chargement tardif, donc defer permet au navigateur de charger JQuery avant de charger Bootstrap car Bootstrap utilise JQuery et donc JQuery doit etre chargé avant) -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" 
@@ -85,8 +131,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet">
 	
 	<!--mettre defer ou les mettre en bas du fichier verifier ce qui est le plus pertinent pour chcune des ces balises script, mettre à jour jQuery à la dernière version-->
-<script src="./assets/maugallery.js" defer></script>
-<script src="./assets/scripts.js" defer></script>
+	<script src="./assets/maugallery.js" defer></script>
+	<script src="./assets/scripts.js" defer></script>
 </head>
 
 
@@ -111,7 +157,7 @@
 <main>
 	<!--header du carousel-->
 <section id="header">
-	<article id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+	<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 		<div class="carousel-indicators">
 			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -192,7 +238,7 @@
 				<picture>
 					<!-- Desktop -->
 					<source media="(min-width: 1400px)"
-							srcset="./assets/images/optimized/carousel/desktop/webp/cliches-jeunes-maries-heureux(1).webp"
+							srcset="./assets/images/optimized/carousel/desktop/webp/cliches-jeunes-maries-heureux (1).webp"
 							type="image/webp"
 							width="1920"
 							height="888"
@@ -230,7 +276,7 @@
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="visually-hidden">Next</span>
 		</button>
-	</article>
+	</div>
 </section>
 <!--section about-->
 <section id="about">
@@ -262,20 +308,21 @@
 			  alt="photo, portrait de la photographe professionnelle Nina Carducci"
 			  width="560"
 			  height="558"
+			  max-width: 100%;
 			  loading="lazy"
 			  style="object-fit: contain;">
 			</picture>
 	
-	<div id="about-me">
-		<h3 class="about-me__title">A propos de moi</h3>
+	    <article id="about-me">
+		<h2 class="about-me__title">A propos de moi</h2>
 		<p class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.</p>
 		<p>Nous passons notre vie à chercher le bonheur, et lorsque nous y touchons, nous n’avons qu’une envie : le figer au travers de photographies pour le savourer avec les personnes qui sont importantes à nos yeux, ou le partager au plus grand nombre.
 			C’est ce que je vous propose : saisir ces merveilleux moments au travers de mon regard, mon approche, ma technique. Rendre ces moments immortels, afin que vous puissiez y puiser de l’amour, du bonheur, de la tendresse et de lumière à chaque fois que vous poserez les yeux sur vos photos.</p>
-	</div>
+		</article>
     </div>
 </section>
-<div id="gallery">
-	<h3 class="title">Portfolio</h3>
+<section id="gallery">
+	<h2 class="title">Portfolio</h2>
 	<div class="container py-3">
 		<div class="gallery" style="display: none">
 			<!--Concert images-->
@@ -384,16 +431,16 @@
 	<div class="quote">
 		<figure>
 			<blockquote>
-				<h1 class="quote__text">Un portrait n’est pas une ressemblance. Dès lors qu’une émotion ou qu’un fait est traduit en photo, il cesse d’être un fait pour devenir une opinion. L’inexactitude n’existe pas en photographie. Toutes les photos sont exactes. Aucune d’elles n’est la vérité.</h1>
+				<h3 class="quote__text">Un portrait n’est pas une ressemblance. Dès lors qu’une émotion ou qu’un fait est traduit en photo, il cesse d’être un fait pour devenir une opinion. L’inexactitude n’existe pas en photographie. Toutes les photos sont exactes. Aucune d’elles n’est la vérité.</h3>
 			</blockquote>
 			<figcaption class="quote__author">- Richard Avedon</figcaption>
 		</figure>
 	</div>
-</div>
-<div id="services">
-	<h3 class="title">Mes services</h3>
+</section>
+<section id="services">
+	<h2 class="title">Mes services</h2>
 	<div class="container">
-		<div class="service">
+		<article class="service">
 			<div class="service__description">
 				<h3>Shooting photo</h3>
 				<p>Pour capturer vos moments les plus précieux et garder un souvenir impérissable. Je me déplace en Île-de-France pour réaliser vos photos</p>
@@ -403,8 +450,8 @@
 				<span>Matériel, déplacement inclus</span>
 			</div>
 
-		</div>
-		<div class="service">
+		</article>
+		<article class="service">
 			<div class="service__description">
 				<h3>Retouches</h3>
 				<p>Vous souhaitez retoucher vos photos pour un résultat professionnel ? Bénéficier d’un rendu optimal pour vos publications</p>
@@ -413,8 +460,8 @@
 				<h4>50€/photo</h4>
 				<span>2 AR par photo</span>
 			</div>
-		</div>
-		<div class="service">
+		</article>
+		<article class="service">
 			<div class="service__description">
 				<h3>Album photos</h3>
 				<p>Partagez avec vos proches et vos clients les photos des moments partagés ensemble à travers un album photo personnalisé</p>
@@ -423,28 +470,29 @@
 				<h4>400€ album A4</h4>
 				<span>30 pages recto/verso</span>
 			</div>
-		</div>
+		</article>
 	</div>
-</div>
-<div class="quote">
+</section>
+<section class="quote">
 	<figure>
 		<blockquote>
-			<h1 class="quote__text">De manière inconsciente, je crois, je guette un regard, une expression, des traits ou une nostalgie capable de résumer ou plus exactement de révéler une vie</h1>
+			<h3 class="quote__text">De manière inconsciente, je crois, je guette un regard, une expression, des traits ou une nostalgie capable de résumer ou plus exactement de révéler une vie</h3>
 		</blockquote>
 		<figcaption class="quote__author">- Richard Avedon</figcaption>
 	</figure>
-</div>
-<div id="contact">
-	<div class="container">
+</section>
+<section id="contact">
+	<article class="container">
 		<div class="form-container">
-			<h3>Une question ? Une demande de devis ?</h3>
+			<h2>Une question ? Une demande de devis ?</h2>
 			<p> N’hésitez pas à m’écrire ! Je vous répondrais en moins de 24 heures</p>
-			<form action="" method="post">
-				<label>Nom</label>
+		
+			<form action="#" method="post">
+				<label for="nom">Nom</label>
 				<input type="text" name="nom" id="nom">
-				<label>Email</label>
+				<label for="email">Email</label>
 				<input type="email" name="email" id="email">
-				<label>Message</label>
+				<label for="message">Message</label>
 				<textarea name="message" id="message" cols="30" rows="10"></textarea>
 				<input type="submit" value="Envoyer"/>
 			</form>
@@ -478,12 +526,24 @@
 				  style="object-fit: contain;">
 				</picture>
 		</figure>
-	</div>
-</div>
+	</article>
+</section>
 </main>
 <footer>
-	<p>© 2021 - Nina Carducci - Photographe professionnelle à Bordeaux</p>
-<!--ajouter les lien et l'adresse et le tel de la photographe, en plus du seo local dans le head-->
+	<p>&copy; 2021 - Nina Carducci - Photographe professionnelle à Bordeaux</p>
+	<div class=footer-content>
+	<p class="coordonees " itemscope itemtype="https://schem.org/PostalAdress">
+		<span itemprop="streetAddress">68 avenue Alsace Lorraine</span>
+		<p class="adresse"><span itemprop="postalCode"> 33200 </span></p>
+		<p class="adresse"><span itemprop="addressLocality"> Bordeaux </span></p>
+	</p>
+	<p class="coordonees"><a href="mailto:nina@photographie-bordeaux.com">nina@photographie-bordeaux.com</a></p>
+	<p class="coordonees"><a href="tel:+33623254678">05 56 67 78 89</a></p>
+    </div>
+	<div class="horaires">
+		<h6>Nina Carducci vous réponds au téléphone :</h6>
+        <p>Lundi - Vendredi : 9h - 18h</p>
+	</div>
 </footer>
 
 
