@@ -1,5 +1,5 @@
 user-agent: *
 Disallow:
 
-Sitemap:  https://adelbonn.github.io/Nina_Carducci_P8_OC/
- 
+Sitemap:  https://adelbonn.github.io/Nina_Carducci_P8_OC/sitemap.xml
+SitemapImage:  https://adelbonn.github.io/Nina_Carducci_P8_OC/image-sitemap.xml

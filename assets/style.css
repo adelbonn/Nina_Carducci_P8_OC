@@ -300,31 +300,61 @@ input[type="submit"] {
 	background-color: #BEB45A;
 	padding: .5em 1em
 }
-
 footer {
 	padding: 20px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	/* justify-content: center; */
+	/* align-items: center; */
 }
 footer p {
 	text-align: center;
+	margin: 0;
+	padding: 0;
 }
 .footer-content {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 }
-.coordonees {
-	display: flex;
-	font-size: 14px;
-    padding-left: 10px;;
-}
-.addresse {
-	padding-left: 10px;;
-}
 
+/* .address {
+	display: flex;
+	padding-left: 10px;
+	font-size: 14px;
+	justify-content: space-between;
+	align-items: center;
+} */
+ address {
+	/* align-items: start; */
+	margin: 0;
+	font-size: 14px;
+	padding-left: 10px;
+	justify-content: start;
+ }
+ .address-block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-left: 10px;
+ }
+ .address-block span {
+	display: flex;
+	padding-left: 10px;
+}
+ .contact-block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+ }
+.contact-link {
+	padding: 10px;
+}
+.horaires {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+}
 @media all and (max-width: 1180px) {
 	.picture {
 		flex : 2;

@@ -16,7 +16,7 @@
 	je vous propose
 	mes services de shooting photo, retouches et album photo personnalisé.
 	Réservez votre séance dés aujourd'hui ! ">
-	<!--dder si je dois la laisser la meta keywords car depréciée -->
+	<!--dder si je dois la laisser la meta keywords et meta author car depréciée -->
 	<meta name="keywords" content="photographe, mariage, portrait, événementiel, Entreprise, Bordeaux, İle-de-France, shooting photo, retouches, album photo">
 	<meta name="author" content="Nina Carducci">
 	<meta name="geo.region" content="FR-33">
@@ -145,10 +145,14 @@
 
 	<!--bootstrap css-->
 	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
-	<!--liens google font-->
+	<!--liens google font (preconnect pour le prechargement DNS)-->
 	<link rel="preconnect" href="https://fonts.googleapis.com" as="font" crossorigin>
 	<link rel="preconnect" href="https://fonts.gstatic.com" as="font" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet">
+	<!--chargement optimisé des polices (media print pour le chargement des polices sur les appareils mobiles)-->
+	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" 
+	rel="stylesheet"
+	media="print" 
+	onload="this.media='all'">
 	
 	<!--mettre defer ou les mettre en bas du fichier verifier ce qui est le plus pertinent pour chcune des ces balises script, mettre à jour jQuery à la dernière version-->
 	<script src="./assets/maugallery.js" defer></script>
@@ -160,14 +164,23 @@
 	<!--header avec navigation-->
 <header class="top-header">
 	<h1 class="name"><strong>Nina Carducci</strong></h1> 
-	<nav class="nav" aria-label="menu de navigation principal">   
+	<nav class="nav" aria-label="menu de navigation principal" role ="navigation">   
 		<ul>
-			<li><a href="#about">À propos</a></li> 
-			<li><a href="#gallery">Galerie</a></li>
-			<li><a href="#services">Service</a></li>
-			<li><a href="#contact">Contact</a></li>
-			<li><a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank">
-				<img src="assets/images/optimized/icons/desktop/webp/icons-instagram-logo.webp" alt="icône Instagram, lien vers le compte Instragram profesionnel de la photographe Nina Carducci" width="24" height="24">
+			<li role="none"><a href="#about" role ="menuitem">À propos</a></li> 
+			<li role="none"><a href="#gallery" role ="menuitem">Galerie</a></li>
+			<li role="none"><a href="#services" role ="menuitem">Service</a></li>
+			<li role="none"><a href="#contact" role ="menuitem">Contact</a></li>
+			<li role="none"><a class="social-link" role="menuitem"
+				href="https://www.instagram.com/ninacarducci.photo/?hl=fr"
+				 target="_blank"
+				 rel="noopener">
+				<img  
+				src="assets/images/optimized/icons/desktop/webp/icons-instagram-logo.webp"
+				 alt="icône Instagram, lien vers le compte Instragram profesionnel de la photographe Nina Carducci"
+				  width="24" 
+				  height="24" 
+				 aria-label="logo Instagram"
+				 >
 				</a>
 			</li>
 		</ul>
@@ -177,14 +190,47 @@
 <main>
 	<!--header du carousel-->
 <section id="header">
-	<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+	<div 
+	id="carouselExampleIndicators" 
+	class="carousel slide"
+	 data-bs-ride="carousel"
+	 role="region"
+	 aria-roledescription="carousel de photos"
+	 aria-label="carousel de photos réalisée par Nina Carducci">
+		<div class="carousel-indicators" role="tablist" aria-label="Selecteurs de diapositive">
+			<button 
+			type="button" 
+			data-bs-target="#carouselExampleIndicators" 
+			data-bs-slide-to="0" 
+			class="active" 
+			aria-current="true"
+			 aria-label="Slide 1"
+			 role="tab"
+			 > <!--dder si je doit mettre tabindex="0"-->
+			</button>
+			<button 
+			type="button" 
+			data-bs-target="#carouselExampleIndicators" 
+			data-bs-slide-to="1"
+			aria-label="Slide 2"
+			role="tab"
+			>
+			</button>
+			<button 
+			type="button" 
+			data-bs-target="#carouselExampleIndicators"
+			 data-bs-slide-to="2" 
+			 aria-label="Slide 3"
+			 role="tab"
+			 >
+			</button>
 		</div>
 		<div class="carousel-inner">
-			<div class="carousel-item active">
+			<div class="carousel-item active"
+			role="tabpanel"	
+			aria-roledescription="diapositive"
+			aria-label="diapositive 1 sur 3"
+			>
 				<!--structure responsive pour les images, en utilisant les balises <picture> et <source>, le navigateur chois selon la taille de l'écra l'image a affiche, l'attribut srcset indique le chemin de l'image, l'attribut fetcpriority="high" indique que l'image doit etre charger prioritaire, l'attribut type="image/webp" indique que l'image est en format webp, et alt indique le texte alternatif de l'image-->
 				<picture>
 					<!-- Desktop -->
@@ -204,7 +250,7 @@
 							>
 					<!-- Mobile -->
 					<source media="(max-width: 767px)"
-							srcset="./assets/images/optimized/carousel/mobile/webp/Photo-homme-d-affaire (1).webp"
+							srcset="./assets/images/optimized/carousel/mobile/webp/Photo-homme-d-affaire.webp"
 							type="image/webp"
 							width="375"
 							height="356"
@@ -221,7 +267,11 @@
 						 >
 				</picture>
 			</div>
-			<div class="carousel-item">
+			<div class="carousel-item"
+				role="tabpanel"	
+				aria-roledescription="diapositive"
+				aria-label="diapositive 2 sur 3"
+			>
 				<picture>	
 					<!-- Desktop -->
 					<source media="(min-width: 1400px)"
@@ -254,18 +304,22 @@
 						 style="object-fit: cover;"> 
 				</picture>
 			</div>
-			<div class="carousel-item">
+			<div class="carousel-item"
+				role="tabpanel"	
+				aria-roledescription="diapositive"
+				aria-label="diapositive 3 sur 3"
+			>
 				<picture>
 					<!-- Desktop -->
 					<source media="(min-width: 1400px)"
-							srcset="./assets/images/optimized/carousel/desktop/webp/cliches-jeunes-maries-heureux (1).webp"
+							srcset="./assets/images/optimized/carousel/desktop/webp/cliches-jeunes-maries-heureux.webp"
 							type="image/webp"
 							width="1920"
 							height="888"
 						>
 					<!-- Tablet -->
 					<source media="(min-width: 768px)"
-							srcset="./assets/images/optimized/carousel/tablet/webp/cliches-jeunes-maries-heureux(1).webp"
+							srcset="./assets/images/optimized/carousel/tablet/webp/cliches-jeunes-maries-heureux.webp"
 							type="image/webp"
 							width="768"
 							height="356"
@@ -288,11 +342,21 @@
 				</picture>
 			</div>
 		</div>
-		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+		<button 
+		class="carousel-control-prev" 
+		type="button"
+		 data-bs-target="#carouselExampleIndicators"
+		  data-bs-slide="prev"
+		  aria-label="Diapositive précédente"
+		  >
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			<span class="visually-hidden">Previous</span>
 		</button>
-		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+		<button class="carousel-control-next" 
+		type="button"
+		 data-bs-target="#carouselExampleIndicators" data-bs-slide="next"
+		  aria-label="Diapositive suivante"
+		  >
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="visually-hidden">Next</span>
 		</button>
@@ -457,23 +521,23 @@
 		</figure>
 	</div>
 </section>
-<section id="services">
-	<h2 class="title">Mes services</h2>
+<section id="services" aria_labelledby="services-title">
+	<h2 class="title" id="services-title">Mes services</h2>
 	<div class="container">
-		<article class="service">
+		<article class="service" aria-labelledby="service-shooting-title">
 			<div class="service__description">
-				<h3>Shooting photo</h3>
-				<p>Pour capturer vos moments les plus précieux et garder un souvenir impérissable. Je me déplace en Île-de-France pour réaliser vos photos</p>
+				<h3 id="service-shooting-title">Shooting photo</h3>
+				<p>Pour capturer vos moments les plus précieux et garder un souvenir impérissable. Je me déplace en İle-de-France pour réaliser vos photos</p>
 			</div>
 			<div class="service__price">
-				<h4>350€/demi journée</h4>
+				<h4>350€/demi jour</h4>
 				<span>Matériel, déplacement inclus</span>
 			</div>
 
 		</article>
-		<article class="service">
+		<article class="service" aria-labelledby="service-retouches-title">
 			<div class="service__description">
-				<h3>Retouches</h3>
+				<h3 id="service-retouches-title">Retouches</h3>
 				<p>Vous souhaitez retoucher vos photos pour un résultat professionnel ? Bénéficier d’un rendu optimal pour vos publications</p>
 			</div>
 			<div class="service__price">
@@ -481,9 +545,9 @@
 				<span>2 AR par photo</span>
 			</div>
 		</article>
-		<article class="service">
+		<article class="service" aria-labelledby="service-album-photos-title">
 			<div class="service__description">
-				<h3>Album photos</h3>
+				<h3 id="service-album-photos-title">Album photos</h3>
 				<p>Partagez avec vos proches et vos clients les photos des moments partagés ensemble à travers un album photo personnalisé</p>
 			</div>
 			<div class="service__price">
@@ -501,20 +565,21 @@
 		<figcaption class="quote__author">- Richard Avedon</figcaption>
 	</figure>
 </section>
-<section id="contact">
+<section id="contact" aria_labelledby="contact-title">
 	<article class="container">
 		<div class="form-container">
-			<h2>Une question ? Une demande de devis ?</h2>
-			<p> N’hésitez pas à m’écrire ! Je vous répondrais en moins de 24 heures</p>
+			<h2 id="contact-title">Une question ? Une demande de devis ?</h2>
+			<p> N’hésitez pas à m'écrire ! Je vous répondrais en moins de 24 heures</p>
 		
-			<form action="#" method="post">
+			<form action="#" method="post" role="form" aria-label="formulaire de contact">
 				<label for="nom">Nom</label>
-				<input type="text" name="nom" id="nom">
+				<input type="text" name="nom" id="nom" required aria-required="true">
 				<label for="email">Email</label>
-				<input type="email" name="email" id="email">
+				<input type="email" name="email" id="email" required aria-required="true">
 				<label for="message">Message</label>
-				<textarea name="message" id="message" cols="30" rows="10"></textarea>
-				<input type="submit" value="Envoyer"/>
+				<textarea name="message" id="message" cols="30" rows="10" required aria-required="true"></textarea>
+				<!-- <input type="submit" value="Envoyer"/> -->
+				 <button type="submit" aria-label="Envoyer le message">Envoyer</button>
 			</form>
 		</div>
 		<figure class="picture right">
@@ -549,20 +614,52 @@
 	</article>
 </section>
 </main>
-<footer>
-	<p>&copy; 2021 - Nina Carducci - Photographe professionnelle à Bordeaux</p>
-	<div class=footer-content>
-	<p class="coordonees " itemscope itemtype="https://schem.org/PostalAdress">
-		<span itemprop="streetAddress">68 avenue Alsace Lorraine</span>
-		<p class="adresse"><span itemprop="postalCode"> 33200 </span></p>
-		<p class="adresse"><span itemprop="addressLocality"> Bordeaux </span></p>
+<footer role="contentinfo" aria-label="Footer, informations de contact et de localisation">
+	<!--Copyright-->
+	<p role="note" aria-label="Mention de copyright">
+		&copy; 2021 - Nina Carducci - Photographe professionnelle à Bordeaux
 	</p>
-	<p class="coordonees"><a href="mailto:nina@photographie-bordeaux.com">nina@photographie-bordeaux.com</a></p>
-	<p class="coordonees"><a href="tel:+33623254678">05 56 67 78 89</a></p>
+	<!--informations de contact et coordonées-->
+	<div class=footer-content>
+	<address 
+	 itemscope itemtype="https://schem.org/PostalAdress"
+	 aria-labelledby="adresse-title">
+	 <h2 id="adresse-title" class="visually-hidden">Coordonnées</h2>
+<!--Adresse postale-->
+	 <div id="adresse-block" role="group" aria-label="Adresse Postale">
+		<span itemprop="streetAddress" aria-label="numéro et nom de la rue">68 avenue Alsace Lorraine</span>
+	    <span itemprop="postalCode" aria-label="code postal"> 33200 </span>
+		<span itemprop="addressLocality" aria-label="ville"> Bordeaux </span>
+	</div>
+	<!--Contact-->
+	<div class="contact-block" role="group" aria-label="Moyens de contact par email ou téléphone">
+	<a href="mailto:nina@photographie-bordeaux.com"
+	itemprop="email"
+	 aria-label="Adresse e-mail de la photographe Nina Carducci : nina@photographie-bordeaux.com"
+	 class="contact-link">
+	<span class="icon" aria-hidden="true">✉️</span>
+	nina@photographie-bordeaux.com
+    </a>
+	<a href="tel:+33623254678"
+	 itemprop="telephone"
+	 aria-label="Numéro de téléphone de la photographe Nina Carducci : 05 56 67 78 89"
+	 class="contact-link"
+	 >
+	<span class="icon" aria-hidden="true">📞</span>
+	05 56 67 78 89</a>
     </div>
-	<div class="horaires">
-		<h6>Nina Carducci vous réponds au téléphone :</h6>
-        <p>Lundi - Vendredi : 9h - 18h</p>
+	</address>
+	<div class="horaires"
+	role="complementary"
+	aria-labelledby="horaires-title"
+	itemscope
+	itemtype="https://schema.org/OpeningHoursSpecification">
+
+		<h6 id="horaires-title">Nina Carducci vous réponds au téléphone :</h6>
+        <p itemprop="openingHours"
+		aria-label="Horaires d'ouverture de la photographe Nina Carducci : Lundi - Vendredi : 9h - 18h">
+		<span class="icon" aria-hidden="true">🕒</span>
+		Lundi - Vendredi : 9h - 18h</p>
 	</div>
 </footer>
 
