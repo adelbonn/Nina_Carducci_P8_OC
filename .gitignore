@@ -1,0 +1,29 @@
+# Dépendances Node.js
+node_modules/
+package-lock.json
+
+# Dossiers d'images optimisées et originales
+assets/images/imagesOptimisées/
+
+
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fichiers d'environnement
+.env
+.env.local
+.env.*.local
+
+# Fichiers IDE
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
