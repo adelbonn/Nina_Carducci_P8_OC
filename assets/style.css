@@ -51,14 +51,17 @@ img {
 .carousel {
 	contain: layout style paint;
 	margin: 0 auto;
+	/* height: calc(100vh - 20px); Hauteur fixe basé sur le viewport */
+	overflow: hidden;/*Evite le débordement*/
 }
 .carousel-item {
 	contain: layout style paint;
+	height: 100%; /*prend toute la hauteur du carousel*/
 }
 .carousel-item img {
     object-fit: cover;
     width: 100%;
-    height: 100%;
+    height: 100%; 
     transform: translateZ(0); /* Force hardware acceleration matérielle */
     will-change: transform; /*permet au navigateur d'optimiser l'animation en preparant les ressources necessaires pour gere les transformations de manière plus fluide*/
 }
@@ -69,6 +72,7 @@ img {
 	padding-inline: 100px;
 	padding-block: 100px;
 	position: relative;
+	min-height: 500px; /*hauteur minimale pour éviter le CLS*/
 }
 .picture.left {
 	flex:1;
@@ -76,6 +80,7 @@ img {
 	z-index:0;
 	position: relative;
 	width: 100%;
+	aspect-ratio: 1/1; /*Maintient un ratio constant*/
 }
 
 
@@ -142,15 +147,18 @@ img {
 	/* color: #fff; */
 	color: black;
 	background-color: #BEB45A;
-	border-radius:0 ;
+	border-radius:0;
 }
 .nav-pills .nav-link {
-	color: #000
+	color: #000;
+	border: none;
+
 }
 .item-column {
 	position: relative;
 	margin-bottom: 0 !important;
 	padding: 0;
+	min-height: 300px; /*hauteur minimale pour éviter le CLS*/
 }
 .item-column::after{
 	content: "";
@@ -164,10 +172,12 @@ img {
 	height: 100%;
 	object-fit: cover;
 	padding: .5em;
+	aspect-ratio: 1/1; /*force un ratio carré*/
+	transform: translatez(0); /*idem que pour carousel force hardware acceleration matérielle */
 }
 /**optimisation gallery*************/
 #gallery {
-	/*	min-height: 100vh; */ 
+		/* min-height: 100vh;  */
 }
 
 /* .gallery-item {
@@ -183,7 +193,20 @@ img {
     transform: translateZ(0); acceleration matérielle (cf: https://www.alsacreations.com/astuce/lire/1565-acceleration-materielle-au-service-de-vos-animations-css.html)
 } */
 /***************************/
-.mg-prev, .mg-next {
+.close {
+	position: absolute;
+   top: 20px;
+   right: 4px;
+   z-index: 1;
+   font-size: 2rem;
+   font-weight: 100;
+   line-height: 1;
+   color: #000;
+   border: none;
+   background: #fff;
+}
+
+.mg-prev {
 	width: 30px;
 	height: 30px;
 	border-radius: 00%;
@@ -191,23 +214,48 @@ img {
 	align-items: center;
 	display: flex;
 	font-size: 24px;
+	border: none;
+	background: white;
+	left: -15px;
+	top: 50%;
+	position: absolute;
+	transform: translateY(-50%);
+	cursor: pointer;
 }
-
+.mg-next {
+	width: 30px;
+	height: 30px;
+	border-radius: 00%;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	font-size: 24px;
+	border: none;
+	background: white;
+	right: -15px;
+	top: 50%;
+	position: absolute;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+.mg-next:hover, .mg-prev:hover {
+	cursor: pointer;
+}
 .quote {
-	font-family: 'Spectral';
+	font-family: 'Spectral', serif;
 	font-style: italic;
 	width: 70%;
 	margin: auto;
 	padding-block: 3em;
 }
 .quote__text {
-	font-family: Spectral;
+	font-family: 'Spectral', serif;
 	font-style: italic;
 	font-weight: 300;
 
 }
 .quote__author {
-	font-family: Spectral;
+	font-family: 'Spectral', serif;
 	font-weight: 800;
 	font-size: 22px;
 }
@@ -296,9 +344,16 @@ form textarea {
 	font-size: 1.2em;
 	margin-bottom: 20px;
 }
-input[type="submit"] {
+.form-button {
 	background-color: #BEB45A;
-	padding: .5em 1em
+	padding: .5em 1em;
+	width: 100%;
+	border: solid 1px;
+	height: 2.5em;
+	margin-bottom: 20px;
+}
+.form-button:hover {
+	cursor: pointer;
 }
 footer {
 	padding: 20px;
@@ -318,15 +373,7 @@ footer p {
 	align-items: center;
 }
 
-/* .address {
-	display: flex;
-	padding-left: 10px;
-	font-size: 14px;
-	justify-content: space-between;
-	align-items: center;
-} */
  address {
-	/* align-items: start; */
 	margin: 0;
 	font-size: 14px;
 	padding-left: 10px;
@@ -476,7 +523,12 @@ footer p {
 	footer p {  
 		margin: 0; 
 		text-align: center;
-		font-size: 14px;
+		font-size: 12px;
     }
+	.close {
+	   z-index: 1;
+	   font-size: 1rem;
+	   font-weight: 100
 }
 
+}

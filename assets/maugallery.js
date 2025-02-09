@@ -49,23 +49,65 @@
     navigation: true
   };
   $.fn.mauGallery.listeners = function(options) {
-    $(".gallery-item").on("click", function() {
+    //Gestion des clics sur les images
+    $(".gallery-item").on("click keydown", function(event) {
+      if (event.type === "click" || (event.type ==="keydown" && event.key === "Enter")) {
       if (options.lightBox && $(this).prop("tagName") === "IMG") {
         $.fn.mauGallery.methods.openLightBox($(this), options.lightboxId);
       } else {
         return;
       }
+      }
     });
 
-    $(".gallery").on("click", ".nav-link", $.fn.mauGallery.methods.filterByTag);
-    $(".gallery").on("click", ".mg-prev", () =>
-      $.fn.mauGallery.methods.prevImage(options.lightboxId)
-    );
-    $(".gallery").on("click", ".mg-next", () =>
-      $.fn.mauGallery.methods.nextImage(options.lightboxId)  //
-    );
+//Gestion des filtres avec le clavier
+$(".gallery").on("click keydown", ".nav-link", function(event) {
+  if (event.type === "click" || (event.type === "keydown" && event.key === "Enter")) {
+    //mise a jour des états des filtres et de l'ARIA
+    $(".nav-link").attr("aria-pressed", "false");
+    $(this).attr("aria-pressed", "true");
+    $.fn.mauGallery.methods.filterByTag.call(this);
+  }
+});
+
+//naviagtion dans la lightbox
+$(".gallery").on("click keydown", ".mg-prev", function(event) {
+  if (event.type === "click" || (event.type === "keydown" && event.key === "Enter")) {
+    $.fn.mauGallery.methods.prevImage(options.lightboxId);
+  }
+});
+$(".gallery").on("click keydown", ".mg-next", function(event) {
+  if (event.type === "click" || (event.type === "keydown" && event.key === "Enter")) {
+    $.fn.mauGallery.methods.nextImage(options.lightboxId);
+  }
+})
+//support de touches de navigation
+$(document).on("keydown", function(event) {
+  if($("modal.fade").is(":visible")) {
+    switch(event.key) {
+      case "ArrowLeft":
+        $(".mg-prev").trigger("click");  //tester trigger avec AT et sinon garder : $(".mg-prev").click();
+        break;
+      case "ArrowRight":
+        $(".mg-next").trigger("click"); // tester trigger avec AT et sinon garder : $(".mg-next").click();
+        break;
+      case "Escape":
+        $(".modal.fade").modal("hide");
+        break;
+    }
+  }
+});
+
+    // $(".gallery").on("click keydown", ".nav-link", $.fn.mauGallery.methods.filterByTag);
+    // $(".gallery").on("click", ".mg-prev", () =>
+    //   $.fn.mauGallery.methods.prevImage(options.lightboxId)
+    // );
+    // $(".gallery").on("click", ".mg-next", () =>
+    //   $.fn.mauGallery.methods.nextImage(options.lightboxId)  
+    // );
+
   };
-  $.fn.mauGallery.methods = {  //
+  $.fn.mauGallery.methods = { 
     createRowWrapper(element) {   
       if (
         !element
@@ -114,119 +156,194 @@
       }
     },
     openLightBox(element, lightboxId) {
-      $(`#${lightboxId}`)
-        .find(".lightboxImage")
-        .attr("src", element.attr("src"));
-      $(`#${lightboxId}`).modal("toggle");
-    },
-    prevImage() {
-      let activeImage = null;
-      $("img.gallery-item").each(function() {
-        if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
-          activeImage = $(this);
-        }
-      });
-      let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
-      let imagesCollection = [];
-      if (activeTag === "all") {
-        $(".item-column").each(function() {
-          if ($(this).children("img").length) {
-            imagesCollection.push($(this).children("img"));
-          }
-        });
-      } else {
-        $(".item-column").each(function() {
-          if (
-            $(this)
-              .children("img")
-              .data("gallery-tag") === activeTag
-          ) {
-            imagesCollection.push($(this).children("img"));
-          }
-        });
-      }
-      let index = 0,
-        next = null;
+      const $lightbox = $(`#${lightboxId}`);
+      const $lightboxImage = $lightbox.find(".lightboxImage");
+      const imageAlt = element.attr("alt") || "image de la galerie";
+      const imageSrc = element.attr("src");
+      const $modal = $lightbox;
 
-      $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i - 1;
-        }
-      });
-      next =
-        imagesCollection[index] ||
-        imagesCollection[imagesCollection.length - 1];
-      $(".lightboxImage").attr("src", $(next).attr("src"));
-    },
-    nextImage() {
-      let activeImage = null;
-      $("img.gallery-item").each(function() {
-        if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
-          activeImage = $(this);
-        }
-      });
-      let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
-      let imagesCollection = [];
-      if (activeTag === "all") {
-        $(".item-column").each(function() {
-          if ($(this).children("img").length) {
-            imagesCollection.push($(this).children("img"));
-          }
-        });
-      } else {
-        $(".item-column").each(function() {
-          if (
-            $(this)
-              .children("img")
-              .data("gallery-tag") === activeTag
-          ) {
-            imagesCollection.push($(this).children("img"));
-          }
-        });
-      }
-      let index = 0,
-        next = null;
+      $lightboxImage.attr("src", imageSrc);
+      $lightboxImage.attr("alt", imageAlt);
 
-      $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i + 1;
-        }
-      });
-      next = imagesCollection[index] || imagesCollection[0];
-      $(".lightboxImage").attr("src", $(next).attr("src"));
+      //ouvre la modale avec bootstrap
+      $modal.modal("show");
     },
+  
+prevImage(lightboxId) {
+  const $modal = $(`#${lightboxId}`);
+  const $currentImage = $modal.find(".lightboxImage");
+  const $currentSrc = $currentImage.attr("src");
+
+  //recupéré toutes les images visible dans la galerie
+  const $galleryImages = $(".gallery-item:visible");
+  let currentIndex = -1;
+
+  //trouve l index de l'image courante
+  $galleryImages.each(function(index) {
+    if ($(this).attr("src") === $currentSrc) {
+      currentIndex = index;
+    }
+  });
+
+  //calculer l index precedent
+  const prevIndex = currentIndex -1 < 0 ? $galleryImages.length -1 : currentIndex -1;
+  const $prevImage = $galleryImages.eq(prevIndex);
+
+  if ($prevImage.length) {
+    const prevAlt = $prevImage.attr("alt") || "Image de la galerie";
+    $currentImage
+    .attr("src", $prevImage.attr("src"))
+    .attr("alt", prevAlt);
+     }
+      // Annonce pour les lecteurs d'écrans
+    $("#lightbox-caption").text(`Image suivante : ${prevAlt}`);
+  },
+    nextImage(lightboxId) {
+      const $modal = $(`#${lightboxId}`);
+      const $currentImage = $modal.find(".lightboxImage");
+      const $currentSrc = $currentImage.attr("src");
+
+      //recupéré toutes les images visible dans la galerie
+
+      const $galleryImages = $(".gallery-item:visible");
+      let currentIndex = -1;
+
+      //trouve l index de l'image courante
+      $galleryImages.each(function(index) {
+        if ($(this).attr("src") === $currentSrc) {
+          currentIndex = index;
+        }
+      })
+
+      //calculer l index suivant
+      const nextIndex = currentIndex + 1 >= $galleryImages.length ? 0 : currentIndex + 1;
+      const $nextImage = $galleryImages.eq(nextIndex);
+
+      if ($nextImage.length) {
+        const nextAlt = $nextImage.attr("alt") || "Image de la galerie";
+        $currentImage
+        .attr("src", $nextImage.attr("src"))
+        .attr("alt", nextAlt);
+      }
+
+      // Annonce pour les lecteurs d'écrans
+      $("#lightbox-caption").text(`Image suivante : ${nextAlt}`);
+   
+    },
+    //cree la modale
     createLightBox(gallery, lightboxId, navigation) {
+      const modalId = lightboxId ? lightboxId : "galleryLightbox";
       gallery.append(
-        `<div class="modal fade" id="${
-        lightboxId ? lightboxId : "galleryLightbox"
-      }" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
+      `<div class="modal fade"
+         id="${modalId}"
+         tabindex="-1"
+         role="dialog"
+         aria-label="modale de visualisation des images"
+         aria-modal="true"
+        >
+           <div class="modal-dialog" role="document">
+              <div class="modal-content">  
+               <div class="modal-header">
+                 <button type="button"
+                   class="close"
+                   data-bs-dismiss="modal"
+                   aria-label="Fermer la modale"              
+                   >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+               </div>
+                    <div class="modal-body">
+                        <div class="lightbox">
                             ${
                               navigation
-                                ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;"><</div>'
+                                ? '<button class="mg-prev" type="button" aria-label="voir l\'image precedente" title="image precedente"><</button>'
                                 : '<span style="display:none;" />'
                             }
-                            <img class="lightboxImage img-fluid" alt="Contenu de l'image affichée dans la modale au clique"/>
+                            <img class="lightboxImage
+                             img-fluid" 
+                             alt="Contenu de l'image affichée dans la modale au clique"
+                            src=""
+                            alt=""
+                            aria-live="polite"
+                            />
                             ${
                               navigation
-                                ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}">></div>'
+                                ? '<button class="mg-next" type="button" aria-label="voir l\'image suivante" title="image suivante">></button>'
                                 : '<span style="display:none;" />'
                             }
-                        </div>
-                    </div>
+                         </div>  
+                      </div>
                 </div>
-            </div>`);
-    },
-    showItemTags(gallery, position, tags) {   //créer les boutons de filtrage
+              </div>
+            </div>`
+          );
+
+          const $modal = $(`#${modalId}`);
+
+  // Gestion de l'ouverture de la modal (attache les événements directements a la modale)
+  // const $modal = $(`#${lightboxId ? lightboxId : "galleryLightbox"}`);
+    
+  //gestion des evenements pour la navigation avec les flèches
+  $modal.find(".mg-prev").on("click",  () => {
+    $.fn.mauGallery.methods.prevImage(modalId);
+  });
+
+  $modal.find(".mg-next").on("click", () => {
+    $.fn.mauGallery.methods.nextImage(modalId);
+  });
+
+  //navigation au clavier
+  $(document).on("keydown", function(event) {
+    if ($modal.is(":visible")) {
+      switch(event.key) {
+        case "ArrowLeft":
+          $.fn.mauGallery.methods.prevImage(modalId);
+          break;
+        case "ArrowRight":
+            $.fn.mauGallery.methods.nextImage(modalId);
+            break;
+        case "Escape":
+          $modal.modal("hide");
+          break;
+      }
+    }
+  });
+//nettoyage a la fermeture de la modale
+  $modal.on('hidden.bs.modal', function () {
+      const $lightboxImage = $(this).find('.lightboxImage');
+      $lightboxImage.attr('src', '');
+      $lightboxImage.attr('alt', '');
+      $('#lightbox-caption').text('');
+  })
+},
+    //gestion des tags 
+    showItemTags(gallery, position, tags) {   
       var tagItems =
-        '<li class="nav-item"><span class="nav-link active active-tag"  data-images-toggle="all">Tous</span></li>';
-      $.each(tags, function(index, value) {  // corriger le index qui n'est pas utiliser
-        tagItems += `<li class="nav-item active">
-                <span class="nav-link"  data-images-toggle="${value}">${value}</span></li>`;
+        '<li class="nav-item" role="presentation"><button class="nav-link active active-tag" data-images-toggle="all" type="button" role="tab" aria-selected="true" aria-controls="gallery-all" aria-pressed="true" aria-label="Afficher toutes les images de la gallery">Tous</button></li>';
+      
+      $.each(tags, function(index, value) {  
+        tagItems += `<li class="nav-item active" role="presentation">
+                <button class="nav-link"  
+                data-images-toggle="${value}" 
+                type="button"
+                role="tab" 
+                aria-selected="false" 
+                aria-controls="gallery-${value.toLowerCase()}"
+                aria-pressed="false" 
+                aria-label="Afficher les images de la catégorie ${value}"
+                title="Afficher les images de la catégorie ${value}">${value}</button>
+                </li>`;
       });
-      var tagsRow = `<ul class="my-4 tags-bar nav nav-pills">${tagItems}</ul>`;
+
+      //Structure de la navigation avec aria
+      var tagsRow = `
+      <nav class="nav-tags" 
+           role="navigation"
+           aria-label="Filtres de la galerie de photos du portfolio de Nina Carducci">
+        <ul class="my-4 tags-bar nav nav-pills" role="tablist">
+          ${tagItems}
+        </ul>
+      </nav>`;
 
       if (position === "bottom") {
         gallery.append(tagsRow);

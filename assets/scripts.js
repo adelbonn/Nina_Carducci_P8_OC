@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    //initialisation de la galerie avec un petit deali pour s'assurer que le DOM est prêt)
+    setTimeout(function() {
     $('.gallery').mauGallery({
         columns: {
             xs: 1,
@@ -12,6 +14,9 @@ $(document).ready(function() {
         showTags: true,
         tagsPosition: 'top'
     });
+//affiche la galerie après initialisation
+$('.gallery').fadeIn();
+    }, 100);
 });
 //fn raccourci jQuery qui s'exécute lorsque le DOM est complètement chargé, donc l'élément gallery ne s'écécute qu'après le chargement de la page entière
 // light box : true, affiche les images en grand format pour la modal lightbox

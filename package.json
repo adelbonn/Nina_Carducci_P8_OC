@@ -8,7 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "optimize": "node assets/scripts/optimisationImages.js",
     "test-optimize": "node assets/scripts/optimisationImages.js --test",
-    "watch": "node assets/scripts/optimisationImages.js --watch"
+    "watch": "node assets/scripts/optimisationImages.js --watch",
+    "generate-sitemaps": "node assets/scripts/generate-sitemap.js",
+    "generate-sitemaps:watch": "node assets/scripts/generate-sitemap.js --watch"
   },
   "repository": {
     "type": "git",

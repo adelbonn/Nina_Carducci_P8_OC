@@ -103,6 +103,7 @@
 		  .carousel {
 			contain: layout style paint;
 		  }
+		 
 		  #carouselExampleIndicators {
 			aspect-ratio: 1920/888;
 		  }
@@ -117,9 +118,8 @@
 			}
 		  }
 		  .carousel-item img {
-			object-fit: cover;
-			width: 100%;
 			height: auto;
+			aspect-ratio: 16/9;
 		  }
 	</style>
 
@@ -166,11 +166,11 @@
 	<h1 class="name"><strong>Nina Carducci</strong></h1> 
 	<nav class="nav" aria-label="menu de navigation principal" role ="navigation">   
 		<ul>
-			<li role="none"><a href="#about" role ="menuitem">À propos</a></li> 
-			<li role="none"><a href="#gallery" role ="menuitem">Galerie</a></li>
-			<li role="none"><a href="#services" role ="menuitem">Service</a></li>
-			<li role="none"><a href="#contact" role ="menuitem">Contact</a></li>
-			<li role="none"><a class="social-link" role="menuitem"
+			<li><a href="#about" role ="menuitem">À propos</a></li> 
+			<li><a href="#gallery" role ="menuitem">Galerie</a></li>
+			<li><a href="#services" role ="menuitem">Service</a></li>
+			<li><a href="#contact" role ="menuitem">Contact</a></li>
+			<li><a class="social-link" role="menuitem"
 				href="https://www.instagram.com/ninacarducci.photo/?hl=fr"
 				 target="_blank"
 				 rel="noopener">
@@ -206,7 +206,7 @@
 			aria-current="true"
 			 aria-label="Slide 1"
 			 role="tab"
-			 > <!--dder si je doit mettre tabindex="0"-->
+			 > 
 			</button>
 			<button 
 			type="button" 
@@ -408,7 +408,7 @@
 <section id="gallery">
 	<h2 class="title">Portfolio</h2>
 	<div class="container py-3">
-		<div class="gallery" style="display: none">
+		<div class="gallery"><!-- style="display: none", vérifier si bien gérer par le scriopt-->
 			<!--Concert images-->
 			<img data-gallery-tag="Concert"
 			class="gallery-item"
@@ -579,7 +579,7 @@
 				<label for="message">Message</label>
 				<textarea name="message" id="message" cols="30" rows="10" required aria-required="true"></textarea>
 				<!-- <input type="submit" value="Envoyer"/> -->
-				 <button type="submit" aria-label="Envoyer le message">Envoyer</button>
+				 <button class="form-button" type="submit" aria-label="Envoyer le message">Envoyer</button>
 			</form>
 		</div>
 		<figure class="picture right">
@@ -655,7 +655,7 @@
 	itemscope
 	itemtype="https://schema.org/OpeningHoursSpecification">
 
-		<h6 id="horaires-title">Nina Carducci vous réponds au téléphone :</h6>
+		<p id="horaires-title" class="horaires-title">Nina Carducci vous réponds au téléphone :</p>
         <p itemprop="openingHours"
 		aria-label="Horaires d'ouverture de la photographe Nina Carducci : Lundi - Vendredi : 9h - 18h">
 		<span class="icon" aria-hidden="true">🕒</span>
