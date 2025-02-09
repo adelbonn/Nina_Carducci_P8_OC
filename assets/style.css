@@ -1,9 +1,24 @@
+/*permet de réduire le CLS (cumulative layout Shift) */
+
+@font-face {
+	font-family: 'Spectral';
+	src: url('path/to/spectral.woff2') format('woff2');
+	font-display: swap;
+  }
+  
+  @font-face {
+	font-family: 'Inter';
+	src: url('path/to/inter.woff2') format('woff2');
+	font-display: swap;
+  }
+
 body {
 	max-width: 1920px;
 	margin: auto;
+	font-family: 'Inter', sans-serif;
 }
 * {
-	font-family: 'Inter';
+	font-family: 'Inter', sans-serif;
 	font-style: normal;
 }
 
@@ -21,6 +36,7 @@ img {
 	padding-inline: 100px;
 	padding-block: 30px;
 	align-items: center;
+	min-height: 100px;
 }
 
 .top-header .name {
@@ -242,7 +258,7 @@ img {
 	cursor: pointer;
 }
 .quote {
-	font-family: 'Spectral', serif;
+	font-family: 'Spectral', sans-serif;
 	font-style: italic;
 	width: 70%;
 	margin: auto;

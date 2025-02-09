@@ -79,8 +79,8 @@
 					"Thursday",
 					"Friday"
 				],
-				"opens": "10:00",
-				"closes": "19:00"
+				"opens": "9:00",
+				"closes": "18:00"
 			},
 			"priceRange": "€€",
 			"sameAs": [
@@ -98,10 +98,11 @@
       media="(min-width: 1024px)">
 
 	<!--CSS Critique pour éviter le CLS-->
-	<style>
+	<!-- <style>
 		/*style critiques pour le LCP (carousel est le  LCP) et anti-CLS*/
 		  .carousel {
 			contain: layout style paint;
+			min-height: 565px;
 		  }
 		 
 		  #carouselExampleIndicators {
@@ -121,7 +122,7 @@
 			height: auto;
 			aspect-ratio: 16/9;
 		  }
-	</style>
+	</style> -->
 
 	<!--JQuery (nécessaire pour Bootstrap) (ajout de defer pour eviter le BLS qui est un CLS c'est à dire un chargement tardif, donc defer permet au navigateur de charger JQuery avant de charger Bootstrap car Bootstrap utilise JQuery et donc JQuery doit etre chargé avant) -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" 
@@ -146,8 +147,8 @@
 	<!--bootstrap css-->
 	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
 	<!--liens google font (preconnect pour le prechargement DNS)-->
-	<link rel="preconnect" href="https://fonts.googleapis.com" as="font" crossorigin>
-	<link rel="preconnect" href="https://fonts.gstatic.com" as="font" crossorigin>
+	<link rel="preload" href="https://fonts.googleapis.com" as="font" crossorigin>
+	<link rel="preload" href="https://fonts.gstatic.com" as="font" crossorigin>
 	<!--chargement optimisé des polices (media print pour le chargement des polices sur les appareils mobiles)-->
 	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" 
 	rel="stylesheet"
@@ -410,7 +411,7 @@
 <section id="gallery">
 	<h2 class="title">Portfolio</h2>
 	<div class="container py-3">
-		<div class="gallery"><!-- style="display: none", vérifier si bien gérer par le scriopt-->
+		<div class="gallery"><!-- style="display: none", vérifier si bien gérer par le script-->
 			<!--Concert images-->
 			<img data-gallery-tag="Concert"
 			class="gallery-item"
