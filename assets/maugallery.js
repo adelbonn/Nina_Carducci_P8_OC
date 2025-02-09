@@ -194,9 +194,11 @@ prevImage(lightboxId) {
     $currentImage
     .attr("src", $prevImage.attr("src"))
     .attr("alt", prevAlt);
-     }
+
       // Annonce pour les lecteurs d'écrans
-    $("#lightbox-caption").text(`Image suivante : ${prevAlt}`);
+      $("#lightbox-caption").text(`Image suivante : ${prevAlt}`);
+     }
+    
   },
     nextImage(lightboxId) {
       const $modal = $(`#${lightboxId}`);
@@ -224,10 +226,12 @@ prevImage(lightboxId) {
         $currentImage
         .attr("src", $nextImage.attr("src"))
         .attr("alt", nextAlt);
+
+         // Annonce pour les lecteurs d'écrans
+      $("#lightbox-caption").text(`Image suivante : ${nextAlt}`);
       }
 
-      // Annonce pour les lecteurs d'écrans
-      $("#lightbox-caption").text(`Image suivante : ${nextAlt}`);
+     
    
     },
     //cree la modale
