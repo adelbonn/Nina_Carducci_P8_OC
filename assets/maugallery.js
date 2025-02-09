@@ -323,17 +323,14 @@ prevImage(lightboxId) {
     //gestion des tags 
     showItemTags(gallery, position, tags) {   
       var tagItems =
-        '<li class="nav-item" role="presentation"><button class="nav-link active active-tag" data-images-toggle="all" type="button" role="tab" aria-selected="true" aria-controls="gallery-all" aria-pressed="true" aria-label="Afficher toutes les images de la gallery">Tous</button></li>';
+        '<li class="nav-item"><button class="nav-link active active-tag" data-images-toggle="all" type="button" aria-controls="gallery-all" aria-label="Afficher toutes les images de la gallery">Tous</button></li>';
       
       $.each(tags, function(index, value) {  
-        tagItems += `<li class="nav-item active" role="presentation">
+        tagItems += `<li class="nav-item active">
                 <button class="nav-link"  
                 data-images-toggle="${value}" 
                 type="button"
-                role="tab" 
-                aria-selected="false" 
                 aria-controls="gallery-${value.toLowerCase()}"
-                aria-pressed="false" 
                 aria-label="Afficher les images de la catégorie ${value}"
                 title="Afficher les images de la catégorie ${value}">${value}</button>
                 </li>`;
@@ -342,9 +339,8 @@ prevImage(lightboxId) {
       //Structure de la navigation avec aria
       var tagsRow = `
       <nav class="nav-tags" 
-           role="navigation"
-           aria-label="Filtres de la galerie de photos du portfolio de Nina Carducci">
-        <ul class="my-4 tags-bar nav nav-pills" role="tablist">
+           aria-label="barre de navigation avec bouttons de filtres de la galerie de photos du portfolio de Nina Carducci">
+        <ul class="my-4 tags-bar nav nav-pills">
           ${tagItems}
         </ul>
       </nav>`;
