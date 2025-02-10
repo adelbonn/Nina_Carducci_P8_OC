@@ -35,7 +35,7 @@
   	<meta property="og:url" content="https://adelbonn.github.io/Nina_Carducci_P8_OC/">
   	<meta property="og:title" content="Nina Carducci - Photographe professionnelle à Bordeaux">
  	<meta property="og:description" content="Photographe professionnelle à Bordeaux spécialisée en portrait, mariage et événementiel. Shooting photo, retouches et albums personnalisés de qualité.">
- 	<meta property="og:image" content="https://adelbonn.github.io/Nina_Carducci_P8_OC/assets/images/optimized/about-portrait-Nina-Carducci//about-portrait-Nina-Carducci-photographe.webp">
+ 	<meta property="og:image" content="https://adelbonn.github.io/Nina_Carducci_P8_OC/assets/images/optimized/about-portrait-Nina-Carducci/RS/FB/about-portrait-Nina-Carducci-photographe-rs-fb.webp">
   	<meta property="og:image:width" content="600">
   	<meta property="og:image:height" content="315">
   	<meta property="og:locale" content="fr_FR">
@@ -92,8 +92,8 @@
 		</script>
 
 <!--liens google font (preconnect pour le prechargement DNS) remplacer par preload-->
-<link rel="preload" href="https://fonts.googleapis.com" as="font" crossorigin>
-<link rel="preload" href="https://fonts.gstatic.com" as="font" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com" as="font" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" as="font" crossorigin>
 <!--chargement optimisé des polices (media print pour le chargement des polices sur les appareils mobiles)-->
 <link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" 
 rel="stylesheet"
@@ -182,7 +182,8 @@ onload="this.media='all'">
 			data-bs-slide-to="0" 
 			class="active" 
 			aria-current="true"
-			 aria-label="Slide 1"
+			 aria-label="Diapositive 1"
+			 aria-controls="carousel-tem-1"
 			 role="tab"
 			 > 
 			</button>
@@ -190,7 +191,8 @@ onload="this.media='all'">
 			type="button" 
 			data-bs-target="#carouselExampleIndicators" 
 			data-bs-slide-to="1"
-			aria-label="Slide 2"
+			aria-label="Diapositive 2"
+			aria-controls="carousel-tem-2"
 			role="tab"
 			>
 			</button>
@@ -198,16 +200,18 @@ onload="this.media='all'">
 			type="button" 
 			data-bs-target="#carouselExampleIndicators"
 			 data-bs-slide-to="2" 
-			 aria-label="Slide 3"
+			 aria-label="Diapositive 3"
 			 role="tab"
+			 aria-controls="carousel-tem-3"
 			 >
 			</button>
 		</div>
 		<div class="carousel-inner">
 			<div class="carousel-item active"
+			id="carousel-tem-1"
 			role="tabpanel"	
 			aria-roledescription="diapositive"
-			aria-label="diapositive 1 sur 3"
+			aria-label="1 sur 3, photographie homme d'affaire traversant la rue"
 			>
 				<!--structure responsive pour les images, en utilisant les balises <picture> et <source>, le navigateur chois selon la taille de l'écra l'image a affiche, l'attribut srcset indique le chemin de l'image, l'attribut fetcpriority="high" indique que l'image doit etre charger prioritaire, l'attribut type="image/webp" indique que l'image est en format webp, et alt indique le texte alternatif de l'image-->
 				<picture>
@@ -246,9 +250,10 @@ onload="this.media='all'">
 				</picture>
 			</div>
 			<div class="carousel-item"
+				id="carousel-tem-2"
 				role="tabpanel"	
 				aria-roledescription="diapositive"
-				aria-label="diapositive 2 sur 3"
+				aria-label="2 sur 3, cliché jeunes gens en concert levant les bras"
 			>
 				<picture>	
 					<!-- Desktop -->
@@ -283,9 +288,10 @@ onload="this.media='all'">
 				</picture>
 			</div>
 			<div class="carousel-item"
+				id="carousel-tem-3"
 				role="tabpanel"	
 				aria-roledescription="diapositive"
-				aria-label="diapositive 3 sur 3"
+				aria-label="3 sur 3, cliché jeunes marié s'embrassant en dansant"
 			>
 				<picture>
 					<!-- Desktop -->
@@ -324,16 +330,17 @@ onload="this.media='all'">
 		class="carousel-control-prev" 
 		type="button"
 		 data-bs-target="#carouselExampleIndicators"
-		  data-bs-slide="prev"
-		  aria-label="Diapositive précédente"
+		data-bs-slide="prev"
+		aria-label="Diapositive précédente"
 		  >
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			<span class="visually-hidden">Previous</span>
 		</button>
 		<button class="carousel-control-next" 
 		type="button"
-		 data-bs-target="#carouselExampleIndicators" data-bs-slide="next"
-		  aria-label="Diapositive suivante"
+		data-bs-target="#carouselExampleIndicators" 
+		data-bs-slide="next"
+		aria-label="Diapositive suivante"
 		  >
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="visually-hidden">Next</span>

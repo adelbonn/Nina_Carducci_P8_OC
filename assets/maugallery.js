@@ -260,7 +260,7 @@ prevImage(lightboxId) {
                         <div class="lightbox">
                             ${
                               navigation
-                                ? '<button class="mg-prev" type="button" aria-label="voir l\'image precedente" title="image precedente"><</button>'
+                                ? '<button class="mg-prev" type="button" aria-label="voir l\'image precedente"><</button>'
                                 : '<span style="display:none;" />'
                             }
                             <img class="lightboxImage
@@ -272,7 +272,7 @@ prevImage(lightboxId) {
                             />
                             ${
                               navigation
-                                ? '<button class="mg-next" type="button" aria-label="voir l\'image suivante" title="image suivante">></button>'
+                                ? '<button class="mg-next" type="button" aria-label="voir l\'image suivante">></button>'
                                 : '<span style="display:none;" />'
                             }
                          </div>  
@@ -321,18 +321,30 @@ prevImage(lightboxId) {
   })
 },
     //gestion des tags 
-    showItemTags(gallery, position, tags) {   
+    showItemTags(gallery, position, tags) {  
+      
+      // Créer les conteneurs pour les images filtrées
+      gallery.find('.gallery-item').wrap('<div role="tabpanel"></div>');
+      
+      // Ajouter les IDs aux conteneurs
+      gallery.find('.gallery-item').each(function() {
+        const tag = $(this).data('gallery-tag') || 'all';
+        $(this).parent().attr('id', `gallery-${tag.toLowerCase()}`);
+      });
+
+
       var tagItems =
         '<li class="nav-item"><button class="nav-link active active-tag" data-images-toggle="all" type="button" aria-controls="gallery-all" aria-label="Afficher toutes les images de la gallery">Tous</button></li>';
       
-      $.each(tags, function(index, value) {  
+      $.each(tags, function(index, value) { 
+        const tagId =`gallery-${value.toLowerCase()}`; 
         tagItems += `<li class="nav-item active">
                 <button class="nav-link"  
                 data-images-toggle="${value}" 
                 type="button"
-                aria-controls="gallery-${value.toLowerCase()}"
+                aria-controls="${tagId}""
                 aria-label="Afficher les images de la catégorie ${value}"
-                title="Afficher les images de la catégorie ${value}">${value}</button>
+                >${value}</button>
                 </li>`;
       });
 
