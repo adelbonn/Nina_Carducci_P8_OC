@@ -1,17 +1,16 @@
 /*permet de réduire le CLS (cumulative layout Shift) */
-
-@font-face {
-	font-family: 'Spectral';
-	src: url('path/to/spectral.woff2') format('woff2');
-	font-display: swap;
-  }
-  
-  @font-face {
+/* @font-face {
 	font-family: 'Inter';
 	src: url('path/to/inter.woff2') format('woff2');
 	font-display: swap;
-  }
-
+  } */
+/*Ajouter toutes les variantes de police spectral utilisée ds le projet voir le link ds html*/
+/* @font-face {
+	font-family: 'Spectral';
+	src: url('path/to/spectral.woff2') format('woff2');
+	font-display: swap;
+  } */
+  
 body {
 	max-width: 1920px;
 	margin: auto;
@@ -21,10 +20,11 @@ body {
 	font-family: 'Inter', sans-serif;
 	font-style: normal;
 }
-
+/*********************retester avec et sans ce style sur img -c'est moi qui l'ai ajouter) pour voir le comportement des images de carousel et about et contact et tester un min-height et min-width adapté*********************************************/
 img {
 	max-width: 100%;
 	height: auto;
+	object-fit: cover;
 }
 .top-header {
 	background-color: white;
@@ -65,14 +65,15 @@ img {
 /*optimisation du carousel*/
 
 .carousel {
-	contain: layout style paint;
+	contain: layout style paint; /*améliore les performances (cf: mdn)*/
 	margin: 0 auto;
 	/* height: calc(100vh - 20px); Hauteur fixe basé sur le viewport */
-	overflow: hidden;/*Evite le débordement*/
+	overflow: hidden;
 }
 .carousel-item {
-	contain: layout style paint;
+	contain: layout style paint;  /*Vérifier si besoin de le mettre et dans le container et dans le carousel-item la logique serait le conatiner revoir sur mdn, et trouver pourquoi l'image des mariés se charge en version */
 	height: 100%; /*prend toute la hauteur du carousel*/
+	min-height: 100vh; /*hauteur minimale pour éviter le CLS*/
 }
 .carousel-item img {
     object-fit: cover;
@@ -88,7 +89,7 @@ img {
 	padding-inline: 100px;
 	padding-block: 100px;
 	position: relative;
-	min-height: 500px; /*hauteur minimale pour éviter le CLS*/
+	min-height: 500px; /*hauteur minimale pour éviter le CLS, vérifier les dimensions et redimensionner l'image si besoin*/
 }
 .picture.left {
 	flex:1;
@@ -128,6 +129,7 @@ img {
 	flex: 1;
 	margin: 0 20px;
 	z-index: 0;
+	/* min-height: ; */
 }
 
 /* .picture img {
@@ -142,7 +144,7 @@ img {
 	font-size: 30px;
 }
 .about-me__introduction {
-	font-family: 'Spectral', serif;
+	font-family: 'Spectral', sans-serif;
 	font-weight: 800;
 	font-style: italic;
 	width: 60%;
