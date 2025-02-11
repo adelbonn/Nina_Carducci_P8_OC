@@ -547,11 +547,11 @@ onload="this.media='all'">
 		
 			<form action="#" method="post" role="form" aria-label="formulaire de contact">
 				<label for="nom">Nom</label>
-				<input type="text" name="nom" id="nom" required aria-required="true">
+				<input type="text" name="nom" id="nom" required aria-required="true" autocomplete="name" aria-autocomplete="inline">
 				<label for="email">Email</label>
-				<input type="email" name="email" id="email" required aria-required="true">
+				<input type="email" name="email" id="email" required aria-required="true" autocomplete="email" aria-autocomplete="inline">
 				<label for="message">Message</label>
-				<textarea name="message" id="message" cols="30" rows="10" required aria-required="true"></textarea>
+				<textarea name="message" id="message" cols="30" rows="10" required aria-required="true" aria-describedby="écrivez votre message ici"></textarea>
 				<!-- <input type="submit" value="Envoyer"/> -->
 				 <button class="form-button" type="submit" aria-label="Envoyer le message">Envoyer</button>
 			</form>
