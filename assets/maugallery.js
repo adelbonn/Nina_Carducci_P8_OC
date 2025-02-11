@@ -283,9 +283,6 @@ prevImage(lightboxId) {
           );
 
           const $modal = $(`#${modalId}`);
-
-  // Gestion de l'ouverture de la modal (attache les événements directements a la modale)
-  // const $modal = $(`#${lightboxId ? lightboxId : "galleryLightbox"}`);
     
   //gestion des evenements pour la navigation avec les flèches
   $modal.find(".mg-prev").on("click",  () => {

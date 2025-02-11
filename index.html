@@ -24,7 +24,7 @@
 	<meta name="robots" content="index, follow">
 	<meta name="language" content="fr">
 
-	<!--balise google pour le SEO -->
+	<!--balise google pour le suivi par la search console,  SEO -->
 	<meta name="google-site-verification" content="80Y6swqlyah_02RVu7GFIOKjgbGVe7xdl2tKsIEuWT4" />
 
 	<!--balise canonical-->
@@ -91,45 +91,39 @@
 		}
 		</script>
 
-<!--liens google font (preconnect pour le prechargement DNS) remplacer par preload-->
-<link rel="preconnect" href="https://fonts.googleapis.com" as="font" crossorigin>
+<!--liens google font (tester ce qui est le mieux entre preload et preconnect pour le prechargement DNS) remplacer par preload ou tester dns-prefetch-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" as="font" crossorigin>
 <!--chargement optimisé des polices (media print pour le chargement des polices sur les appareils mobiles)-->
 <link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" 
 rel="stylesheet"
-media="print" 
+media="screen" 
 onload="this.media='all'">
 <!--Preload des ressources critiques du carousel, ici l'image de l'homme d'affaire qui traverse la rue dans le carousel-->
     <link rel="preload"
       as="image"
       href="./assets/images/optimized/carousel/desktop/webp/Photo-homme-d-affaire.webp"
       type="image/webp"
-      media="(min-width: 1024px)">
+      >
 
-	<!--JQuery (nécessaire pour Bootstrap) (ajout de defer pour eviter le BLS qui est un CLS c'est à dire un chargement tardif, donc defer permet au navigateur de charger JQuery avant de charger Bootstrap car Bootstrap utilise JQuery et donc JQuery doit etre chargé avant) -->
+	<!--JQuery (nécessaire pour Bootstrap) (ajout de defer pour eviter le BLS qui est un CLS c'est à dire un chargement tardif,Bootstrap utilise JQuery et donc JQuery doit etre chargé avant) -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" 
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
 	crossorigin="anonymous"
 	defer></script>
 
- <!-- Bootstrap Bundle (ajout de defer afin que le navigateur charge les ressources critiques avant de charger Bootstrap)-->
+ <!-- Bootstrap Bundle-->
  <script src="./assets/bootstrap/bootstrap.bundle.js" defer></script>
 
  <!-- CSS non-critique chargé de manière asynchrone afin que le navigateur charge les ressources critiques avant de charger le CSS, ce CSS est chargé avec media print afin de pouvoir être affiché sur les appareils mobiles et sur les appareils avec un navigateur non compatibles ce qui rend la page plus responsive -->
- <link rel="stylesheet" href="./assets/bootstrap/bootstrap.css" media="print" onload="this.media='all'">
- <link rel="stylesheet" href="./assets/style.css" media="print" onload="this.media='all'">
-
+ <link rel="stylesheet" href="./assets/bootstrap/bootstrap.css" media="screen" onload="this.media='all'">
+ <link rel="stylesheet" href="./assets/style.css" media="screen" onload="this.media='all'">
 
  <!-- Fallback pour le CSS si JavaScript est désactivé, afin de pouvoir afficher la page sur les appareils sans JavaScript, ce qui est utile sur les appareils avec un navigateur non compatibles et donc améliore la performance -->
  <noscript>
 	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="./assets/style.css">
-</noscript>
-
-	<!--bootstrap css-->
-	<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
-	
-	
+</noscript>	
 	<!--ajout de defer sur les script ce qui permet donc que le dom soit chargé avent les scrpt, pour aléliorer la performance-->
 	<script src="./assets/maugallery.js" defer></script>
 	<script src="./assets/scripts.js" defer></script>
@@ -199,10 +193,10 @@ onload="this.media='all'">
 			<button 
 			type="button" 
 			data-bs-target="#carouselExampleIndicators"
-			 data-bs-slide-to="2" 
-			 aria-label="Diapositive 3"
-			 role="tab"
-			 aria-controls="carousel-tem-3"
+			data-bs-slide-to="2" 
+			aria-label="Diapositive 3"
+			role="tab"
+			aria-controls="carousel-tem-3"
 			 >
 			</button>
 		</div>
@@ -360,7 +354,7 @@ onload="this.media='all'">
 
 			<!-- Tablet -->
 			<source media="(min-width: 768px)"
-			srcset="./assets/images/optimized/about-portrait-Nina-Carducci/tablet/about-portrait-Nina-Carducci-photographe (1).webp"
+			srcset="./assets/images/optimized/about-portrait-Nina-Carducci/tablet/about-portrait-Nina-Carducci-photographe.webp"
 			type="image/webp"
 			alt="photo, portrait de la photographe Nina Carducci"
 			>
@@ -467,10 +461,10 @@ onload="this.media='all'">
 			class="gallery-item" 
 			src="./assets/images/optimized/gallery/thumbnail/desktop/webp/portraits/Photographie-portrait-jeune-femme-nino-van-prattenburg-.webp" 
 			data-modal-src="./assets/images/optimized/gallery/modal/desktop/webp/portraits/Photographie-portrait-jeune-femme-nino-van-prattenburg-.webp"
-			 alt="portrait jeune femme"
-			 loading="lazy"
-			 width="440"
-			 height="440"
+			alt="portrait jeune femme"
+			loading="lazy"
+			width="440"
+			height="440"
 			 />
 
 			<!--image concert-->
