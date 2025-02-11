@@ -119,7 +119,7 @@ onload="this.media='all'">
 	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="./assets/style.css">
 </noscript>	
-	<!--ajout de defer sur les script ce qui permet donc que le dom soit chargé avent les scrpt, pour aléliorer la performance-->
+	<!--ajout de defer sur les script ce qui permet donc que le dom soit chargé avant les scrpt, pour alémiorer la performance-->
 	<script src="./assets/maugallery.js" defer></script>
 	<script src="./assets/scripts.js" defer></script>
 </head>
@@ -202,7 +202,7 @@ onload="this.media='all'">
 			aria-roledescription="diapositive"
 			aria-label="1 sur 3, photographie homme d'affaire traversant la rue"
 			>
-				<!--structure responsive pour les images, en utilisant les balises <picture> et <source>, le navigateur chois selon la taille de l'écra l'image a affiche, l'attribut srcset indique le chemin de l'image, l'attribut fetcpriority="high" indique que l'image doit etre charger prioritaire, l'attribut type="image/webp" indique que l'image est en format webp, et alt indique le texte alternatif de l'image-->
+				<!--structure responsive pour les images, en utilisant les balises <picture> et <source>, le navigateur choisi selon la taille de l'écran l'image a affiche, l'attribut srcset indique le chemin de l'image, l'attribut fetchpriority="high" indique que l'image doit etre charger prioritairement, l'attribut type="image/webp" indique que l'image est en format webp, et alt indique le texte alternatif de l'image-->
 				<picture>
 					<!-- Desktop -->
 					<source media="(min-width: 1400px)"
@@ -226,7 +226,7 @@ onload="this.media='all'">
 							width="375"
 							height="356"
 							>
-					<!-- Fallback , le navigateur choisira l'image la plus approprié , loading="eager" indique que l'image doit etre charger de maniere asynchrone, fetchpriority="high" indique que l'image doit etre charger prioritaire, style="object-fit: cover;" indique que l'image doit etre redimensionne, le width et le heught sont indique pour une meilleure exécutabilite -->
+					<!-- Fallback , le navigateur choisira l'image la plus approprié , loading="eager" indique que l'image doit etre charger de maniere asynchrone, fetchpriority="high" indique que l'image doit etre charger prioritaire, style="object-fit: cover;" indique que l'image doit etre redimensionne, le width et le height sont indique pour une meilleure exécutabilite -->
 					<img src="./assets/images/optimized/carousel/desktop/jpg/Photo-homme-d-affaire.jpg"
 						 class="d-block w-100"
 						 alt="homme d'affaire en costume avec sa malette de travail, traversant la rue"
@@ -254,7 +254,7 @@ onload="this.media='all'">
 							>
 					<!-- Tablet -->
 					<source media="(min-width: 768px)"
-							srcset="./assets/images/optimized/carousel/tablet/webp/photographie-jeunes-gens-en-concert(1).webp"
+							srcset="assets\images\optimized\carousel\tablet\webp\photographie-jeunes-gens-en-concert.webp"
 							type="image/webp"
 							width="768"
 							height="356"
@@ -285,7 +285,7 @@ onload="this.media='all'">
 				<picture>
 					<!-- Desktop -->
 					<source media="(min-width: 1400px)"
-							srcset="./assets/images/optimized/carousel/desktop/webp/cliches-jeunes-maries-heureux.webp"
+							srcset="assets\images\optimized\carousel\desktop\webp\cliches-jeunes-maries-heureux.webp"
 							type="image/webp"
 							width="1920"
 							height="888"
@@ -299,7 +299,7 @@ onload="this.media='all'">
 						>
 					<!-- Mobile -->
 					<source media="(max-width: 767px)"
-							srcset="./assets/images/optimized/carousel/mobile/webp/cliches-jeunes-maries-heureux(1).webp"
+							srcset="./assets/images/optimized/carousel/mobile/webp/cliches-jeunes-maries-heureux.webp"
 							type="image/webp"
 							width="375"
 							height="356"
@@ -318,7 +318,7 @@ onload="this.media='all'">
 		<button 
 		class="carousel-control-prev" 
 		type="button"
-		 data-bs-target="#carouselExampleIndicators"
+		data-bs-target="#carouselExampleIndicators"
 		data-bs-slide="prev"
 		aria-label="Diapositive précédente"
 		  >

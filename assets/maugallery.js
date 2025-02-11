@@ -98,14 +98,6 @@ $(document).on("keydown", function(event) {
   }
 });
 
-    // $(".gallery").on("click keydown", ".nav-link", $.fn.mauGallery.methods.filterByTag);
-    // $(".gallery").on("click", ".mg-prev", () =>
-    //   $.fn.mauGallery.methods.prevImage(options.lightboxId)
-    // );
-    // $(".gallery").on("click", ".mg-next", () =>
-    //   $.fn.mauGallery.methods.nextImage(options.lightboxId)  
-    // );
-
   };
   $.fn.mauGallery.methods = { 
     createRowWrapper(element) {   
@@ -268,6 +260,7 @@ prevImage(lightboxId) {
                              alt="Contenu de l'image affichée dans la modale au clique"
                             src=""
                             alt=""
+                            aria-label="Image agrandie dans la modale"
                             aria-live="polite"
                             />
                             ${
@@ -331,7 +324,7 @@ prevImage(lightboxId) {
 
 
       var tagItems =
-        '<li class="nav-item"><button class="nav-link active active-tag" data-images-toggle="all" type="button" aria-controls="gallery-all" aria-label="Afficher toutes les images de la gallery">Tous</button></li>';
+        '<li class="nav-item"><button class="nav-link active active-tag" data-images-toggle="all" type="button" aria-controls="gallery-all" aria-pressed="true" aria-label="Afficher toutes les images de la gallery">Tous</button></li>';
       
       $.each(tags, function(index, value) { 
         const tagId =`gallery-${value.toLowerCase()}`; 
@@ -339,7 +332,8 @@ prevImage(lightboxId) {
                 <button class="nav-link"  
                 data-images-toggle="${value}" 
                 type="button"
-                aria-controls="${tagId}""
+                aria-controls="${tagId}"
+                aria-pressed="false"
                 aria-label="Afficher les images de la catégorie ${value}"
                 >${value}</button>
                 </li>`;
