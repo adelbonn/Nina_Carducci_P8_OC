@@ -1,22 +1,23 @@
-/*permet de réduire le CLS (cumulative layout Shift) */
-/* @font-face {
-	font-family: 'Inter';
-	src: url('path/to/inter.woff2') format('woff2');
-	font-display: swap;
-  } */
-/*Ajouter toutes les variantes de police spectral utilisée ds le projet voir le link ds html*/
-/* @font-face {
-	font-family: 'Spectral';
-	src: url('path/to/spectral.woff2') format('woff2');
-	font-display: swap;
-  } */
+
 :root {
-	font-family: 'Inter', sans-serif;/*spécifie a priorty font family*/
+	font-family: 'Inter', sans-serif; /*spécifie la priorty font family, permet d'optimiser le chargement initial*/
+}
+
+/* Styles de base pour éviter le FOUC */
+html {
+    visibility: visible;
+    opacity: 1;
+}
+
+html.loading {
+    visibility: hidden;
+    opacity: 0;
 }
 body {
 	max-width: 1920px;
 	margin: auto;
-	font-family: 'Inter', sans-serif;
+	/* font-family: 'Inter', sans-serif; */
+	font-display: swap;
 }
 * {
 	font-family: 'Inter', sans-serif;
@@ -38,9 +39,12 @@ img {
 	padding-inline: 100px;
 	padding-block: 30px;
 	align-items: center;
-	min-height: 100px;
+	min-height: 100px;  /*revoir le vrai dimension mini sur le site ref*/
 }
-
+/*optimisation du rendu des polices pour enlever le FOUC*/
+h1, h2, h3, .nav-link {
+	font-display: swap;
+}
 .top-header .name {
 	font-size: 26px;
 }
@@ -69,7 +73,6 @@ img {
 .carousel {
 	contain: layout style paint; /*améliore les performances (cf: mdn)*/
 	margin: 0 auto;
-	/* height: calc(100vh - 20px); Hauteur fixe basé sur le viewport */
 	overflow: hidden;
 }
 .carousel-item {

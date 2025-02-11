@@ -93,18 +93,13 @@
 
 <!--liens google font (tester ce qui est le mieux entre preload et preconnect pour le prechargement DNS) remplacer par preload ou tester dns-prefetch-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" as="font" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!--chargement optimisé des polices (media print pour le chargement des polices sur les appareils mobiles)-->
 <link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" 
 rel="stylesheet"
 media="screen" 
 onload="this.media='all'">
-<!--Preload des ressources critiques du carousel, ici l'image de l'homme d'affaire qui traverse la rue dans le carousel-->
-    <link rel="preload"
-      as="image"
-      href="./assets/images/optimized/carousel/desktop/webp/Photo-homme-d-affaire.webp"
-      type="image/webp"
-      >
+
 
 	<!--JQuery (nécessaire pour Bootstrap) (ajout de defer pour eviter le BLS qui est un CLS c'est à dire un chargement tardif,Bootstrap utilise JQuery et donc JQuery doit etre chargé avant) -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" 
