@@ -1,9 +1,9 @@
-(function($) {
-  $.fn.mauGallery = function(options) {
+(function ($) {
+  $.fn.mauGallery = function (options) {
     var options = $.extend($.fn.mauGallery.defaults, options);
     var tagsCollection = [];
-    return this.each(function() {
-      $.fn.mauGallery.methods.createRowWrapper($(this));  
+    return this.each(function () {
+      $.fn.mauGallery.methods.createRowWrapper($(this));
       if (options.lightBox) {
         $.fn.mauGallery.methods.createLightBox(
           $(this),
@@ -15,7 +15,7 @@
 
       $(this)
         .children(".gallery-item")
-        .each(function(index) {
+        .each(function (index) {
           $.fn.mauGallery.methods.responsiveImageItem($(this));
           $.fn.mauGallery.methods.moveItemInRowWrapper($(this));
           $.fn.mauGallery.methods.wrapItemInColumn($(this), options.columns);
@@ -46,80 +46,86 @@
     lightboxId: null,
     showTags: true,
     tagsPosition: "bottom",
-    navigation: true
+    navigation: true,
   };
-  $.fn.mauGallery.listeners = function(options) {
+  $.fn.mauGallery.listeners = function (options) {
     //Gestion des clics sur les images
-    $(".gallery-item").on("click keydown", function(event) {
-      if (event.type === "click" || (event.type ==="keydown" && event.key === "Enter")) {
-      if (options.lightBox && $(this).prop("tagName") === "IMG") {
-        $.fn.mauGallery.methods.openLightBox($(this), options.lightboxId);
-      } else {
-        return;
-      }
+    $(".gallery-item").on("click keydown", function (event) {
+      if (
+        event.type === "click" ||
+        (event.type === "keydown" && event.key === "Enter")
+      ) {
+        if (options.lightBox && $(this).prop("tagName") === "IMG") {
+          $.fn.mauGallery.methods.openLightBox($(this), options.lightboxId);
+        } else {
+          return;
+        }
       }
     });
 
-//Gestion des filtres avec le clavier
-$(".gallery").on("click keydown", ".nav-link", function(event) {
-  if (event.type === "click" || (event.type === "keydown" && event.key === "Enter")) {
-    //mise a jour des états des filtres et de l'ARIA
-    $(".nav-link").attr("aria-pressed", "false");
-    $(this).attr("aria-pressed", "true");
-    $.fn.mauGallery.methods.filterByTag.call(this);
-  }
-});
-
-//naviagtion dans la lightbox
-$(".gallery").on("click keydown", ".mg-prev", function(event) {
-  if (event.type === "click" || (event.type === "keydown" && event.key === "Enter")) {
-    $.fn.mauGallery.methods.prevImage(options.lightboxId);
-  }
-});
-$(".gallery").on("click keydown", ".mg-next", function(event) {
-  if (event.type === "click" || (event.type === "keydown" && event.key === "Enter")) {
-    $.fn.mauGallery.methods.nextImage(options.lightboxId);
-  }
-})
-//support de touches de navigation
-$(document).on("keydown", function(event) {
-  if($("modal.fade").is(":visible")) {
-    switch(event.key) {
-      case "ArrowLeft":
-        $(".mg-prev").trigger("click");  //tester trigger avec AT et sinon garder : $(".mg-prev").click();
-        break;
-      case "ArrowRight":
-        $(".mg-next").trigger("click"); // tester trigger avec AT et sinon garder : $(".mg-next").click();
-        break;
-      case "Escape":
-        $(".modal.fade").modal("hide");
-        break;
-    }
-  }
-});
-
-  };
-  $.fn.mauGallery.methods = { 
-    createRowWrapper(element) {   
+    //Gestion des filtres avec le clavier
+    $(".gallery").on("click keydown", ".nav-link", function (event) {
       if (
-        !element
-          .children()
-          .first()
-          .hasClass("row")
+        event.type === "click" ||
+        (event.type === "keydown" && event.key === "Enter")
       ) {
+        //mise a jour des états des filtres et de l'ARIA
+        $(".nav-link").attr("aria-pressed", "false");
+        $(this).attr("aria-pressed", "true");
+        $.fn.mauGallery.methods.filterByTag.call(this);
+      }
+    });
+
+    //naviagtion dans la lightbox
+    $(".gallery").on("click keydown", ".mg-prev", function (event) {
+      if (
+        event.type === "click" ||
+        (event.type === "keydown" && event.key === "Enter")
+      ) {
+        $.fn.mauGallery.methods.prevImage(options.lightboxId);
+      }
+    });
+    $(".gallery").on("click keydown", ".mg-next", function (event) {
+      if (
+        event.type === "click" ||
+        (event.type === "keydown" && event.key === "Enter")
+      ) {
+        $.fn.mauGallery.methods.nextImage(options.lightboxId);
+      }
+    });
+    //support de touches de navigation
+    $(document).on("keydown", function (event) {
+      if ($("modal.fade").is(":visible")) {
+        switch (event.key) {
+          case "ArrowLeft":
+            $(".mg-prev").trigger("click"); 
+            break;
+          case "ArrowRight":
+            $(".mg-next").trigger("click"); 
+            break;
+          case "Escape":
+            $(".modal.fade").modal("hide");
+            break;
+        }
+      }
+    });
+  };
+  $.fn.mauGallery.methods = {
+    createRowWrapper(element) {
+      if (!element.children().first().hasClass("row")) {
         element.append('<div class="gallery-items-row row"></div>');
       }
     },
-    wrapItemInColumn(element, columns) {  
+    wrapItemInColumn(element, columns) {
       if (columns.constructor === Number) {
         element.wrap(
           `<div class='item-column mb-4 col-${Math.ceil(12 / columns)}'></div>`
-        );  
-      } else if (columns.constructor === Object) {  
+        );
+      } else if (columns.constructor === Object) {
         var columnClasses = "";
         if (columns.xs) {
           columnClasses += ` col-${Math.ceil(12 / columns.xs)}`;
-        } 
+        }
         if (columns.sm) {
           columnClasses += ` col-sm-${Math.ceil(12 / columns.sm)}`;
         }
@@ -160,38 +166,36 @@ $(document).on("keydown", function(event) {
       //ouvre la modale avec bootstrap
       $modal.modal("show");
     },
-  
-prevImage(lightboxId) {
-  const $modal = $(`#${lightboxId}`);
-  const $currentImage = $modal.find(".lightboxImage");
-  const $currentSrc = $currentImage.attr("src");
 
-  //recupéré toutes les images visible dans la galerie
-  const $galleryImages = $(".gallery-item:visible");
-  let currentIndex = -1;
+    prevImage(lightboxId) {
+      const $modal = $(`#${lightboxId}`);
+      const $currentImage = $modal.find(".lightboxImage");
+      const $currentSrc = $currentImage.attr("src");
 
-  //trouve l index de l'image courante
-  $galleryImages.each(function(index) {
-    if ($(this).attr("src") === $currentSrc) {
-      currentIndex = index;
-    }
-  });
+      //recupéré toutes les images visible dans la galerie
+      const $galleryImages = $(".gallery-item:visible");
+      let currentIndex = -1;
 
-  //calculer l index precedent
-  const prevIndex = currentIndex -1 < 0 ? $galleryImages.length -1 : currentIndex -1;
-  const $prevImage = $galleryImages.eq(prevIndex);
+      //trouve l index de l'image courante
+      $galleryImages.each(function (index) {
+        if ($(this).attr("src") === $currentSrc) {
+          currentIndex = index;
+        }
+      });
 
-  if ($prevImage.length) {
-    const prevAlt = $prevImage.attr("alt") || "Image de la galerie";
-    $currentImage
-    .attr("src", $prevImage.attr("src"))
-    .attr("alt", prevAlt);
+      //calculer l index precedent
+      const prevIndex =
+        currentIndex - 1 < 0 ? $galleryImages.length - 1 : currentIndex - 1;
+      const $prevImage = $galleryImages.eq(prevIndex);
 
-      // Annonce pour les lecteurs d'écrans
-      $("#lightbox-caption").text(`Image suivante : ${prevAlt}`);
-     }
-    
-  },
+      if ($prevImage.length) {
+        const prevAlt = $prevImage.attr("alt") || "Image de la galerie";
+        $currentImage.attr("src", $prevImage.attr("src")).attr("alt", prevAlt);
+
+        // Annonce pour les lecteurs d'écrans
+        $("#lightbox-caption").text(`Image suivante : ${prevAlt}`);
+      }
+    },
     nextImage(lightboxId) {
       const $modal = $(`#${lightboxId}`);
       const $currentImage = $modal.find(".lightboxImage");
@@ -203,34 +207,30 @@ prevImage(lightboxId) {
       let currentIndex = -1;
 
       //trouve l index de l'image courante
-      $galleryImages.each(function(index) {
+      $galleryImages.each(function (index) {
         if ($(this).attr("src") === $currentSrc) {
           currentIndex = index;
         }
-      })
+      });
 
       //calculer l index suivant
-      const nextIndex = currentIndex + 1 >= $galleryImages.length ? 0 : currentIndex + 1;
+      const nextIndex =
+        currentIndex + 1 >= $galleryImages.length ? 0 : currentIndex + 1;
       const $nextImage = $galleryImages.eq(nextIndex);
 
       if ($nextImage.length) {
         const nextAlt = $nextImage.attr("alt") || "Image de la galerie";
-        $currentImage
-        .attr("src", $nextImage.attr("src"))
-        .attr("alt", nextAlt);
+        $currentImage.attr("src", $nextImage.attr("src")).attr("alt", nextAlt);
 
-         // Annonce pour les lecteurs d'écrans
-      $("#lightbox-caption").text(`Image suivante : ${nextAlt}`);
+        // Annonce pour les lecteurs d'écrans
+        $("#lightbox-caption").text(`Image suivante : ${nextAlt}`);
       }
-
-     
-   
     },
     //cree la modale
     createLightBox(gallery, lightboxId, navigation) {
       const modalId = lightboxId ? lightboxId : "galleryLightbox";
       gallery.append(
-      `<div class="modal fade"
+        `<div class="modal fade"
          id="${modalId}"
          tabindex="-1"
          role="dialog"
@@ -273,67 +273,53 @@ prevImage(lightboxId) {
                 </div>
               </div>
             </div>`
-          );
+      );
 
-          const $modal = $(`#${modalId}`);
-    
-  //gestion des evenements pour la navigation avec les flèches
-  $modal.find(".mg-prev").on("click",  () => {
-    $.fn.mauGallery.methods.prevImage(modalId);
-  });
+      const $modal = $(`#${modalId}`);
 
-  $modal.find(".mg-next").on("click", () => {
-    $.fn.mauGallery.methods.nextImage(modalId);
-  });
-
-  //navigation au clavier
-  $(document).on("keydown", function(event) {
-    if ($modal.is(":visible")) {
-      switch(event.key) {
-        case "ArrowLeft":
-          $.fn.mauGallery.methods.prevImage(modalId);
-          break;
-        case "ArrowRight":
-            $.fn.mauGallery.methods.nextImage(modalId);
-            break;
-        case "Escape":
-          $modal.modal("hide");
-          break;
-      }
-    }
-  });
-//nettoyage a la fermeture de la modale
-  $modal.on('hidden.bs.modal', function () {
-      const $lightboxImage = $(this).find('.lightboxImage');
-      $lightboxImage.attr('src', '');
-      $lightboxImage.attr('alt', '');
-      $('#lightbox-caption').text('');
-  })
-},
-    //gestion des tags 
-    showItemTags(gallery, position, tags) {  
-      var tagsRow = `<nav class="nav-tags"  aria-label="barre de navigation avec bouttons de filtres de la galerie de photos du portfolio de Nina Carducci">
-<div class="my-4 tags-bar nav nav-pills" role="tablist">`;
-      // Créer les conteneurs pour les images filtrées
-      // gallery.find('.gallery-items-row').append('<div id="gallery-all" role="tabpanel"></div>');
-      
-      // Ajouter les IDs aux conteneurs
-      gallery.find('.gallery-item').each(function() {
-        const tag = $(this).data('gallery-tag') || 'all';
-      //  const tagId =`gallery-${tag.toLowerCase()}`;
-      $(this).closest('.item-column').attr('data-gallery-tag', tag);
-
-       //cree le conteneur s il existe
-      //  if (!$(`#${tagId}`).length) {
-      //   gallery.prepend(`<div id="${tagId}" role="tabpanel"></div>`);
-      //  }
-
-      //  //ajoute les images au conteneur
-      //  $(this).appendTo(`#${tagId}`);
+      //gestion des evenements pour la navigation avec les flèches
+      $modal.find(".mg-prev").on("click", () => {
+        $.fn.mauGallery.methods.prevImage(modalId);
       });
 
-           // Bouton "Tous"
-           tagsRow += `
+      $modal.find(".mg-next").on("click", () => {
+        $.fn.mauGallery.methods.nextImage(modalId);
+      });
+
+      //navigation au clavier
+      $(document).on("keydown", function (event) {
+        if ($modal.is(":visible")) {
+          switch (event.key) {
+            case "ArrowLeft":
+              $.fn.mauGallery.methods.prevImage(modalId);
+              break;
+            case "ArrowRight":
+              $.fn.mauGallery.methods.nextImage(modalId);
+              break;
+            case "Escape":
+              $modal.modal("hide");
+              break;
+          }
+        }
+      });
+      //nettoyage a la fermeture de la modale
+      $modal.on("hidden.bs.modal", function () {
+        const $lightboxImage = $(this).find(".lightboxImage");
+        $lightboxImage.attr("src", "");
+        $lightboxImage.attr("alt", "");
+        $("#lightbox-caption").text("");
+      });
+    },
+
+    showItemTags(gallery, position, tags) {
+      var tagsRow = `<nav class="nav-tags"  aria-label="barre de navigation avec bouttons de filtres de la galerie de photos du portfolio de Nina Carducci">
+<div class="my-4 tags-bar nav nav-pills" role="tablist">`;
+      gallery.find(".gallery-item").each(function () {
+        const tag = $(this).data("gallery-tag") || "all";
+        $(this).closest(".item-column").attr("data-gallery-tag", tag);
+      });
+
+      tagsRow += `
            <button class="nav-link active" 
              id="all-tab"
              data-images-toggle="all" 
@@ -342,9 +328,9 @@ prevImage(lightboxId) {
              aria-controls="all-panel"
              aria-selected="true" 
              aria-label="Afficher toutes les images de la galerie">Tous</button>`;
- 
-      $.each(tags, function(index, value) { 
-        const tagId =`gallery-${value.toLowerCase()}`; 
+
+      $.each(tags, function (index, value) {
+        const tagId = `gallery-${value.toLowerCase()}`;
         tagsRow += `
                 <button class="nav-link"  
                 data-images-toggle="${value}" 
@@ -360,19 +346,16 @@ prevImage(lightboxId) {
         </div>
       </nav>
       <div class="gallery-items-row">`;
-
-      //Structure de la navigation avec aria
-           // Panels correspondants (cachés visuellement mais accessibles)
       tagsRow += `
         <div id="all-panel" role="tabpanel" aria-labelledby="all-tab" tabindex="0"></div>`;
-      
-      $.each(tags, function(index, value) {
+
+      $.each(tags, function (index, value) {
         const tagId = `gallery-${value.toLowerCase()}`;
         tagsRow += `
         <div id="${tagId}-panel" role="tabpanel" aria-labelledby="${tagId}-tab" tabindex="0" hidden></div>`;
       });
 
-      tagsRow += '</div>';
+      tagsRow += "</div>";
 
       if (position === "bottom") {
         gallery.append(tagsRow);
@@ -383,38 +366,36 @@ prevImage(lightboxId) {
       }
     },
 
-    filterByTag: function() {
-      // gallery.on('click', '.nav-link', function() {
-        const $this = $(this);
-        const tag = $this.data("images-toggle");
-        const gallery = $this.closest('.gallery');
-        
-        // Mettre à jour l'état des boutons et des panels
-        gallery.find('.nav-link').each(function() {
-          const $btn = $(this);
-          const isSelected = $btn.is($this);
-          $btn
-          .removeClass(isSelected ? '' : 'active')
-          .addClass(isSelected ? 'active' : '')
-          .attr('aria-selected', isSelected);
+    filterByTag: function () {
+      const $this = $(this);
+      const tag = $this.data("images-toggle");
+      const gallery = $this.closest(".gallery");
 
-           // Gérer la visibilité du panel correspondant
-        const panelId = $btn.attr('aria-controls');
-        $(`#${panelId}`).attr('hidden', !isSelected);
-        });
+    
+      gallery.find(".nav-link").each(function () {
+        const $btn = $(this);
+        const isSelected = $btn.is($this);
+        $btn
+          .removeClass(isSelected ? "" : "active")
+          .addClass(isSelected ? "active" : "")
+          .attr("aria-selected", isSelected);
 
-      
-        
-        // Filtrer les images
-        const $items = gallery.find('.item-column');
-        if (tag === 'all') {
-          $items.show();
-          $items.fadeIn(300);
-        } else {
-          $items.hide();
-          $items.find(`[data-gallery-tag="${tag}"]`).closest('.item-column').show().fadeIn(300);
-        }
-      
+        const panelId = $btn.attr("aria-controls");
+        $(`#${panelId}`).attr("hidden", !isSelected);
+      });
+
+      const $items = gallery.find(".item-column");
+      if (tag === "all") {
+        $items.show();
+        $items.fadeIn(300);
+      } else {
+        $items.hide();
+        $items
+          .find(`[data-gallery-tag="${tag}"]`)
+          .closest(".item-column")
+          .show()
+          .fadeIn(300);
+      }
     },
   };
 })(jQuery);
