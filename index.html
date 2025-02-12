@@ -49,9 +49,7 @@
     <meta name="twitter:image:alt" content="Nina Carducci, photographe professionnelle à Bordeaux">
 	<meta name="twitter:site" content="@NinaCarducci">
 	<meta name="twitter:creator" content="@NinaCarducci">
-	
-   <!-- Pinterest -->
-   <meta name="pinterest-rich-pin" content="true">
+
 
 <!--liens google font (tester ce qui est le mieux entre preload et preconnect pour le prechargement DNS) remplacer par preload ou tester dns-prefetch-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,20 +68,20 @@ onload="this.media='all'">
 	defer></script>
 
  <!-- Bootstrap Bundle-->
- <script src="./assets/bootstrap/bootstrap.bundle.js" defer></script>
+ <script src="./assets/styles/bootstrap/bootstrap.bundle.js" defer></script>
 
  <!-- CSS non-critique chargé de manière asynchrone afin que le navigateur charge les ressources critiques avant de charger le CSS, ce CSS est chargé avec media print afin de pouvoir être affiché sur les appareils mobiles et sur les appareils avec un navigateur non compatibles ce qui rend la page plus responsive -->
- <link rel="stylesheet" href="./assets/bootstrap/bootstrap.css" media="screen" onload="this.media='all'">
+ <link rel="stylesheet" href="./assets/styles/bootstrap/bootstrap.css" media="screen" onload="this.media='all'">
  <link rel="stylesheet" href="./assets/style.css" media="screen" onload="this.media='all'">
 
  <!-- Fallback pour le CSS si JavaScript est désactivé, afin de pouvoir afficher la page sur les appareils sans JavaScript, ce qui est utile sur les appareils avec un navigateur non compatibles et donc améliore la performance -->
  <noscript>
-	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.css">
-	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="./assets/styles/bootstrap/bootstrap.css">
+	<link rel="stylesheet" href="./assets/styles/style.css">
 </noscript>	
 	<!--ajout de defer sur les script ce qui permet donc que le dom soit chargé avant les script, pour amémiorer la performance-->
-	<script src="./assets/maugallery.js" defer></script>
-	<script src="./assets/scripts.js" defer></script>
+	<script src="./assets/scriptsJS/maugallery.js" defer></script>
+	<script src="./assets/scriptsJs/scripts.js" defer></script>
 </head>
 
 
@@ -562,7 +560,6 @@ onload="this.media='all'">
 	 aria-labelledby="adresse-title">
 	 <h2 id="adresse-title" class="visually-hidden">Coordonnées</h2>
 <!--Adresse postale-->
-
 	 <div id="adresse-block" role="group" aria-label="Adresse Postale">
 		<span itemprop="streetAddress" aria-label="numéro et nom de la rue">68 avenue Alsace Lorraine</span>
 	    <span itemprop="postalCode" aria-label="code postal"> 33200 </span>

@@ -6,11 +6,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "optimize": "node assets/scripts/optimisationImages.js",
-    "test-optimize": "node assets/scripts/optimisationImages.js --test",
-    "watch": "node assets/scripts/optimisationImages.js --watch",
-    "generate-sitemaps": "node assets/scripts/generate-sitemap.js",
-    "generate-sitemaps:watch": "node assets/scripts/generate-sitemap.js --watch"
+
+    "generate-sitemaps": "node assets/JSDev/generate-sitemap.js",
+    "generate-sitemaps:watch": "node assets/JSDev/generate-sitemap.js --watch",
+    "optimise": "node assets/JSDev/optimize.js",
+    "optimise:watch": "node assets/JSDev/optimize.js --watch",
+    "build": "npm run optimise"
   },
   "repository": {
     "type": "git",
@@ -24,19 +25,24 @@
   },
   "homepage": "https://github.com/adelbonn/Nina_Carducci_P8_OC#readme",
   "devDependencies": {
-    "sharp": "^0.33.5"
+    "cssnano": "^7.0.6",
+    "postcss": "^8.5.2",
+    "postcss-cli": "^9.0.1"
   },
   "dependencies": {
+    "chokidar": "^4.0.3",
     "clean-css": "^5.3.3",
-    "color": "^4.2.3",
-    "color-convert": "^2.0.1",
-    "color-name": "^1.1.4",
-    "color-string": "^1.9.1",
     "detect-libc": "^2.0.3",
+    "eslint": "^9.20.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "eslint-plugin-unused-vars": "0.0.3",
+    "glob": "^11.0.1",
     "html-minifier": "^4.0.0",
     "is-arrayish": "^0.3.2",
+    "purgecss": "^7.0.2",
     "semver": "^7.6.3",
     "simple-swizzle": "^0.2.2",
+    "terser": "^5.38.2",
     "uglify-js": "^3.19.3",
     "xmlbuilder": "^15.1.1"
   }
