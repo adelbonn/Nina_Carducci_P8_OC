@@ -1,0 +1,45 @@
+Conseils d'améliorations futurs
+---------------------------------
+
+SEO sémantique :
+on-site
+Surveiller le référencement du site et suivre les analytics avec google analytic (entre autre), définir des kpis plus précis, réliser un optilmisation et un suivi régulier en fonction de ces kpis et de l'évolution, suivre et optimiser en fonction ds résultas
+Créer un blog pour ajouter régulièrement du contenu optimiser seo, afin que les robots des oteurs de recherche vois que le site est 'vivant' et dnc le reference mieux, 
+- pour ce contenu réaliser un étude de la concurence 
+- réaliser une étude/recherche de mots-clés pertinents en vue de construire du contenu pertinent et rechercher par les internautes
+- réaliser des articles régulièrement 
+
+off-site
+Faire une recherche pour réaliser des partenariats avec d'autres sites pertinenets afin de créer des backlinks, vers le site, ce qui va améliorer le référencement
+
+
+SEO technique
+
+Améliorer le fichier .htaccess, pour optimiser la mise en cache 
+réaliser un script d'optimisation automatique des images, ainsi a chaque ajout de nouvelles images l'images sera automatiquemet optimisee pour les differentes tailles ecrans et mise au format optimal pur le webp
+Vérifier que les sitemap sont bien verifier par google (search console)
+Optimiser les images pour les version tablette et mobile redimensiobner les images de la vue modale
+
+
+
+Refactoriser le javascript:
+Refactoriser le code du fichier maugallery.js en en Javascript plus morderne et donc plus performant -> site plus rapide
+
+
+Refactoriser le css: 
+revérifier que il n'y a plus de css redondant et inutilisé
+Bootstrap:
+supprimer le bootstrap inutilisé
+
+Accessibilité: 
+
+améliorer la navigation au clavier avec les attribut aria
+et continuer a optimiser le site avec les attributs aria
+Régulièrement vérifier que le site reste accessible suite a l'jout de nouveau contenu, bien structurer le nouveau contenu avec les balises sémantique HTML5 et kes aria-wai
+
+Faire un audit de performance seo bonnes partiques et accessibilité afin de ne pas régressé dans les résultats des moteurs de recherche
+
+SEO Reseaux Sociaux:
+
+Ajouter des rich snippets pour les reseaux sociaux comme pinterest (reseaux orienté sur la photo)
+
