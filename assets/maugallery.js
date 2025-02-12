@@ -312,41 +312,67 @@ prevImage(lightboxId) {
 },
     //gestion des tags 
     showItemTags(gallery, position, tags) {  
-      
+      var tagsRow = `<nav class="nav-tags"  aria-label="barre de navigation avec bouttons de filtres de la galerie de photos du portfolio de Nina Carducci">
+<div class="my-4 tags-bar nav nav-pills" role="tablist">`;
       // Créer les conteneurs pour les images filtrées
-      gallery.find('.gallery-item').wrap('<div role="tabpanel"></div>');
+      // gallery.find('.gallery-items-row').append('<div id="gallery-all" role="tabpanel"></div>');
       
       // Ajouter les IDs aux conteneurs
       gallery.find('.gallery-item').each(function() {
         const tag = $(this).data('gallery-tag') || 'all';
-        $(this).parent().attr('id', `gallery-${tag.toLowerCase()}`);
+      //  const tagId =`gallery-${tag.toLowerCase()}`;
+      $(this).closest('.item-column').attr('data-gallery-tag', tag);
+
+       //cree le conteneur s il existe
+      //  if (!$(`#${tagId}`).length) {
+      //   gallery.prepend(`<div id="${tagId}" role="tabpanel"></div>`);
+      //  }
+
+      //  //ajoute les images au conteneur
+      //  $(this).appendTo(`#${tagId}`);
       });
 
-
-      var tagItems =
-        '<li class="nav-item"><button class="nav-link active active-tag" data-images-toggle="all" type="button" aria-controls="gallery-all" aria-pressed="true" aria-label="Afficher toutes les images de la gallery">Tous</button></li>';
-      
+           // Bouton "Tous"
+           tagsRow += `
+           <button class="nav-link active" 
+             id="all-tab"
+             data-images-toggle="all" 
+             type="button" 
+             role="tab"
+             aria-controls="all-panel"
+             aria-selected="true" 
+             aria-label="Afficher toutes les images de la galerie">Tous</button>`;
+ 
       $.each(tags, function(index, value) { 
         const tagId =`gallery-${value.toLowerCase()}`; 
-        tagItems += `<li class="nav-item active">
+        tagsRow += `
                 <button class="nav-link"  
                 data-images-toggle="${value}" 
                 type="button"
-                aria-controls="${tagId}"
-                aria-pressed="false"
+                role='tab'
+                aria-selected="false"
                 aria-label="Afficher les images de la catégorie ${value}"
                 >${value}</button>
-                </li>`;
+                `;
       });
 
+      tagsRow += `
+        </div>
+      </nav>
+      <div class="gallery-items-row">`;
+
       //Structure de la navigation avec aria
-      var tagsRow = `
-      <nav class="nav-tags" 
-           aria-label="barre de navigation avec bouttons de filtres de la galerie de photos du portfolio de Nina Carducci">
-        <ul class="my-4 tags-bar nav nav-pills">
-          ${tagItems}
-        </ul>
-      </nav>`;
+           // Panels correspondants (cachés visuellement mais accessibles)
+      tagsRow += `
+        <div id="all-panel" role="tabpanel" aria-labelledby="all-tab" tabindex="0"></div>`;
+      
+      $.each(tags, function(index, value) {
+        const tagId = `gallery-${value.toLowerCase()}`;
+        tagsRow += `
+        <div id="${tagId}-panel" role="tabpanel" aria-labelledby="${tagId}-tab" tabindex="0" hidden></div>`;
+      });
+
+      tagsRow += '</div>';
 
       if (position === "bottom") {
         gallery.append(tagsRow);
@@ -356,29 +382,39 @@ prevImage(lightboxId) {
         console.error(`Unknown tags position: ${position}`);
       }
     },
-    filterByTag() {
-      if ($(this).hasClass("active-tag")) {
-        return;
-      }
-      $(".active.active-tag").removeClass("active active-tag");
-      $(this).addClass("active-tag active");
 
-      var tag = $(this).data("images-toggle");
+    filterByTag: function() {
+      // gallery.on('click', '.nav-link', function() {
+        const $this = $(this);
+        const tag = $this.data("images-toggle");
+        const gallery = $this.closest('.gallery');
+        
+        // Mettre à jour l'état des boutons et des panels
+        gallery.find('.nav-link').each(function() {
+          const $btn = $(this);
+          const isSelected = $btn.is($this);
+          $btn
+          .removeClass(isSelected ? '' : 'active')
+          .addClass(isSelected ? 'active' : '')
+          .attr('aria-selected', isSelected);
 
-      $(".gallery-item").each(function() {
-        $(this)
-          .parents(".item-column")
-          .hide();
-        if (tag === "all") {
-          $(this)
-            .parents(".item-column")
-            .show(300);
-        } else if ($(this).data("gallery-tag") === tag) {
-          $(this)
-            .parents(".item-column")
-            .show(300);
+           // Gérer la visibilité du panel correspondant
+        const panelId = $btn.attr('aria-controls');
+        $(`#${panelId}`).attr('hidden', !isSelected);
+        });
+
+      
+        
+        // Filtrer les images
+        const $items = gallery.find('.item-column');
+        if (tag === 'all') {
+          $items.show();
+          $items.fadeIn(300);
+        } else {
+          $items.hide();
+          $items.find(`[data-gallery-tag="${tag}"]`).closest('.item-column').show().fadeIn(300);
         }
-      });
-    }
+      
+    },
   };
 })(jQuery);

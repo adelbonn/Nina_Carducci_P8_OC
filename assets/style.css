@@ -20,7 +20,7 @@ body {
 	font-display: swap;
 }
 * {
-	font-family: 'Inter', sans-serif;
+	font-family: 'Inter', 'arial', sans-serif;
 	font-style: normal;
 }
 /*********************retester avec et sans ce style sur img -c'est moi qui l'ai ajouter) pour voir le comportement des images de carousel et about et contact et tester un min-height et min-width adapté*********************************************/
