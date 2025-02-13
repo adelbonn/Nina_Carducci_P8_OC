@@ -380,6 +380,7 @@ form textarea {
 .form-button:hover {
 	cursor: pointer;
 }
+
 footer {
 	padding: 20px;
 	display: flex;

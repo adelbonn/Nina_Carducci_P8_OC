@@ -79,12 +79,6 @@ async function optimizeJS(filePath) {
     console.log(`Optimized JS: ${filePath} -> ${optimisedPath}`);
 
    
-  
-
-
-    // const optimizedPath = filePath.replace('JSDev', 'scriptJS').replace('.js', '.min.js');
-    // fs.writeFileSync(optimizedPath, minified.code);
-    // console.log(`Optimized JS: ${filePath} -> ${optimizedPath}`);
 
     let optimizedPath;
     if (filePath.includes('assets/JSDev')) {
