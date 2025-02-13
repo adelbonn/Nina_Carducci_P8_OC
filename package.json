@@ -6,11 +6,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "generate-sitemaps": "node assets/JSDev/generate-sitemap.js",
     "generate-sitemaps:watch": "node assets/JSDev/generate-sitemap.js --watch",
     "optimise": "node assets/JSDev/optimize.js",
     "optimise:watch": "node assets/JSDev/optimize.js --watch",
+    "critical": "critical index.html --base */ --inline > index-critical.html",
+    "build-critical": "node build-critical.js",
     "build": "npm run optimise"
   },
   "repository": {
@@ -25,7 +26,10 @@
   },
   "homepage": "https://github.com/adelbonn/Nina_Carducci_P8_OC#readme",
   "devDependencies": {
+    "critical": "^7.2.1",
     "cssnano": "^7.0.6",
+    "eslint": "^8.57.1",
+    "html-minifier-terser": "^7.2.0",
     "postcss": "^8.5.2",
     "postcss-cli": "^9.0.1"
   },
@@ -33,11 +37,9 @@
     "chokidar": "^4.0.3",
     "clean-css": "^5.3.3",
     "detect-libc": "^2.0.3",
-    "eslint": "^9.20.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-unused-vars": "0.0.3",
     "glob": "^11.0.1",
-    "html-minifier": "^4.0.0",
     "is-arrayish": "^0.3.2",
     "purgecss": "^7.0.2",
     "semver": "^7.6.3",
