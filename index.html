@@ -7,7 +7,7 @@
 	<title>Nina Carducci - Photographe à Bordeaux (33) spécialisée en  Mariage, Portrait, événementiel</title>
 	<!--favicon-->
 	<link rel="icon" type="image/webp" size="32x32" title="icon nina carducci" href="./assets/images/optimized/favicon/contact-photographie-appareil-photo-favicon.webp">
-	<link rel="icon" type="image/png" size="16x16" title="icon nina carducci" href="./assets/images/optimized/favicon/contact-photographie-appareil-photo-favicon-16.png">
+	<link rel="icon" type ="image/png" size="16x16" title ="icon nina carducci" href="./assets/images/optimized/favicon/contact-photographie-appareil-photo-favicon-16.png">
 	
 	<!--balise title metadescription...-->
 	<meta name="title" content="Photographe Mariage, Portrait, événementiel - Nina Carducci">
@@ -25,7 +25,7 @@
 	<meta name="language" content="fr">
 
 	<!--balise google pour le suivi par la search console,  SEO -->
-	<meta name="google-site-verification" content="80Y6swqlyah_02RVu7GFIOKjgbGVe7xdl2tKsIEuWT4">
+	<meta name="google-site-verification" content="80Y6swqlyah_02RVu7GFIOKjgbGVe7xdl2tKsIEuWT4" />
 
 	<!--balise canonical-->
 	<link rel="canonical" href="https://adelbonn.github.io/Nina_Carducci_P8_OC/">
@@ -53,9 +53,12 @@
 
 <!--liens google font (tester ce qui est le mieux entre preload et preconnect pour le prechargement DNS) remplacer par preload ou tester dns-prefetch-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!--chargement optimisé des polices (media print pour le chargement des polices sur les appareils mobiles)-->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter&amp;family=Spectral:ital,wght@0,400;1,300;1,400;1,800&amp;display=swap" media="screen" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" 
+rel="stylesheet"
+media="screen" 
+onload="this.media='all'">
 
 
 	<!--JQuery (nécessaire pour Bootstrap) (ajout de defer pour eviter le BLS qui est un CLS c'est à dire un chargement tardif,Bootstrap utilise JQuery et donc JQuery doit etre chargé avant) -->
@@ -63,20 +66,20 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer=""></script>
 
  <!-- Bootstrap Bundle-->
- <script src="./assets/styles/bootstrap/bootstrap.bundle.min.js" defer=""></script>
+ <script src="./assets/styles/bootstrap/bootstrap.bundle.js" defer></script>
 
  <!-- CSS non-critique chargé de manière asynchrone afin que le navigateur charge les ressources critiques avant de charger le CSS, ce CSS est chargé avec media print afin de pouvoir être affiché sur les appareils mobiles et sur les appareils avec un navigateur non compatibles ce qui rend la page plus responsive -->
- <link rel="stylesheet" href="./assets/styles/bootstrap/bootstrap.min.css" media="print" onload="this.media='all'">
- <link rel="stylesheet" href="./assets/styles/style.min.css" media="print" onload="this.media='all'">
+ <link rel="stylesheet" href="./assets/styles/bootstrap/bootstrap.css" media="screen" onload="this.media='all'">
+ <link rel="stylesheet" href="./assets/styles/style.css" media="screen" onload="this.media='all'">
 
  <!-- Fallback pour le CSS si JavaScript est désactivé, afin de pouvoir afficher la page sur les appareils sans JavaScript, ce qui est utile sur les appareils avec un navigateur non compatibles et donc améliore la performance -->
  <noscript>
-	<link rel="stylesheet" href="./assets/styles/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="./assets/styles/style.min.css">
+	<link rel="stylesheet" href="./assets/styles/bootstrap/bootstrap.css">
+	<link rel="stylesheet" href="./assets/styles/style.css">
 </noscript>	
 	<!--ajout de defer sur les script ce qui permet donc que le dom soit chargé avant les script, pour amémiorer la performance-->
-	<script src="./assets/scriptsJs/maugallery.min.js" defer=""></script>
-	<script src="./assets/scriptsJs/scripts.min.js" defer=""></script>
+	<script src="./assets/scriptsJS/maugallery.min.js" defer></script>
+	<script src="./assets/scriptsJs/scripts.min.js" defer></script>
 </head>
 
 

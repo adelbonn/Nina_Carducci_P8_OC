@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+
     "generate-sitemaps": "node assets/JSDev/generate-sitemap.js",
     "generate-sitemaps:watch": "node assets/JSDev/generate-sitemap.js --watch",
     "optimise": "node assets/JSDev/optimize.js",
@@ -45,6 +46,7 @@
     "chokidar": "^4.0.3",
     "clean-css": "^5.3.3",
     "detect-libc": "^2.0.3",
+    "eslint": "^9.20.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-unused-vars": "0.0.3",
     "is-arrayish": "^0.3.2",
