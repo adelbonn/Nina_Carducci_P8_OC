@@ -333,9 +333,11 @@
         const tagId = `gallery-${value.toLowerCase()}`;
         tagsRow += `
                 <button class="nav-link"  
+                id="${tagId}-tab"
                 data-images-toggle="${value}" 
                 type="button"
                 role='tab'
+                aria-controls="${tagId}-panel"
                 aria-selected="false"
                 aria-label="Afficher les images de la catégorie ${value}"
                 >${value}</button>
@@ -346,13 +348,14 @@
         </div>
       </nav>
       <div class="gallery-items-row">`;
+      //creation du panneaux "tous" et des panneaux par catégorie
       tagsRow += `
-        <div id="all-panel" role="tabpanel" aria-labelledby="all-tab" tabindex="0"></div>`;
+        <div id="all-panel" role="tabpanel" aria-labelledby="all-tab"></div>`;
 
       $.each(tags, function (index, value) {
         const tagId = `gallery-${value.toLowerCase()}`;
         tagsRow += `
-        <div id="${tagId}-panel" role="tabpanel" aria-labelledby="${tagId}-tab" tabindex="0" hidden></div>`;
+        <div id="${tagId}-panel" role="tabpanel" aria-labelledby="${tagId}-tab hidden></div>`;
       });
 
       tagsRow += "</div>";

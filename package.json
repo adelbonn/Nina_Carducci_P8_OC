@@ -10,9 +10,13 @@
     "generate-sitemaps:watch": "node assets/JSDev/generate-sitemap.js --watch",
     "optimise": "node assets/JSDev/optimize.js",
     "optimise:watch": "node assets/JSDev/optimize.js --watch",
-    "critical": "critical index.html --base */ --inline > index-critical.html",
+    "minify-css": "cleancss -o assets/styles/style.min.css assets/styles/style.css",
+    "minify-js": "terser assets/scriptsJs/maugallery.js -o assets/scriptsJs/maugallery.min.js  && terser assets/scriptsJs/scripts.js -o assets/scriptsJs/scripts.min.js",
+    "minify": "npm run minify-js && npm run minify-css",
+    "critical": "critical index-base.html --css assets/styles/style.min.css --inline > index.html",
     "build-critical": "node build-critical.js",
-    "build": "npm run optimise"
+    "clean": "rimraf assets/styles/style.min.css assets/scriptsJs/maugallery.min.js index.html",
+    "build": "npm run clean && npm run minify && npm run build-critical"
   },
   "repository": {
     "type": "git",
@@ -26,12 +30,16 @@
   },
   "homepage": "https://github.com/adelbonn/Nina_Carducci_P8_OC#readme",
   "devDependencies": {
+    "clean-css-cli": "^5.6.3",
     "critical": "^7.2.1",
     "cssnano": "^7.0.6",
     "eslint": "^8.57.1",
+    "glob": "^11.0.1",
     "html-minifier-terser": "^7.2.0",
     "postcss": "^8.5.2",
-    "postcss-cli": "^9.0.1"
+    "postcss-cli": "^9.0.1",
+    "rimraf": "^6.0.1",
+    "terser": "^5.39.0"
   },
   "dependencies": {
     "chokidar": "^4.0.3",
@@ -39,12 +47,10 @@
     "detect-libc": "^2.0.3",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-unused-vars": "0.0.3",
-    "glob": "^11.0.1",
     "is-arrayish": "^0.3.2",
     "purgecss": "^7.0.2",
     "semver": "^7.6.3",
     "simple-swizzle": "^0.2.2",
-    "terser": "^5.38.2",
     "uglify-js": "^3.19.3",
     "xmlbuilder": "^15.1.1"
   }

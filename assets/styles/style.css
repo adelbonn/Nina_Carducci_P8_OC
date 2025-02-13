@@ -76,9 +76,9 @@ h1, h2, h3, .nav-link {
 	overflow: hidden;
 }
 .carousel-item {
-	contain: layout style paint;  /*Vérifier si besoin de le mettre et dans le container et dans le carousel-item la logique serait le conatiner revoir sur mdn, et trouver pourquoi l'image des mariés se charge en version */
-	height: auto; /*prend toute la hauteur du carousel*/
-	/*min-height: 100vh; hauteur minimale pour éviter le CLS*/
+	contain: layout style paint;  
+	height: auto; 
+	
 }
 .carousel-item img {
     object-fit: cover;
@@ -87,7 +87,19 @@ h1, h2, h3, .nav-link {
     transform: translateZ(0); /* Force hardware acceleration matérielle */
     will-change: transform; /*permet au navigateur d'optimiser l'animation en preparant les ressources necessaires pour gere les transformations de manière plus fluide*/
 }
+/*amélioration contraste et donc accesibilité*/
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 5%;
+}
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 50%;
+}
 #about {
 	display: flex;
 	background-color: #F6D2B8;
