@@ -1,28 +1,64 @@
+# Activation de la compression Brotli si disponible
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml application/xhtml+xml application/rss+xml application/atom_xml application/x-font-ttf application/x-font-otf image/svg+xml
+</IfModule>
+
+# Activation de la compression gzip
 <IfModule mod_deflate.c>
-  # Compression pour le HTML, CSS, JavaScript, Text, XML et fonts
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/xml application/xhtml+xml application/rss+xml application/atom_xml application/font-woff application/font-woff2
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml application/xhtml+xml application/rss+xml application/atom_xml application/x-font-ttf application/x-font-otf image/svg+xml
   
-  # Pour les anciens navigateurs 
+  # Pour les anciens navigateurs
   BrowserMatch ^Mozilla/4 gzip-only-text/html
   BrowserMatch ^Mozilla/4\.0[678] no-gzip
   BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
 </IfModule>
 
-#Activation de la compression Brotli si disponible
-<IfModule mod_brotli.c>
-  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml application/xhtml+xml application/rss+xml application/atom_xml application/x-font-ttf application/x-font-otf image/svg+xml
-</IfModule>
-
-#Activation de la compression gzip
-<IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml application/xhtml+xml application/rss+xml application/atom_xml application/x-font-ttf application/x-font-otf image/svg+xml
-    # Pour les anciens navigateurs
-    BrowserMatch ^Mozilla/4 gzip-only-text/html
-    BrowserMatch ^Mozilla/4\.0[678] no-gzip
-    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
-</IfModule>
-
 # Définir l'encodage du contenu
 <IfModule mod_headers.c>
-    Header append Vary: Accept-Encoding
+  Header append Vary: Accept-Encoding
+</IfModule>
+
+# Activation de la mise en cache
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  
+  # Images
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  
+  # Vidéo
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType video/mpeg "access plus 1 year"
+  
+  # CSS, JavaScript
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  
+  # Autres
+  ExpiresByType application/pdf "access plus 1 month"
+  ExpiresByType application/x-shockwave-flash "access plus 1 month"
+</IfModule>
+
+# Désactiver la signature du serveur
+ServerSignature Off
+
+# Protection contre les attaques XSS
+<IfModule mod_headers.c>
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Empêcher le MIME-type sniffing
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# Activer Keep-Alive
+<IfModule mod_headers.c>
+  Header set Connection keep-alive
 </IfModule>
