@@ -11,8 +11,10 @@
     "generate-sitemaps:watch": "node assets/JSDev/generate-sitemap.js --watch",
     "optimise": "node assets/JSDev/optimize.js",
     "optimise:watch": "node assets/JSDev/optimize.js --watch",
+
     "minify-css": "cleancss -o assets/styles/style.min.css assets/styles/style.css",
-    "minify-js": "terser assets/scriptsJs/maugallery.js -o assets/scriptsJs/maugallery.min.js  && terser assets/scriptsJs/scripts.js -o assets/scriptsJs/scripts.min.js",
+    "minify-js": "terser assets/scriptsJs/maugallery.js -o assets/scriptsJs/maugallery.min.js --keep-fnames --keep-classnames && terser assets/scriptsJs/scripts.js -o assets/scriptsJs/scripts.min.js --keep-fnames --keep-classnames",
+
     "minify": "npm run minify-js && npm run minify-css",
     "critical": "critical index-base.html --css assets/styles/style.min.css --inline > index.html",
     "build-critical": "node build-critical.js",
