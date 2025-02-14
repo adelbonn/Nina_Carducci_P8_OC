@@ -66,16 +66,16 @@ onload="this.media='all'">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer=""></script>
 
  <!-- Bootstrap Bundle-->
- <script src="./assets/styles/bootstrap/bootstrap.bundle.js" defer></script>
+ <script src="./assets/styles/bootstrap/bootstrap.bundle.min.js" defer></script>
 
  <!-- CSS non-critique chargé de manière asynchrone afin que le navigateur charge les ressources critiques avant de charger le CSS, ce CSS est chargé avec media print afin de pouvoir être affiché sur les appareils mobiles et sur les appareils avec un navigateur non compatibles ce qui rend la page plus responsive -->
- <link rel="stylesheet" href="./assets/styles/bootstrap/bootstrap.css" media="screen" onload="this.media='all'">
- <link rel="stylesheet" href="./assets/styles/style.css" media="screen" onload="this.media='all'">
+ <link rel="stylesheet" href="./assets/styles/bootstrap/bootstrap.min.css" media="screen" onload="this.media='all'">
+ <link rel="stylesheet" href="./assets/styles/style.min.css" media="screen" onload="this.media='all'">
 
  <!-- Fallback pour le CSS si JavaScript est désactivé, afin de pouvoir afficher la page sur les appareils sans JavaScript, ce qui est utile sur les appareils avec un navigateur non compatibles et donc améliore la performance -->
  <noscript>
-	<link rel="stylesheet" href="./assets/styles/bootstrap/bootstrap.css">
-	<link rel="stylesheet" href="./assets/styles/style.css">
+	<link rel="stylesheet" href="./assets/styles/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="./assets/styles/style.min.css">
 </noscript>	
 	<!--ajout de defer sur les script ce qui permet donc que le dom soit chargé avant les script, pour amémiorer la performance-->
 	<script src="./assets/scriptsJS/maugallery.min.js" defer></script>
