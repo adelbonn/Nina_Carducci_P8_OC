@@ -50,7 +50,7 @@
   };
   $.fn.mauGallery.listeners = function (options) {
     //Gestion des clics sur les images
-    $(".gallery-item").on("click keydown", function (event) {
+    $(".gallery-item").on("click keydown", ".gallery-item", function (event) {
       if (
         event.type === "click" ||
         (event.type === "keydown" && event.key === "Enter")
@@ -154,17 +154,20 @@
       }
     },
     openLightBox(element, lightboxId) {
+      const modalId = lightboxId ? lightboxId : "galleryLightbox";
+      const $modal = $(`#${modalId}`);
       const $lightbox = $(`#${lightboxId}`);
-      const $lightboxImage = $lightbox.find(".lightboxImage");
+      const $lightboxImage = $modal.find(".lightboxImage");
       const imageAlt = element.attr("alt") || "image de la galerie";
       const imageSrc = element.attr("src");
-      const $modal = $lightbox;
+     
 
       $lightboxImage.attr("src", imageSrc);
       $lightboxImage.attr("alt", imageAlt);
 
       //ouvre la modale avec bootstrap
-      $modal.modal("show");
+      const modal = new bootstrap.Modal($modal[0]);
+      modal.show();
     },
 
     prevImage(lightboxId) {
