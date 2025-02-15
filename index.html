@@ -51,10 +51,10 @@
 	<meta name="twitter:creator" content="@NinaCarducci">
 
 
-<!--liens google font (tester ce qui est le mieux entre preload et preconnect pour le prechargement DNS) remplacer par preload ou tester dns-prefetch-->
+<!--liens google font (prechargement DNS)-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!--chargement optimisé des polices (media print pour le chargement des polices sur les appareils mobiles)-->
+<!--chargement optimisé des polices-->
 <link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" 
 rel="stylesheet"
 media="screen" 
@@ -163,7 +163,6 @@ onload="this.media='all'">
 			aria-roledescription="diapositive"
 			aria-label="1 sur 3, photographie homme d'affaire traversant la rue"
 			>
-				<!--structure responsive pour les images, en utilisant les balises <picture> et <source>, le navigateur choisi selon la taille de l'écran l'image a affiche, l'attribut srcset indique le chemin de l'image, l'attribut fetchpriority="high" indique que l'image doit etre charger prioritairement, l'attribut type="image/webp" indique que l'image est en format webp, et alt indique le texte alternatif de l'image-->
 				<picture>
 					<!-- Desktop -->
 					<source media="(min-width: 1400px)"
@@ -187,7 +186,7 @@ onload="this.media='all'">
 							width="375"
 							height="356"
 							>
-					<!-- Fallback , le navigateur choisira l'image la plus approprié , loading="eager" indique que l'image doit etre charger de maniere asynchrone, fetchpriority="high" indique que l'image doit etre charger prioritaire, style="object-fit: cover;" indique que l'image doit etre redimensionne, le width et le height sont indique pour une meilleure exécutabilite -->
+					
 					<img src="./assets/images/optimized/carousel/desktop/jpg/Photo-homme-d-affaire.jpg"
 						 class="d-block w-100"
 						 alt="homme d'affaire en costume avec sa malette de travail, traversant la rue"

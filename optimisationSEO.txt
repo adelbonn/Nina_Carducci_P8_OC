@@ -41,7 +41,7 @@ Temps de chargement de la pages
   - alt : écrire les description , et ajouter les aria 
   - vérifier les couleurs, 
 
-vrérifier le preload des fontc, 
+vérifier le preload des fonts, 
 
 Accessibilité  
 

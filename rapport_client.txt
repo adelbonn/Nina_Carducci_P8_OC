@@ -74,19 +74,11 @@ Amélioration de l'expérience utilisateur
 Surveillance régulière des performances
 Mise à jour des contenus selon les bonnes pratiques établies
 Maintenance préventive du site
+MEttre à jour régulièrement jquery
 
 
-Annexes
-Captures d'écran avant/après
-Rapports détaillés des outils d'analyse
-Documentation technique (si nécessaire)
 
-Ce rapport est structuré pour :
 
-Être compréhensible par un non-technicien
 
-Mettre en avant les bénéfices concrets pour l'activité
-Démontrer la valeur ajoutée des optimisations
-Fournir des métriques claires et mesurables
 
 

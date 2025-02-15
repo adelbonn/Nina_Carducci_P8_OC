@@ -6,10 +6,10 @@ balises canonique pour autoréférencer le site ()
 
 ok_ création du sitemap + 
 ok_ sitemap images -revérifier les url de :
-  - cliches-jeunes-maries-heureux  - homme-d-affaire-en-costume
+  
 
 
-ok _ (a verif que il est ok)_ création du robot.txt
+ok _ création du robot.txt
 
 Ajout favicon
 

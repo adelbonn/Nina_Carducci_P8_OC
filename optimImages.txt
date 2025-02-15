@@ -1,16 +1,28 @@
-lien qui explique comment convertir les images en webp avec l'outil en ligne de commande libwebp, puis les insérer anec les balises <picture> <source> et l'attrivut srcset
+lien qui explique comment convertir les images en webp avec l'outil en ligne de commande libwebp, puis les insérer anec les balises <picture> <source> et l'attribut srcset
 https://web.dev/articles/codelab-serve-images-webp?hl=fr
 
 Autre solution :
 -installation des node module, 
 -installation de sharp
-- automatisation du processus de conversion et compresion des images via un script javascriot
+- automatisation du processus de conversion et compression des images via un script javascript
 - meilleur optimisation avec sharp: ex sans environ 2mb, avec environ 200 kb (suivant les images, donc sharp et bien meilleure solution)
-- les images sont redimensionner en trouvant eur differents tailles suivant les desktop, mobile ou tablette via les media queries dans le fichier css style.css
-Ainsi les images sont automatiquemnt responsibves, support en format moderne webp (je n'ai finalement pas utiliser avif car il n'est pas supporté par tout les navigateurs (par exemple safari)), 
- en faisant cette optimisation sur les images celle-ci ce charge progressivement, donc meilleur exeprience utilisateurs
+- les images sont redimensionner en trouvant leur differentes tailles suivant les desktop, mobile ou tablette via les media queries dans le fichier css style.css
+Ainsi les images sont automatiquemnt responsives, support en format moderne webp (je n'ai finalement pas utiliser avif car il n'est pas supporté par tout les navigateurs (par exemple safari)), 
+ en faisant cette optimisation sur les images celle-ci ce charge progressivement, donc meilleur expérience utilisateurs
 
-dans optimisatioImage.js
+Actuellement le script n'est pas sur le projet final, il se trouve sur la branche : feature/auto-images-optimisation, il doit être corriger car il fonctionne pour certaines images et pas d'autres.
+Le fichier config.js est bien mis à jour, il contient les informations pour l'adaptation automatique des images.
+Le script opimImages.js m'a bien converti les images des sections :
+  - About
+  - Contact
+  Mais pas celles des sections: 
+  - Gallery
+  - Carousel
+  Comme je n'ai pas eu le temps de le corriger je l'ai pour l'instant supprimer du projet final, mais il serait beaucoup plus intéressant pour la cliente d'avoir ce type de scripot mis en place, ainsi elle pourra ajouté des ilages sans se soucier de devoir les redimensionner, et les mettre au bon format tout se fera en automatique.
+
+Le fichier du script est : optimImage.js
+
+Pour le faire fonctionner il faut :
 
 1.import de : 
 - sharp : bibiliothèque nodejs pour la gestion des images (traitement d'images)
@@ -41,6 +53,7 @@ Parcourt chaque type de conteneur (carousel, gallery, about)
 
 
 3.Gestion spéciale de la galerie :
+
 
 if (containerType === 'gallery') {
     ['thumbnail', 'modal'].forEach(type => {
@@ -81,6 +94,7 @@ assets/
           jpg/
       modal/
         [même structure]
+
 Interaction avec le reste du code :
 
 Avec config.js :
@@ -103,10 +117,12 @@ Performance :
   Images optimisées pour chaque device
   Formats modernes (WebP) avec fallback (JPG)
   Chargement rapide des thumbnails
+
 SEO :
   Structure organisée et logique
   Images responsives bien gérées
   Optimisation du poids des images
+
 Maintenance :
   Structure claire et organisée
   Facilité d'ajout de nouvelles images
