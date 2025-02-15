@@ -195,6 +195,9 @@ npm run build
 - Refactoriser le code javascript (maugallery.js) avec une syntaxe plus moderne
 - Refactoriser le code CSS, et vérifier qu'il n'y a plus de code redondant
 - Vérifier que le site reste accessible
+- Améliorer l'accessibilité dans la modal (description des images affichées)
+- améliorations du style de la modal
+
 ### 6.2 Maintenance 
 
 - Mettre à jour jQuery
@@ -204,5 +207,5 @@ npm run build
 - Surveiller l'évolution de l'optimisation et mettre en place une stratégie en fonction des résultats
 - Définir des kpis, et surveiller l'volution du site sur Google analytics
 - Mettre en place un processus de maintenance
-
+- Nettoyer les dependance inutilisées dans le package.json
 - Vérifier que les kpis sont bien réalisés

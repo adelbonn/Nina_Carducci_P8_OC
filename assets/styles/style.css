@@ -87,6 +87,10 @@ h1, h2, h3, .nav-link {
     transform: translateZ(0); /* Force hardware acceleration matérielle */
     will-change: transform; /*permet au navigateur d'optimiser l'animation en preparant les ressources necessaires pour gere les transformations de manière plus fluide*/
 }
+.carousel-inner {
+	aspect-ratio: 1920/888;
+	width: 100%;
+}
 /*amélioration contraste et donc accesibilité*/
 .carousel-control-prev,
 .carousel-control-next {
