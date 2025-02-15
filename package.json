@@ -11,13 +11,17 @@
     "generate-sitemaps:watch": "node assets/JSDev/generate-sitemap.js --watch",
 
     "minify-css": "cleancss -o assets/styles/style.min.css assets/styles/style.css",
-    "minify-js": "terser assets/scriptsJs/maugallery.js -o assets/scriptsJs/maugallery.min.js --keep-fnames --keep-classnames && terser assets/scriptsJs/scripts.js -o assets/scriptsJs/scripts.min.js --keep-fnames --keep-classnames",
+    "minify-bootstrap-css": "cleancss -o assets/styles/bootstrap/bootstrap.min.css assets/styles/bootstrap/bootstrap.css",
+    "minify-js": "terser assets/scriptsJs/maugallery.js -o assets/scriptsJs/maugallery.min.js --compress --keep-fnames --keep-classnames && terser assets/scriptsJs/scripts.js -o assets/scriptsJs/scripts.min.js --compress --keep-fnames --keep-classnames",
+    "minify-bootstrap-js": "terser assets/styles/bootstrap/bootstrap.bundle.js -o assets/styles/bootstrap/bootstrap.bundle.min.js --compress",
 
-    "minify": "npm run minify-js && npm run minify-css",
+    "optimize-css": "postcss assets/styles/style.min.css assets/styles/bootstrap/bootstrap.min.css --use cssnano --no-map -d assets/styles/",
+    "minify": "npm run minify-js && npm run minify-css && npm run minify-bootstrap-css && npm run minify-bootstrap-js && npm run optimize-css",
+
     "critical": "critical index-base.html --css assets/styles/style.min.css --inline > index.html",
     "build-critical": "node build-critical.js",
 
-    "clean": "rimraf assets/styles/style.min.css assets/scriptsJs/maugallery.min.js index.html",
+    "clean": "rimraf assets/styles/style.min.css assets/styles/bootstrap/bootstrap.min.css assets/scriptsJs/maugallery.min.js assets/styles/bootstrap/bootstrap.bundle.min.js  index.html",
 
     "build": "npm run clean && npm run minify && npm run build-critical"
   },
@@ -38,7 +42,6 @@
     "cssnano": "^7.0.6",
     "eslint": "^8.57.1",
     "glob": "^11.0.1",
-    "html-minifier-terser": "^7.2.0",
     "postcss": "^8.5.2",
     "postcss-cli": "^9.0.1",
     "rimraf": "^6.0.1",
@@ -46,16 +49,8 @@
   },
   "dependencies": {
     "chokidar": "^4.0.3",
-    "clean-css": "^5.3.3",
-    "detect-libc": "^2.0.3",
-    "eslint": "^9.20.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-unused-vars": "0.0.3",
-    "is-arrayish": "^0.3.2",
-    "purgecss": "^7.0.2",
-    "semver": "^7.6.3",
-    "simple-swizzle": "^0.2.2",
-    "uglify-js": "^3.19.3",
     "xmlbuilder": "^15.1.1"
   }
 }
