@@ -31,14 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Gestion des événements du carousel
     carousel.addEventListener('slide.bs.carousel', function (event) {
-        const slides = carousel.querySelectorAll('.carousel-item');
-        const nextSlide = slides[event.to];
-        const img = nextSlide.querySelector('img');
-        const slideNumber = event.to + 1;
-        const totalSlides = slides.length;
+        const currentSlide = event.relatedTarget;
+        const description = currentSlide.querySelector('.visually-hidden').textContent;
+        const slideNumber = currentSlide.getAttribute('aria-label').split(':')[0];
         
         // Mise à jour de l'annonce
-        liveRegion.textContent = `Image ${slideNumber} sur ${totalSlides}: ${img.alt}`;
+        liveRegion.textContent = `${slideNumber}. ${description}`;
     });
 
     // Gestion de la navigation au clavier
@@ -52,13 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'ArrowRight':
                 carousel.querySelector('.carousel-control-next').click();
                 break;
-            case 'Enter':
-                // Si on est sur un bouton de navigation
-                if (event.target.classList.contains('carousel-control-prev') || 
-                    event.target.classList.contains('carousel-control-next')) {
-                    event.target.click();
-                }
-                break;
+                case 'Home':
+                    // Aller à la première diapositive
+                    carousel.querySelector('[data-bs-slide-to="0"]').click();
+                    break;
+                case 'End':
+                    // Aller à la dernière diapositive
+                    const lastSlide = carousel.querySelectorAll('[data-bs-slide-to]').length - 1;
+                    carousel.querySelector(`[data-bs-slide-to="${lastSlide}"]`).click();
+                    break;
         }
     });
 });

@@ -88,15 +88,15 @@ onload="this.media='all'">
 	<!--header avec navigation-->
 <header class="top-header">
 	<h1 class="name"><strong>Nina Carducci</strong></h1> 
-	<nav class="nav" aria-label="menu de navigation principal" role ="navigation">   
+	<nav class="nav"aria-label="menu de navigation principal" role ="navigation">   
 		<ul>
-			<li><a href="#about" role ="link" aria-label="lien vers la section à propos">À propos</a></li> 
-			<li><a href="#gallery" role ="link" aria-label="lien vers la section galerie">Galerie</a></li>
-			<li><a href="#services" role ="link" aria-label="lien vers la section services">Service</a></li>
-			<li><a href="#contact" role ="link" aria-label="lien vers la section contact">Contact</a></li>
-			<li><a class="social-link" role="link"
+			<li><a href="#about"  aria-label="lien vers la section à propos">À propos</a></li> 
+			<li><a href="#gallery" aria-label="lien vers la section galerie">Galerie</a></li>
+			<li><a href="#services" aria-label="lien vers la section services">Service</a></li>
+			<li><a href="#contact"  aria-label="lien vers la section contact">Contact</a></li>
+			<li><a class="social-link" 
 				href="https://www.instagram.com/ninacarducci.photo/?hl=fr"
-				 target="_blank"
+				target="_blank"
 				 role="link"
 				 aria-label="lien vers le compte Instragram profesionnel de la photographe Nina Carducci"
 				 rel="noopener">
@@ -132,9 +132,9 @@ onload="this.media='all'">
 			data-bs-slide-to="0" 
 			class="active" 
 			aria-current="true"
-			 aria-label="Diapositive 1"
-			 aria-controls="carousel-tem-1"
-			 role="tab"
+			aria-label="Diapositive 1"
+			aria-controls="carousel-tem-1"
+			role="tab"
 			 > 
 			</button>
 			<button 
@@ -178,6 +178,7 @@ onload="this.media='all'">
 							type="image/webp"
 							width="768"
 							height="356"
+							fetchpriority="high"
 							>
 					<!-- Mobile -->
 					<source media="(max-width: 767px)"
@@ -185,7 +186,9 @@ onload="this.media='all'">
 							type="image/webp"
 							width="375"
 							height="356"
+							fetchpriority="high"
 							>
+							
 					
 					<img src="./assets/images/optimized/carousel/desktop/jpg/Photo-homme-d-affaire.jpg"
 						 class="d-block w-100"
@@ -197,6 +200,9 @@ onload="this.media='all'">
 						 style="object-fit: cover;"
 						 >
 				</picture>
+				<div class="visually-hidden">
+					Description détaillée : Photographie en noir et blanc d'un homme d'affaire traversant une rue animée de la ville
+				</div>
 			</div>
 			<div class="carousel-item"
 				id="carousel-tem-2"
@@ -235,6 +241,9 @@ onload="this.media='all'">
 						 loading="eager"
 						 style="object-fit: cover;"> 
 				</picture>
+				<div class="visually-hidden">
+					Description détaillée : cliché jeunes gens en concert levant les bras
+				</div>
 			</div>
 			<div class="carousel-item"
 				id="carousel-tem-3"
@@ -273,6 +282,9 @@ onload="this.media='all'">
 						 loading="eager"
 						 style="object-fit: cover;">
 				</picture>
+				<div class="visually-hidden">
+					Description détaillée : cliché jeunes marié s'embrassant en dansant
+				</div>
 			</div>
 		</div>
 		<button 
@@ -538,7 +550,7 @@ onload="this.media='all'">
 	
 				<!-- Fallback -->
 				 <img src="./assets/images/optimized/contact-appareil-photo/desktop/contact-photographie-appareil-photo.jpg"
-				  alt="photo, portrait de la photographe professionnelle Nina Carducci"
+				  alt="photo, photo d'un appareil photo professionnel"
 				  width="560"
 				  height="558"
 				  loading="lazy"
@@ -587,7 +599,7 @@ onload="this.media='all'">
 	role="complementary"
 	aria-labelledby="horaires-title"
 	itemscope
-	itemtype="https://schema.org/OpeningHoursSpecification">
+	itemtype="https://schema.org/LocalBusiness">
 
 		<p id="horaires-title" class="horaires-title">Nina Carducci vous réponds au téléphone :</p>
         <p itemprop="openingHours"
@@ -618,7 +630,7 @@ onload="this.media='all'">
 			"latitude": 44.8465743,
 			"longitude": -0.6065366
 		},
-		"openingHoursSpecification":[] {
+		"openingHoursSpecification": {
 			"@type": "OpeningHoursSpecification",
 			"dayOfWeek": [
 				"Monday",
@@ -629,7 +641,7 @@ onload="this.media='all'">
 			],
 			"opens": "10:00",
 			"closes": "19:00"
-		}],
+		},
 		"priceRange": "€€",
 		"sameAs": [
 			"https://www.instagram.com/ninacarducci.photo/?hl=fr"

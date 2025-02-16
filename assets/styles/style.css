@@ -1,6 +1,7 @@
 
+/*spécifie la priorty font family, permet d'optimiser le chargement initial*/
 :root {
-	font-family: 'Inter', sans-serif; /*spécifie la priorty font family, permet d'optimiser le chargement initial*/
+	font-family: 'Inter', sans-serif; 
 }
 
 /* Styles de base pour éviter le FOUC */
@@ -16,7 +17,6 @@ html.loading {
 body {
 	max-width: 1920px;
 	margin: auto;
-	/* font-family: 'Inter', sans-serif; */
 	font-display: swap;
 }
 * {
